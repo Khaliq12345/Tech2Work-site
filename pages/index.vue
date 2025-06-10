@@ -2,9 +2,9 @@
   <NuxtLayout name="default">
     <HeroSection />
     <ServicesSection />
-    <!-- <AboutSection />
+    <AboutSection />
     <TestimonialsSection />
-    <ContactSection /> -->
+    <ContactSection />
     The rest of the page
   </NuxtLayout>
 

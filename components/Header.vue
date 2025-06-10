@@ -1,11 +1,12 @@
 <template>
   <header class="sticky top-0 z-50 bg-white shadow">
+    <!-- Top Line -->
     <div class="px-5 py-3 bg-black flex flex-wrap justify-center text-center text-white">
       <div class="pl-3">
         Start building your software today. Book a call
       </div>
-      <div class="flex">
-        <span class=" flex items-center gap-2 pl-6">
+      <div class="flex pt-2 md:pt-0">
+        <span class=" flex items-center gap-2 pl-10">
           <UIcon name="i-lucide-mail" class="size-4" /> tech2work@gmail.com
         </span>
         <span class=" flex items-center gap-2 px-5">
@@ -13,27 +14,36 @@
         </span>
       </div>
     </div>
+    <!-- Nav Bar -->
     <nav class="container mx-auto flex items-center justify-between py-4 px-3">
       <NuxtLink to="/" class="text-2xl font-bold text-black">
         Tech2Work<span class="text-gray-600">Agency</span>
       </NuxtLink>
+      <!-- Mobile Trigger -->
       <UButton @click="isMobileSidebarOpen = true" :disabled="isMobileSidebarOpen"
         class="bg-gray-100 hover:bg-gray-300 lg:hidden cursor-pointer">
         <UIcon name="i-heroicons-bars-3-bottom-left-20-solid" class="mr-3 text-2xl" />
-        <!-- <h3 class="ml-3 text-lg font-semibold text-center">Dashboard</h3> -->
       </UButton>
-      <!-- MD  -->
+      <!-- Desktop View -->
       <ul class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-700">
         <UNavigationMenu :items="items" class="w-full justify-center" />
       </ul>
-      <!-- Mobile Drawer Sidebar -->
-      <UDrawer direction="left" v-model:open="isMobileSidebarOpen" class="w-10/12 sm:w-6/12">
+      <!-- Mobile Drawer -->
+      <UDrawer direction="left" v-model:open="isMobileSidebarOpen" class="w-10/12 sm:w-6/12 bg-white">
         <template #title>
+          <p class="text-2xl font-bold text-black">
+            Tech2Work<span class="text-gray-600">Agency</span>
+          </p>
         </template>
         <template #description>
+          Welcome to our Agency
         </template>
         <template #body>
-          SideBar Content
+          <USeparator class="py-3 mb-3" />
+          <div class="text-black">
+            SideBar Content
+
+          </div>
         </template>
       </UDrawer>
     </nav>
@@ -53,30 +63,41 @@ const items = ref<NavigationMenuItem[]>([
     to: '/getting-started',
     children: [
       {
-        label: 'Introduction',
-        description: 'Fully styled and customizable components for Nuxt.',
-        icon: 'i-lucide-house'
+        label: 'About Us',
+        // icon: 'i-lucide-file-text',
+        description: 'In our company, we\'re not just IT professionals.',
+        to: '/components/link'
       },
       {
-        label: 'Installation',
-        description: 'Learn how to install and configure Nuxt UI in your application.',
-        icon: 'i-lucide-cloud-download'
+        label: 'Client Reviews',
+        // icon: 'i-lucide-file-text',
+        description: 'What is said about us',
+        to: '/components/link'
       },
       {
-        label: 'Icons',
-        icon: 'i-lucide-smile',
-        description: 'You have nothing to do, @nuxt/icon will handle it automatically.'
+        label: 'Benefits',
+        // icon: 'i-lucide-file-text',
+        description: 'Your Interest.',
+        to: '/components/link'
       },
       {
-        label: 'Colors',
-        icon: 'i-lucide-swatch-book',
-        description: 'Choose a primary and a neutral color from your Tailwind CSS theme.'
+        label: 'Blog',
+        // icon: 'i-lucide-file-text',
+        description: 'For further interactions.',
+        to: '/components/link'
       },
       {
-        label: 'Theme',
-        icon: 'i-lucide-cog',
-        description: 'You can customize components by using the `class` / `ui` props or in your app.config.ts.'
-      }
+        label: 'Vacancies',
+        // icon: 'i-lucide-file-text',
+        description: 'Find more about.',
+        to: '/components/link'
+      },
+      {
+        label: 'Contacts',
+        // icon: 'i-lucide-file-text',
+        description: 'Reach us today.',
+        to: '/components/link'
+      },
     ]
   },
   {
@@ -85,19 +106,25 @@ const items = ref<NavigationMenuItem[]>([
     to: '/composables',
     children: [
       {
-        label: 'defineShortcuts',
+        label: 'Web Development',
         icon: 'i-lucide-file-text',
         description: 'Define shortcuts for your application.',
         to: '/composables/define-shortcuts'
       },
       {
-        label: 'useOverlay',
+        label: 'MVP development',
         icon: 'i-lucide-file-text',
         description: 'Display a modal/slideover within your application.',
         to: '/composables/use-overlay'
       },
       {
-        label: 'useToast',
+        label: 'UI UX Design',
+        icon: 'i-lucide-file-text',
+        description: 'Display a toast within your application.',
+        to: '/composables/use-toast'
+      },
+      {
+        label: 'AI & ML Based WebApps',
         icon: 'i-lucide-file-text',
         description: 'Display a toast within your application.',
         to: '/composables/use-toast'
@@ -111,41 +138,26 @@ const items = ref<NavigationMenuItem[]>([
     active: false,
     children: [
       {
-        label: 'Link',
-        icon: 'i-lucide-file-text',
-        description: 'Use NuxtLink with superpowers.',
-        to: '/components/link'
+        label: 'Development',
+        to: '/components/link',
+        icon: 'i-lucide-code-xml',
       },
       {
-        label: 'Modal',
-        icon: 'i-lucide-file-text',
-        description: 'Display a modal within your application.',
-        to: '/components/modal'
+        label: 'Data Analysis',
+        to: '/components/modal',
+        icon: 'i-lucide-database-zap',
       },
       {
-        label: 'NavigationMenu',
-        icon: 'i-lucide-file-text',
-        description: 'Display a list of links.',
-        to: '/components/navigation-menu'
+        label: 'AI Automation',
+        to: '/components/navigation-menu',
+        icon: 'i-lucide-bot',
       },
       {
-        label: 'Pagination',
-        icon: 'i-lucide-file-text',
-        description: 'Display a list of pages.',
-        to: '/components/pagination'
+        label: 'Optimisation',
+        to: '/components/pagination',
+        icon: 'i-lucide-sun',
       },
-      {
-        label: 'Popover',
-        icon: 'i-lucide-file-text',
-        description: 'Display a non-modal dialog that floats around a trigger element.',
-        to: '/components/popover'
-      },
-      {
-        label: 'Progress',
-        icon: 'i-lucide-file-text',
-        description: 'Show a horizontal bar to indicate task progression.',
-        to: '/components/progress'
-      }
+     
     ]
   },
   {
@@ -155,41 +167,30 @@ const items = ref<NavigationMenuItem[]>([
     active: false,
     children: [
       {
-        label: 'Link',
-        icon: 'i-lucide-file-text',
+        label: 'Python',
+        icon: 'i-lucide-terminal',
         description: 'Use NuxtLink with superpowers.',
         to: '/components/link'
       },
       {
-        label: 'Modal',
-        icon: 'i-lucide-file-text',
+        label: 'Vue / Nuxt JS',
+        icon: 'i-lucide-squares-subtract',
         description: 'Display a modal within your application.',
         to: '/components/modal'
       },
       {
-        label: 'NavigationMenu',
-        icon: 'i-lucide-file-text',
+        label: 'Supabase & co',
+        icon: 'i-lucide-database',
         description: 'Display a list of links.',
         to: '/components/navigation-menu'
       },
       {
-        label: 'Pagination',
-        icon: 'i-lucide-file-text',
+        label: 'AI Techs',
+        icon: 'i-lucide-brain-circuit',
         description: 'Display a list of pages.',
         to: '/components/pagination'
       },
-      {
-        label: 'Popover',
-        icon: 'i-lucide-file-text',
-        description: 'Display a non-modal dialog that floats around a trigger element.',
-        to: '/components/popover'
-      },
-      {
-        label: 'Progress',
-        icon: 'i-lucide-file-text',
-        description: 'Show a horizontal bar to indicate task progression.',
-        to: '/components/progress'
-      }
+      
     ]
   },
   {

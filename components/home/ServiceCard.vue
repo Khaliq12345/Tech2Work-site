@@ -1,9 +1,14 @@
 <template>
-  <nuxtui-card outlined class="p-6 text-center">
-    <nuxtui-icon :name="icon" size="4xl" />
-    <h3 class="mt-4 font-semibold">{{ title }}</h3>
+  <UCard variant="subtle" class="p-6 text-center bg-gradient-to-br from-gray-50 to-gray-200">
+    <div class="flex items-center justify-center">
+    <UIcon :name="icon" size="50" class="mr-5" />
+<div class="text-left">
+  <h3 class="mt-4 font-semibold">{{ title }}</h3>
     <p class="mt-2 text-gray-600">Description concise.</p>
-  </nuxtui-card>
+</div>
+    </div>
+    
+  </UCard>
 </template>
 
 <script lang="ts" setup>
