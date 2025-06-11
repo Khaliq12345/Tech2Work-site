@@ -1,20 +1,45 @@
 <template>
-  <section class="py-16 bg-gray-100">
-    <h2 class="text-3xl text-center font-bold text-gray-800 mb-8">Ils nous font confiance</h2>
-    <nuxtui-carousel :items="testimonials">
-      <template #item="{item}">
-        <blockquote class="p-6 bg-white rounded-lg shadow">
-          "{{ item.quote }}"
-          <footer class="mt-4 text-sm text-gray-500">— {{ item.author }}</footer>
-        </blockquote>
-      </template>
-    </nuxtui-carousel>
+  <section id="services" class="py-20 bg-gradient-to-br from-gray-300 to-gray-50 text-center">
+    <p class="text-4xl mb-20 font-bold text-gray-900">Our clients and what they say</p>
+    <div class="container mx-auto flex flex-wrap lg:flex-nowrap gap-5">
+      <TestimonialCard
+  quote="They were able to handle everything we threw at them fairly easily."
+  name="Guy Jackson"
+  role="Lead Software Developer, D-BIT Systems Pty Ltd"
+  avatar=""
+  class="flex-2/5"
+/>
+
+<TestimonialCard
+  quote="They were able to handle everything we threw at them fairly easily."
+  name="Guy Jackson"
+  role="Lead Software Developer, D-BIT Systems Pty Ltd"
+  avatar=""
+  class="flex-3/5"
+/>
+      </div>
+      <!--  -->
+      <div class="mt-5 container mx-auto flex flex-wrap lg:flex-nowrap gap-5">
+     <TestimonialCard
+  quote="They were able to handle everything we threw at them fairly easily."
+  name="Guy Jackson"
+  role="Lead Software Developer, D-BIT Systems Pty Ltd"
+  avatar=""
+  class="flex-3/5"
+/>
+        <TestimonialCard
+  quote="They were able to handle everything we threw at them fairly easily."
+  name="Guy Jackson"
+  role="Lead Software Developer, D-BIT Systems Pty Ltd"
+  avatar=""
+  class="flex-2/5"
+/>
+
+
+      </div>
   </section>
 </template>
 
 <script lang="ts" setup>
-const testimonials = [
-  { quote: "Super réactif et professionnel !", author: "Client A" },
-  { quote: "Ils ont boosté notre projet digital.", author: "Client B" },
-]
+import TestimonialCard from '~/components/home/TestimonialCard.vue'
 </script>
