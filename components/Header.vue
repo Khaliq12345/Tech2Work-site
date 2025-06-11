@@ -42,7 +42,6 @@
           <USeparator class="py-3 mb-3" />
           <div class="text-black">
             SideBar Content
-
           </div>
         </template>
       </UDrawer>

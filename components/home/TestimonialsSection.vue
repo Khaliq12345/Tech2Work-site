@@ -1,6 +1,6 @@
 <template>
   <section id="services" class="py-20 bg-gradient-to-br from-gray-300 to-gray-50 text-center">
-    <p class="text-4xl mb-20 font-bold text-gray-900">Our clients and what they say</p>
+    <p class="text-4xl mb-20 font-bold text-gray-900 uppercase">Our clients and what they say</p>
     <div class="container mx-auto flex flex-wrap lg:flex-nowrap gap-5">
       <TestimonialCard
   quote="They were able to handle everything we threw at them fairly easily."
