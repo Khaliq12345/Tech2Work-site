@@ -1,7 +1,90 @@
-<script setup lang="ts">
-import { ref, computed, onMounted } from 'vue';
-import { UContainer, UCard, UButton } from '#components'; // Assurez-vous que UCard est auto-importé ou importez-le
+<template>
+    <UContainer class="py-12 md:py-20 lg:py-24 text-primary border-gray-400 w-full">
+        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-8 md:mb-12">
+            <h3 class="lg:flex-1/2 text-4xl font-bold mb-2 uppercase">OUTCOMES WE'VE ENGINEERED</h3>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <UButton icon="i-heroicons-arrow-right" trailing color="primary" class="text-white text-xl rounded-3xl py-3 px-6" variant="solid"
+                    label="ALL CASE STUDIES" to="#" />
+            </div>
+        </div>
+        <div class=" ">
+            <UCard v-if="activeCaseStudy" class="lg:col-span-10 bg-gradient-to-tr from-black to-gray-400 shadow-xl">
+                <div class="flex items-center flex-wrap lg:flex-nowrap">
+                    <div class="flex flex-row lg:flex-col items-start overflow-x-auto h-full flex-wrap lg:max-w-50 ">
+                        <div v-for="study in caseStudies" :key="study.id"
+                            class="p-2 lg:p-4 cursor-pointer transition-all duration-300 w-full" :class="{
+                                'bg-gray-800 shadow-lg ring-2 ring-primary-500': activeCaseStudyId === study.id,
+                                'bg-gray-700 hover:bg-gray-600': activeCaseStudyId !== study.id
+                            }" @click="activeCaseStudyId = study.id">
+                            <span class="text-white font-bold">
+                                {{ study.title }}
+                            </span>
+                        </div>
+                    </div>
+                    <!--  -->
+                    <div class="gap-8">
+                        <div class="lg:order-1 px-6 py-4 md:px-8 md:py-6 lg:px-10 lg:py-8">
+                            <div class="flex flex-wrap lg:flex-nowrap items-start gap-x-5">
+                                <div class="lg:flex-1/2">
+                                    <p class="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-2">Case studies
+                                    </p>
+                                    <h3 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                                        {{ activeCaseStudy.title }}
+                                    </h3>
+                                    <p class="text-base text-gray-700 dark:text-gray-300 mb-4">
+                                        {{ activeCaseStudy.description }}
+                                    </p>
+                                </div>
+                                <div
+                                    class="lg:flex-1/2 lg:order-2 w-full items-center justify-center place-items-center rounded-b-lg lg:rounded-l-none lg:rounded-r-lg overflow-hidden">
+                                    <img v-if="activeCaseStudy.mediaType === 'image'" :src="activeCaseStudy.mediaUrl"
+                                        class="max-w-full h-50 object-contain rounded-lg shadow-md" />
+                                    <div v-else-if="activeCaseStudy.mediaType === 'video'"
+                                        class="w-full h-50 aspect-video bg-gray-700 flex items-center justify-center text-white">
+                                        <p>Video Player Placeholder</p>
+                                    </div>
+                                    <div class="flex mt-4 items-center text-gray-600 dark:text-gray-400 text-sm mb-4">
+                                        <UIcon name="i-heroicons-map-pin" class="mr-1" />
+                                        <span>{{ activeCaseStudy.location }}</span>
+                                    </div>
 
+                                    <p class="text-sm font-semibold text-white mb-2">Technologies:</p>
+                                    <div class="flex flex-wrap gap-2 mb-8 text-white">
+                                        <UBadge v-for="tech in activeCaseStudy.technologies" :key="tech" :label="tech"
+                                            variant="subtle" size="sm" class="text-white border" />
+                                    </div>
+                                </div>
+                            </div>
+                            <!--  -->
+                            <div class="flex mt-5 flex-wrap lg:flex-nowrap items-start gap-x-5">
+                                <div class="lg:flex-1/2">
+                                    <h4 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">The Client</h4>
+                                    <p class="text-base text-gray-700 dark:text-gray-300 mb-6">
+                                        {{ activeCaseStudy.clientStory }}
+                                    </p>
+                                </div>
+                                <div class="lg:flex-1/2 ">
+                                    <h4 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Business Need
+                                    </h4>
+                                    <ul
+                                        class="list-disc list-inside text-base text-gray-700 dark:text-gray-300 space-y-2">
+                                        <li v-for="(need, index) in activeCaseStudy.businessNeed" :key="index">
+                                            {{ need }}
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </UCard>
+        </div>
+    </UContainer>
+</template>
+
+<script setup lang="ts">
 // --- Types pour les données des cas d'étude ---
 interface CaseStudy {
     id: string;
@@ -93,91 +176,6 @@ const activeCaseStudy = computed(() => {
 
 </script>
 
-<template>
-    <UContainer class="py-12 md:py-20 lg:py-24 text-primary border-gray-400 w-full">
-        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-8 md:mb-12">
-            <h3 class="lg:flex-1/2 text-4xl font-bold mb-2 uppercase">OUTCOMES WE'VE ENGINEERED</h3>
-            <div class="flex flex-col sm:flex-row gap-4">
-                <UButton icon="i-heroicons-arrow-right" trailing color="primary" class="text-white text-xl rounded-3xl py-3 px-6" variant="solid"
-                    label="ALL CASE STUDIES" to="#" />
-            </div>
-        </div>
-        <div class=" ">
-            <UCard v-if="activeCaseStudy" class="lg:col-span-10 bg-gradient-to-tr from-black to-gray-400 shadow-xl">
-                <div class="flex items-center flex-wrap lg:flex-nowrap">
-                    <div class="flex flex-row lg:flex-col items-start overflow-x-auto h-full flex-wrap lg:max-w-50 ">
-                        <div v-for="study in caseStudies" :key="study.id"
-                            class="p-2 lg:p-4 cursor-pointer transition-all duration-300 w-full" :class="{
-                                'bg-gray-800 shadow-lg ring-2 ring-primary-500': activeCaseStudyId === study.id,
-                                'bg-gray-700 hover:bg-gray-600': activeCaseStudyId !== study.id
-                            }" @click="activeCaseStudyId = study.id">
-                            <span class="text-white font-bold">
-                                {{ study.title }}
-                            </span>
-                        </div>
-                    </div>
-                    <!--  -->
-                    <div class="gap-8">
-                        <div class="lg:order-1 px-6 py-4 md:px-8 md:py-6 lg:px-10 lg:py-8">
-                            <div class="flex flex-wrap lg:flex-nowrap items-start gap-x-5">
-                                <div class="lg:flex-1/2">
-                                    <p class="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-2">Case studies
-                                    </p>
-                                    <h3 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
-                                        {{ activeCaseStudy.title }}
-                                    </h3>
-                                    <p class="text-base text-gray-700 dark:text-gray-300 mb-4">
-                                        {{ activeCaseStudy.description }}
-                                    </p>
-                                </div>
-                                <div
-                                    class="lg:flex-1/2 lg:order-2 w-full items-center justify-center place-items-center rounded-b-lg lg:rounded-l-none lg:rounded-r-lg overflow-hidden">
-                                    <img v-if="activeCaseStudy.mediaType === 'image'" :src="activeCaseStudy.mediaUrl"
-                                        class="max-w-full h-50 object-contain rounded-lg shadow-md" />
-                                    <div v-else-if="activeCaseStudy.mediaType === 'video'"
-                                        class="w-full h-50 aspect-video bg-gray-700 flex items-center justify-center text-white">
-                                        <p>Video Player Placeholder</p>
-                                    </div>
-                                    <div class="flex mt-4 items-center text-gray-600 dark:text-gray-400 text-sm mb-4">
-                                        <UIcon name="i-heroicons-map-pin" class="mr-1" />
-                                        <span>{{ activeCaseStudy.location }}</span>
-                                    </div>
-
-                                    <p class="text-sm font-semibold text-white mb-2">Technologies:</p>
-                                    <div class="flex flex-wrap gap-2 mb-8 text-white">
-                                        <UBadge v-for="tech in activeCaseStudy.technologies" :key="tech" :label="tech"
-                                            variant="subtle" size="sm" class="text-white border" />
-                                    </div>
-                                </div>
-                            </div>
-                            <!--  -->
-                            <div class="flex mt-5 flex-wrap lg:flex-nowrap items-start gap-x-5">
-                                <div class="lg:flex-1/2">
-                                    <h4 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">The Client</h4>
-                                    <p class="text-base text-gray-700 dark:text-gray-300 mb-6">
-                                        {{ activeCaseStudy.clientStory }}
-                                    </p>
-                                </div>
-                                <div class="lg:flex-1/2 ">
-                                    <h4 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Business Need
-                                    </h4>
-                                    <ul
-                                        class="list-disc list-inside text-base text-gray-700 dark:text-gray-300 space-y-2">
-                                        <li v-for="(need, index) in activeCaseStudy.businessNeed" :key="index">
-                                            {{ need }}
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-            </UCard>
-        </div>
-    </UContainer>
-</template>
 
 <style scoped>
 /* Pas de styles spécifiques ici si tout est géré par Tailwind CSS via NuxtUI */
