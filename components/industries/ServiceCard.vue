@@ -1,5 +1,6 @@
 <template>
   <UCard variant="soft" class="p-y text-center shadow-2xl">
+    <UIcon :name="icon" size="55" class="py-2" />
     <div class="flex items-center justify-start">
       <div class="text-left">
         <h3 class="text-3xl font-bold mb-2">{{ title }}</h3>

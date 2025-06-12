@@ -14,20 +14,18 @@
         :role="item.role"
         :avatar="item.avatar"
         :class="item.class"
-      >
-      </HomeTestimonialCard>
+      />
     </div>
     <!--  -->
     <div class="mt-5 container mx-auto flex flex-wrap lg:flex-nowrap gap-5">
       <HomeTestimonialCard
-        v-for="item in items.slice(2, -1)"
+        v-for="item in items.slice(2)"
         :quote="item.quote"
         :name="item.name"
         :role="item.role"
         :avatar="item.avatar"
         :class="item.class"
-      >
-      </HomeTestimonialCard>
+      />
     </div>
   </section>
 </template>
@@ -37,46 +35,36 @@ import type { TestimonialType } from "~/interface/testimonialType";
 
 const items: TestimonialType[] = [
   {
-    quote: "Test Quote",
-    name: "Test name",
-    role: "Test role",
-    avatar: "Test avatar",
-    class: "Text class",
+    quote:
+      "They were able to handle everything we threw at them fairly easily.",
+    name: "Guy Jackson",
+    role: "Lead Software Developer, D-BIT Systems Pty Ltd",
+    avatar: "",
+    class: "flex-3/5",
   },
   {
-    quote: "Test Quote",
-    name: "Test name",
-    role: "Test role",
-    avatar: "Test avatar",
-    class: "Text class",
+    quote:
+      "They were able to handle everything we threw at them fairly easily.",
+    name: "Guy Jackson",
+    role: "Lead Software Developer, D-BIT Systems Pty Ltd",
+    avatar: "",
+    class: "flex-2/5",
   },
   {
-    quote: "Test Quote",
-    name: "Test name",
-    role: "Test role",
-    avatar: "Test avatar",
-    class: "Text class",
+    quote:
+      "They were able to handle everything we threw at them fairly easily.",
+    name: "Guy Jackson",
+    role: "Lead Software Developer, D-BIT Systems Pty Ltd",
+    avatar: "",
+    class: "flex-2/5",
   },
   {
-    quote: "Test Quote",
-    name: "Test name",
-    role: "Test role",
-    avatar: "Test avatar",
-    class: "Text class",
-  },
-  {
-    quote: "Test Quote",
-    name: "Test name",
-    role: "Test role",
-    avatar: "Test avatar",
-    class: "Text class",
-  },
-  {
-    quote: "Test Quote",
-    name: "Test name",
-    role: "Test role",
-    avatar: "Test avatar",
-    class: "Text class",
+    quote:
+      "They were able to handle everything we threw at them fairly easily.",
+    name: "Guy Jackson",
+    role: "Lead Software Developer, D-BIT Systems Pty Ltd",
+    avatar: "",
+    class: "flex-3/5",
   },
 ];
 </script>

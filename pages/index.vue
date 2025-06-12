@@ -7,7 +7,7 @@
     <HomeIndustries />
     <!-- <HomeOutcomes /> -->
     <HomeTrustedSection />
-    <HomeContact />
+    <Contact />
     <HomeProcess />
   </NuxtLayout>
 </template>

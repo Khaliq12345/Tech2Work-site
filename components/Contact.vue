@@ -48,7 +48,6 @@
             </div>
           </div>
         </div>
-
         <!--  -->
         <div
           class="bg-white shadow-md rounded-xl p-8 w-full space-y-6 lg:flex-1/2"
@@ -59,7 +58,6 @@
             START BUILDING YOUR <br />
             SOFTWARE. CONTACT US NOW
           </h2>
-
           <form @submit.prevent="sendEmail" class="space-y-5">
             <div>
               <input
@@ -140,7 +138,3 @@ function sendEmail() {
   window.location.href = mailto;
 }
 </script>
-
-<style scoped>
-/* Aucun style personnalisé nécessaire grâce à Tailwind/Nuxt UI */
-</style>

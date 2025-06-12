@@ -23,4 +23,3 @@
 </template>
 
 <style scoped></style>
-

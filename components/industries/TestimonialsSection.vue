@@ -13,7 +13,7 @@
       :items="items"
       :ui="{ item: 'basis-1/2' }"
     >
-      <TestimonialCard
+      <HomeTestimonialCard
         :quote="item.quote"
         :name="item.name"
         :role="item.role"
@@ -25,6 +25,5 @@
 </template>
 
 <script lang="ts" setup>
-import TestimonialCard from "~/components/home/TestimonialCard.vue";
 defineProps<{ items: any[] }>();
 </script>

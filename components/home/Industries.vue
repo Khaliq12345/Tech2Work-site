@@ -32,7 +32,6 @@
           @click="selectService(service)"
         />
       </div>
-
       <!-- Right content card -->
       <UCard
         class="w-full lg:w-2/3 lg:mt-0 mt-4 bg-gradient-to-bl from-black to-gray-400 text-white rounded-xl"
@@ -101,18 +100,8 @@ const services: Service[] = [
     links: [],
   },
 ];
-
-const selected = ref<Service>(services[2]); // Default to "Education"
-
+const selected = ref<Service>(services[0]); // Default to "Education"
 function selectService(service: Service) {
   selected.value = service;
 }
 </script>
-
-<style scoped>
-/* Optionnel : améliore le style du focus clavier */
-button:focus-visible {
-  outline: 2px solid #2563eb;
-  outline-offset: 2px;
-}
-</style>

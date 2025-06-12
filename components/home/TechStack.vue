@@ -27,32 +27,24 @@
             </p>
           </div>
           <!--  -->
-          <ServiceCard
-            class="text-white bg-gradient-to-br from-black to-gray-400"
-            title="Product Development"
-            desc="Have a product idea but no technical team? We help you define the need, shape the vision, and deliver a complete software solution."
-            icon="i-lucide-mail"
+          <HomeServiceCard
+            v-for="item in servicesItems.slice(0, 1)"
+            :class="item.class"
+            :title="item.title"
+            :desc="item.desc"
+            :icon="item.icon"
+            :features="[]"
           />
         </div>
         <!--  -->
         <div class="mt-8 flex flex-wrap lg:flex-nowrap gap-5 justify-center">
-          <ServiceCard
-            class="flex-2/4 text-white bg-gradient-to-br from-black to-gray-400"
-            title="Product Development"
-            desc="Have a product idea but no technical team? We help you define the need, shape the vision, and deliver a complete software solution."
-            icon="i-lucide-mail"
-          />
-          <ServiceCard
-            class="flex-1/4 text-white bg-gradient-to-br from-black to-gray-400"
-            title="Product Development"
-            desc="Have a product idea but no technical team? We help you define the need, shape the vision, and deliver a complete software solution."
-            icon="i-lucide-mail"
-          />
-          <ServiceCard
-            class="flex-1/4 text-white bg-gradient-to-br from-black to-gray-400"
-            title="Product Development"
-            desc="Have a product idea but no technical team? We help you define the need, shape the vision, and deliver a complete software solution."
-            icon="i-lucide-mail"
+          <HomeServiceCard
+            v-for="item in servicesItems.slice(1)"
+            :class="item.class"
+            :title="item.title"
+            :desc="item.desc"
+            :icon="item.icon"
+            :features="[]"
           />
         </div>
       </template>
@@ -71,38 +63,24 @@
             </p>
           </div>
           <!--  -->
-          <ServiceCard
-            class="flex-1/4 text-white bg-gradient-to-br from-black to-gray-400"
-            title="Product Development"
-            desc="Have a product idea but no technical team? We help you define the need, shape the vision, and deliver a complete software solution."
-            icon="i-lucide-mail"
-          />
-          <ServiceCard
-            class="flex-1/4 text-white bg-gradient-to-br from-black to-gray-400"
-            title="Product Development"
-            desc="Have a product idea but no technical team? We help you define the need, shape the vision, and deliver a complete software solution."
-            icon="i-lucide-mail"
+          <HomeServiceCard
+            v-for="item in techItems.slice(0, 2)"
+            :class="item.class"
+            :title="item.title"
+            :desc="item.desc"
+            :icon="item.icon"
+            :features="[]"
           />
         </div>
         <!--  -->
         <div class="mt-8 flex flex-wrap lg:flex-nowrap gap-5 justify-center">
-          <ServiceCard
-            class="flex-1/4 text-white bg-gradient-to-br from-black to-gray-400"
-            title="Product Development"
-            desc="Have a product idea but no technical team? We help you define the need, shape the vision, and deliver a complete software solution."
-            icon="i-lucide-mail"
-          />
-          <ServiceCard
-            class="flex-1/4 text-white bg-gradient-to-br from-black to-gray-400"
-            title="Product Development"
-            desc="Have a product idea but no technical team? We help you define the need, shape the vision, and deliver a complete software solution."
-            icon="i-lucide-mail"
-          />
-          <ServiceCard
-            class="flex-2/4 text-white bg-gradient-to-br from-black to-gray-400"
-            title="Product Development"
-            desc="Have a product idea but no technical team? We help you define the need, shape the vision, and deliver a complete software solution."
-            icon="i-lucide-mail"
+          <HomeServiceCard
+            v-for="item in techItems.slice(2)"
+            :class="item.class"
+            :title="item.title"
+            :desc="item.desc"
+            :icon="item.icon"
+            :features="[]"
           />
         </div>
       </template>
@@ -123,4 +101,63 @@ const items = [
     slot: "tech-stack" as const,
   },
 ] satisfies TabsItem[];
+
+const servicesItems = [
+  {
+    class: "text-white bg-gradient-to-br from-black to-gray-400",
+    title: "Product Development",
+    desc: "Have a product idea but no technical team? We help you define the need, shape the vision, and deliver a complete software solution.",
+    icon: "i-lucide-mail",
+  },
+  {
+    class: "flex-2/4 text-white bg-gradient-to-br from-black to-gray-400",
+    title: "Product Development",
+    desc: "Have a product idea but no technical team? We help you define the need, shape the vision, and deliver a complete software solution.",
+    icon: "i-lucide-mail",
+  },
+  {
+    class: "flex-1/4 text-white bg-gradient-to-br from-black to-gray-400",
+    title: "Product Development",
+    desc: "Have a product idea but no technical team? We help you define the need, shape the vision, and deliver a complete software solution.",
+    icon: "i-lucide-mail",
+  },
+  {
+    class: "flex-1/4 text-white bg-gradient-to-br from-black to-gray-400",
+    title: "Product Development",
+    desc: "Have a product idea but no technical team? We help you define the need, shape the vision, and deliver a complete software solution.",
+    icon: "i-lucide-mail",
+  },
+];
+const techItems = [
+  {
+    class: "flex-1/4 text-white bg-gradient-to-br from-black to-gray-400",
+    title: "Product Development",
+    desc: "Have a product idea but no technical team? We help you define the need, shape the vision, and deliver a complete software solution.",
+    icon: "i-lucide-mail",
+  },
+  {
+    class: "flex-1/4 text-white bg-gradient-to-br from-black to-gray-400",
+    title: "Product Development",
+    desc: "Have a product idea but no technical team? We help you define the need, shape the vision, and deliver a complete software solution.",
+    icon: "i-lucide-mail",
+  },
+  {
+    class: "flex-1/4 text-white bg-gradient-to-br from-black to-gray-400",
+    title: "Product Development",
+    desc: "Have a product idea but no technical team? We help you define the need, shape the vision, and deliver a complete software solution.",
+    icon: "i-lucide-mail",
+  },
+  {
+    class: "flex-1/4 text-white bg-gradient-to-br from-black to-gray-400",
+    title: "Product Development",
+    desc: "Have a product idea but no technical team? We help you define the need, shape the vision, and deliver a complete software solution.",
+    icon: "i-lucide-mail",
+  },
+  {
+    class: "flex-2/4 text-white bg-gradient-to-br from-black to-gray-400",
+    title: "Product Development",
+    desc: "Have a product idea but no technical team? We help you define the need, shape the vision, and deliver a complete software solution.",
+    icon: "i-lucide-mail",
+  },
+];
 </script>

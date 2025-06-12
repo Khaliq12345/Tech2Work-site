@@ -35,4 +35,3 @@
 </template>
 
 <style scoped></style>
-
