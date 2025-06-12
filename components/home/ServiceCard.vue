@@ -1,5 +1,5 @@
 <template>
-  <UCard variant="" class="p-y text-center shadow-2xl ">
+  <UCard variant="soft" class="p-y text-center shadow-2xl ">
     <div class="flex items-center justify-start">
       <!-- <UIcon :name="icon" size="100" class="mr-5" /> -->
       <div class="text-left">
