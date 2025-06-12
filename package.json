@@ -18,5 +18,11 @@
     "typescript": "^5.8.3",
     "vue": "^3.5.16",
     "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.1",
+    "prettier": "^3.5.3",
+    "prettier-eslint": "^16.4.2",
+    "vue-eslint-parser": "^8.3.0"
   }
 }

@@ -7,6 +7,7 @@ interface Service {
   description: string
   links: { text: string; url: string }[]
 }
+
 const services: Service[] = [
   {
     name: 'Development',
@@ -75,7 +76,7 @@ function selectService(service: Service) {
         <h2 class="text-2xl font-bold underline underline-offset-4">
           {{ selected.name }}
         </h2>
-        <USeparator class="p-8 border-white " color="" />
+        <USeparator class="p-8 border-white " color="neutral" />
         <div class="grid grid-cols-1 gap-6" :class="{'md:grid-cols-2':selected.links.length != 0}">
           <p class="text-md leading-relaxed">
             {{ selected.description }}
