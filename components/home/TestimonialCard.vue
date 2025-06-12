@@ -1,5 +1,5 @@
 <template>
-  <UCard variant="" class="rounded-2xl border-none bg-white text-gray-800 shadow-2xl">
+  <UCard variant="soft" class="rounded-2xl border-none bg-white text-gray-800 shadow-2xl">
     <div class="space-y-3">
       <!-- Citation -->
       <div class="text-lg flex ">

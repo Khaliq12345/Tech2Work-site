@@ -12,7 +12,7 @@ interface CaseStudy {
     technologies: string[];
     clientStory: string;
     businessNeed: string[]; // List of bullet points for business need
-    mediaUrl: 'https://www.searchenginejournal.com/wp-content/uploads/2019/07/the-essential-guide-to-using-images-legally-online.png',
+    mediaUrl: string,
     mediaType: 'image' | 'video'; // To distinguish if it's a video player or image
 }
 
