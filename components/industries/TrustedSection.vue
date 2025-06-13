@@ -15,24 +15,11 @@
           to="#"
         />
       </div>
-      <!--  -->
-      <!--  -->
-
-      <!--  -->
+      
     </div>
   </section>
 </template>
 
 <script lang="ts" setup>
-const showModal = ref(false);
-
-function openModal() {
-  showModal.value = true;
-}
-
-function closeModal() {
-  showModal.value = false;
-}
-
 defineProps<{ text: string }>();
 </script>

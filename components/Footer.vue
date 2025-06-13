@@ -3,9 +3,9 @@
   <!-- <footer class="bg-gray-100 py-10 mt-8">
     <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-sm text-gray-600 px-6">
       <div>
-        <h3 class="text-lg font-semibold text-black mb-3">Tech2Work Agency</h3>
+        <h3 class="text-2xl font-bold text-black mb-3">Tech2Work Agency</h3>
         <p>
-          Nous construisons des solutions web et mobiles performantes pour faire grandir votre entreprise.
+          We are an award-winning software development company with a proven track record of 200+ projects. We create cutting-edge digital solutions that empower startups and small to medium-sized companies to achieve their business goals.
         </p>
       </div>
       <div>
@@ -26,8 +26,7 @@
       </div>
     </div>
   </footer> -->
-  <!-- 
-    -->
+  <!-- -->
   <footer
     class="bg-black text-white font-bold text-sm pt-4 border-t border-white/10"
   >

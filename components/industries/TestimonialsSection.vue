@@ -7,7 +7,6 @@
       class="px-10 bg-white"
       v-slot="{ item }"
       loop
-      arrows
       dots
       :autoplay="{ delay: 2000 }"
       :items="items"
