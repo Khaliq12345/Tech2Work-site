@@ -3,7 +3,7 @@
     <div class="flex flex-wrap md:flex-nowrap justify-center items-center">
       <div class="text-center">
         <p class="text-2xl font-bold">
-        {{ text }}
+          {{ text }}
         </p>
         <UButton
           icon="i-heroicons-arrow-right"
@@ -18,23 +18,21 @@
       <!--  -->
       <!--  -->
 
-
       <!--  -->
-     
     </div>
   </section>
 </template>
 
 <script lang="ts" setup>
-const showModal = ref(false)
+const showModal = ref(false);
 
 function openModal() {
-  showModal.value = true
+  showModal.value = true;
 }
 
 function closeModal() {
-  showModal.value = false
+  showModal.value = false;
 }
 
-defineProps<{ text: string; }>();
+defineProps<{ text: string }>();
 </script>

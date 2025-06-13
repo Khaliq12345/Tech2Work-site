@@ -4,11 +4,12 @@
       WHY TECH2WORK FOR THIS DEVELOPMENT ?
     </p>
     <div class="mt-10 gap-5 justify-center place-items-center">
-      <IndustriesReasonCard 
-      v-for="item in items"
-      class="w-full mb-8"
+      <IndustriesReasonCard
+        v-for="item in items"
+        class="w-full mb-8"
         :title="item.title"
-        :content="item.content"/>
+        :content="item.content"
+      />
     </div>
   </div>
 </template>

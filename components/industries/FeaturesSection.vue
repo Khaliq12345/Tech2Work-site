@@ -3,9 +3,11 @@
     <p class="text-4xl mb-8 font-bold text-gray-900 uppercase">
       SOFTWARE FEATURES WE BUILD
     </p>
-    <div class="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 justify-center place-items-center">
+    <div
+      class="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 justify-center place-items-center"
+    >
       <UCard
-      v-for="item in items"
+        v-for="item in items"
         variant="soft"
         class="text-white bg-gradient-to-br from-black to-gray-300 text-left shadow-2xl"
         :class="item.class"

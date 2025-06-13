@@ -50,7 +50,11 @@
         <template #description> Welcome Here</template>
         <template #body>
           <USeparator class="py-3 mb-3" />
-          <UNavigationMenu orientation="vertical" :items="items" class="w-full justify-center" />
+          <UNavigationMenu
+            orientation="vertical"
+            :items="items"
+            class="w-full justify-center"
+          />
         </template>
       </UDrawer>
     </nav>

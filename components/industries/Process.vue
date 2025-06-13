@@ -1,11 +1,12 @@
 <template>
   <section id="industries" class="pt-20 px-10 md:px-15 text-center">
     <div class="text-left gap-y-4 mb-10">
-      <h3 class=" text-3xl font-bold mb-4 uppercase">
+      <h3 class="text-3xl font-bold mb-4 uppercase">
         OUR CUSTOM HEALTHCARE SOFTWARE DEVELOPMENT PROCESS
       </h3>
-      <p class="text-xl font-semibold ">
-        Here’s what the software development lifecycle will look like for your tailored healthcare software development solutions.
+      <p class="text-xl font-semibold">
+        Here’s what the software development lifecycle will look like for your
+        tailored healthcare software development solutions.
       </p>
     </div>
     <!--  -->
@@ -35,9 +36,7 @@
           {{ selected.name }}
         </h2>
         <USeparator class="p-8 border-white" color="neutral" />
-        <div
-          class="grid grid-cols-1 gap-6"
-        >
+        <div class="grid grid-cols-1 gap-6">
           <p class="text-md leading-relaxed">
             {{ selected.description }}
           </p>
