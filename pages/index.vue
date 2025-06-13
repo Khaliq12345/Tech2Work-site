@@ -3,7 +3,7 @@
     <HomeHeroSection />
     <HomeServicesSection />
     <HomeTestimonialsSection />
-    <HomeTechStack />
+    <TechStack />
     <HomeIndustries />
     <!-- <HomeOutcomes /> -->
     <HomeTrustedSection />

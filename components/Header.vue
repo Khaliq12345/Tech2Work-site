@@ -47,10 +47,10 @@
             Tech2Work<span class="text-gray-600">Agency</span>
           </p>
         </template>
-        <template #description> Welcome to our Agency </template>
+        <template #description> Welcome Here</template>
         <template #body>
           <USeparator class="py-3 mb-3" />
-          <div class="text-black">SideBar Content</div>
+          <UNavigationMenu orientation="vertical" :items="items" class="w-full justify-center" />
         </template>
       </UDrawer>
     </nav>

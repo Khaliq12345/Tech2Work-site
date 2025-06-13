@@ -11,7 +11,7 @@
       dots
       :autoplay="{ delay: 2000 }"
       :items="items"
-      :ui="{ item: 'basis-1/2' }"
+      :ui="{ item: 'lg:basis-1/2' }"
     >
       <HomeTestimonialCard
         :quote="item.quote"

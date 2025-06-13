@@ -1,12 +1,9 @@
-<script setup lang="ts"></script>
-
 <template>
   <section id="industries" class="py-20 px-10 md:px-15 bg-gray-200 text-center">
     <div class="flex flex-wrap md:flex-nowrap justify-center items-center">
       <div class="text-center">
         <p class="text-2xl font-bold">
-          Request a free one-hour consultation from our healthcare experts and
-          get a detailed estimate
+        {{ text }}
         </p>
         <UButton
           icon="i-heroicons-arrow-right"
@@ -18,8 +15,26 @@
           to="#"
         />
       </div>
+      <!--  -->
+      <!--  -->
+
+
+      <!--  -->
+     
     </div>
   </section>
 </template>
 
-<style scoped></style>
+<script lang="ts" setup>
+const showModal = ref(false)
+
+function openModal() {
+  showModal.value = true
+}
+
+function closeModal() {
+  showModal.value = false
+}
+
+defineProps<{ text: string; }>();
+</script>
