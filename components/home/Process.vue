@@ -1,48 +1,29 @@
 <template>
-  <div class="flex justify-center w-full">
-    <div class="w-full max-w-5xl mx-5">
-      <div class="bg-white shadow-lg rounded-xl overflow-hidden">
-        <button
-          @click="isOpen = !isOpen"
-          class="w-full flex justify-between items-center p-6 text-left text-xl font-semibold text-gray-800 bg-gray-100 hover:bg-gray-200 transition"
-        >
-          <span class="text-3xl font-bold"
+  
+        
+  <div class="place-items-center w-full">
+    <div class="w-full max-w-5xl px-5 ">
+      <UAccordion :items="acItems" class="" >
+          <template #default>
+            <span class="text-3xl font-bold"
             >Our Software Development Process</span
           >
-          <svg
-            :class="{ 'rotate-180': isOpen }"
-            class="w-5 h-5 transition-transform"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M19 9l-7 7-7-7"
-            />
-          </svg>
-        </button>
-
-        <div
-          v-if="isOpen"
-          class="p-6 space-y-6 text-gray-700 text-[15px] leading-relaxed"
-        >
-          <div v-for="item in items">
+          </template>
+          <template #content>
+           <div v-for="item in items">
             <h3 class="font-bold text-xl mb-1">{{ item.title }}</h3>
             <p class="">
               {{ item.content }}
             </p>
           </div>
-        </div>
-      </div>
+          </template>
+        </UAccordion>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-const isOpen = ref(false);
+const acItems = [{}]
 const items = [
   {
     title: "Overview",
@@ -121,8 +102,3 @@ const items = [
 ];
 </script>
 
-<style scoped>
-.rotate-180 {
-  transform: rotate(0deg);
-}
-</style>

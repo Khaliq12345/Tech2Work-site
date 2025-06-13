@@ -86,7 +86,7 @@
             Reach out to our sales managers for tailored software development
             solutions and professional guidance.
           </p>
-          <div v-for="f in features" :key="f" class="flex items-center my-4">
+          <div v-for="f in features" :key="f" class="flex text-left items-center my-4">
             <UIcon name="i-lucide-circle-check-big" size="20" class="mr-5" />
             {{ f }}
           </div>

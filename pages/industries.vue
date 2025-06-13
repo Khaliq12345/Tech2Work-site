@@ -1,7 +1,7 @@
 <template>
   <NuxtLayout name="default">
     <IndustriesHeroSection
-      bgimg="'/imgs/industries/bg2.jpg'"
+      bgimg="'/imgs/industries/bg1.jpg'"
       title="Product Development Industry"
       desc="Have a product idea but no technical team? We help you define the need, shape the vision, and deliver a complete software solution."
       :features="[

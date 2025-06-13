@@ -4,12 +4,16 @@
       WHY TECH2WORK FOR THIS DEVELOPMENT ?
     </p>
     <div class="mt-10 gap-5 justify-center place-items-center">
-      <IndustriesReasonCard
-        v-for="item in items"
-        class="w-full mb-8"
-        :title="item.title"
-        :content="item.content"
-      />
+      <UAccordion :items="items">
+          <template #default="{ item }">
+            <span class="text-2xl font-bold">{{ item.title }}</span>
+          </template>
+          <template #content="{ item }">
+            <p class="text-left">
+              {{ item.content }}
+            </p>
+          </template>
+        </UAccordion>
     </div>
   </div>
 </template>

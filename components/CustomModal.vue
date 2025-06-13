@@ -1,9 +1,8 @@
 <template>
   <!-- TRIGGER BUTTON -->
-  <div @click="openModal">
+  <span @click="openModal" class="inline-block">
     <slot name="trigger" />
-  </div>
-
+  </span>
   <!-- BACKDROP (Teleport to body) -->
   <teleport to="body">
     <Transition name="fade">
@@ -49,8 +48,6 @@ function backdropClick(event: MouseEvent) {
 .fade-enter-from, .fade-leave-to {
   opacity: 0;
 }
-
-/* SLIGHT POP-IN ANIMATION FOR CARD (OPTIONAL) */
 @keyframes modalFadeIn {
   0% {
     transform: scale(0.95);

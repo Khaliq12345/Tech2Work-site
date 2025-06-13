@@ -22,7 +22,6 @@
             />
           </svg>
         </button>
-
         <div
           v-if="isOpen"
           class="p-6 space-y-6 text-gray-700 text-[15px] leading-relaxed"
