@@ -1,29 +1,29 @@
 <template>
-  
-        
-  <div class="place-items-center w-full">
-    <div class="w-full max-w-5xl px-5 ">
-      <UAccordion :items="acItems" class="" >
-          <template #default>
-            <span class="text-3xl font-bold"
-            >Our Software Development Process</span
-          >
-          </template>
-          <template #content>
-           <div v-for="item in items">
-            <h3 class="font-bold text-xl mb-1">{{ item.title }}</h3>
-            <p class="">
+  <div class="container mx-auto w-full shadow-xl">
+    <UCollapsible>
+      <UButton
+        color="neutral"
+        class="p-10 font-bold text-2xl md:text-4xl uppercase"
+      >
+        Software Development Process
+      </UButton>
+      <template #content>
+        <div class="p-10 gap-5 flex flex-col">
+          <div v-for="item in items">
+            <h3 class="font-bold text-base md:text-xl mb-1">
+              {{ item.title }}
+            </h3>
+            <p class="text-sm md:text-lg">
               {{ item.content }}
             </p>
           </div>
-          </template>
-        </UAccordion>
-    </div>
+        </div>
+      </template>
+    </UCollapsible>
   </div>
 </template>
 
 <script setup lang="ts">
-const acItems = [{}]
 const items = [
   {
     title: "Overview",
@@ -101,4 +101,3 @@ const items = [
   },
 ];
 </script>
-
