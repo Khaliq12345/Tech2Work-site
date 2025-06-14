@@ -3,7 +3,7 @@
     <UCollapsible>
       <UButton
         color="neutral"
-        class="p-10 font-bold text-2xl md:text-4xl uppercase"
+        class="p-10 font-bold text-xl md:text-4xl uppercase"
       >
         Software Development Process
       </UButton>

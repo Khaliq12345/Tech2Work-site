@@ -50,7 +50,7 @@
               <span class="font-semibold">Phone</span> : +229 0198988765
             </a>
           </li>
-          <li class="flex items-center gap-2 transition-colors">
+          <li class="flex font-semibold items-center gap-2 transition-colors">
             <UIcon name="i-lucide-locate" class="size-4" /> Cotonou, Bénin
           </li>
         </ul>

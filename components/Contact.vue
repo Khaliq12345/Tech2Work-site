@@ -2,11 +2,11 @@
   <div class="flex flex-wrap gap-8 py-12 md:py-20 container mx-auto px-4">
     <!-- Bloc principal de contact -->
     <UCard
-      class="col-span-1 lg:col-span-2 shadow-xl p-6 flex flex-col justify-center w-full bg-gradient-to-br from-black to-gray-400"
+      class="col-span-1 lg:col-span-2 shadow-xl p-2 md:p-6 flex flex-col justify-center w-full bg-gradient-to-br from-black to-gray-400"
     >
       <div class="flex flex-wrap lg:flex-nowrap justify-center gap-5">
         <div class="space-y-6 lg:flex-1/2 text-center lg:text-left">
-          <h2 class="text-3xl font-bold text-gray-900 dark:text-white">
+          <h2 class="text-xl md:text-3xl font-bold text-gray-900 dark:text-white">
             Let’s Build Together
           </h2>
           <p class="text-gray-600 dark:text-gray-300 text-base">
@@ -16,7 +16,7 @@
           <UButton
             icon="i-heroicons-phone"
             color="primary"
-            class="text-white text-xl rounded-3xl py-3 px-6 mt-3"
+            class="text-white text-md md:text-xl rounded-3xl py-3 px-6 mt-3"
             variant="solid"
             label="Contact Us"
             to="#"
@@ -53,7 +53,7 @@
           class="bg-white shadow-md rounded-xl p-8 w-full space-y-6 lg:flex-1/2"
         >
           <h2
-            class="text-2xl md:text-3xl font-bold text-gray-900 leading-tight"
+            class="text-xl md:text-3xl font-bold text-gray-900 leading-tight"
           >
             START BUILDING YOUR <br />
             SOFTWARE. CONTACT US NOW
@@ -87,7 +87,7 @@
               ></textarea>
             </div>
             <!-- Submit Button -->
-            <div class="flex items-center justify-between pt-2">
+            <div class="flex text-sm md:text-md items-center flex-wrap justify-center md:justify-between pt-2 gap-5">
               <button
                 type="submit"
                 class="bg-white border border-gray-800 text-gray-800 px-6 py-2 rounded-full font-semibold hover:bg-gray-100 transition"

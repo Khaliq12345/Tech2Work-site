@@ -11,10 +11,10 @@
         variant="soft"
         class="absolute w-full h-full bg-white border backface-hidden text-left shadow-2xl"
       >
-        <UIcon :name="icon" size="55" class="py-2" />
+        <UIcon :name="icon" size="50" class="py-2" />
         <div class="flex items-center justify-start">
           <div class="text-left">
-            <h3 class="text-2xl font-semibold mb-2">{{ title }}</h3>
+            <h3 class="text-xl md:text-2xl font-bold ">{{ title }}</h3>
           </div>
         </div>
       </UCard>

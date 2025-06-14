@@ -2,11 +2,11 @@
   <header class="sticky top-0 z-50 bg-white shadow">
     <!-- Top Line -->
     <div
-      class="px-5 py-3 bg-black flex flex-wrap justify-center text-center text-white"
+      class="px-5 py-3 text-sm md:text-md bg-black hidden md:flex flex-wrap justify-center text-center text-white"
     >
       <div class="pl-3">Start building your software today. Book a call</div>
-     
-      <div class="flex pt-2 md:pt-0">
+
+      <div class="flex flex-wrap justify-center pt-2 md:pt-0">
         <a
           href="mailto:tech2work@gmail.com"
           class="flex items-center gap-2 pl-10 transition-colors"

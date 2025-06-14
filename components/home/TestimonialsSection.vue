@@ -3,10 +3,10 @@
     id="services"
     class="py-20 bg-gradient-to-br from-gray-300 to-gray-50 text-center"
   >
-    <p class="text-4xl mb-20 font-bold text-gray-900 uppercase">
+    <p class="text-2xl md:text-3xl lg:text-4xl mb-20 font-bold text-gray-900 uppercase">
       Our clients and what they say
     </p>
-    <div class="container mx-auto flex flex-wrap lg:flex-nowrap gap-5">
+    <div class=" mx-auto flex px-3 flex-wrap lg:flex-nowrap gap-5">
       <HomeTestimonialCard
         v-for="item in items.slice(0, 2)"
         :quote="item.quote"
@@ -17,7 +17,7 @@
       />
     </div>
     <!--  -->
-    <div class="mt-5 container mx-auto flex flex-wrap lg:flex-nowrap gap-5">
+    <div class="mt-5 container mx-auto flex flex-wrap lg:flex-nowrap gap-5 px-3">
       <HomeTestimonialCard
         v-for="item in items.slice(2)"
         :quote="item.quote"

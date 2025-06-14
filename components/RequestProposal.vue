@@ -1,7 +1,7 @@
 <template>
-  <div class="flex flex-wrap gap-8 container mx-auto px-4">
+  <div class="flex flex-wrap gap-8 container mx-auto ">
     <UCard
-      class="col-span-1 lg:col-span-2 shadow-xl p-6 flex flex-col justify-center w-full bg-gradient-to-br from-black to-gray-400"
+      class="col-span-1 lg:col-span-2 shadow-xl p-0 md:p-3 lg:p-4 flex flex-col justify-center w-full bg-gradient-to-br from-black to-gray-400"
     >
       <div class="flex flex-wrap lg:flex-nowrap justify-center gap-5">
         <!--  -->
@@ -56,7 +56,7 @@
               />
             </div> -->
             <!-- Submit Button -->
-            <div class="flex items-center justify-between pt-2">
+            <div class="flex gap-5 items-center justify-between pt-2">
               <UButton
                 type="submit"
                 icon="i-lucide-arrow-up-from-dot"
@@ -72,13 +72,13 @@
               </div>
             </div>
           </form>
-          <p class="mt-2">
+          <p class="mt-2 text-md ">
             By clicking «Send» you confirm, that you understand and agree to the
             Privacy Policy
           </p>
         </div>
         <!--  -->
-        <div class="space-y-6 lg:flex-1/2 text-center px-10">
+        <div class="hidden lg:block space-y-6 lg:flex-1/2 text-center px-10">
           <h2 class="text-3xl font-bold text-gray-900 dark:text-white">
             Let’s Build Together
           </h2>

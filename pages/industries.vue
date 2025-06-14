@@ -1,5 +1,5 @@
 <template>
-  <NuxtLayout name="default">
+  <NuxtLayout name="default"> 
     <IndustriesHeroSection
       bgimg="'/imgs/industries/bg1.jpg'"
       title="Product Development Industry"

@@ -1,6 +1,6 @@
 <template>
-  <section id="services" class="py-20 px-10 bg-white text-center">
-    <p class="text-4xl mb-20 font-bold text-gray-900 uppercase">
+  <section id="services" class="py-20 px-5 md:px-10 bg-white text-center">
+    <p class="text-xl md:text-3xl lg:text-4xl mb-20 font-bold text-gray-900 uppercase">
       SOLUTIONS WE DEVELOP FOR THIS INDUSTRY
     </p>
     <div

@@ -1,10 +1,10 @@
 <template>
   <div id="services" class="pt-20 text-center">
-    <p class="text-4xl mb-8 font-bold text-gray-900 uppercase">
+    <p class="text-xl md:text-3xl lg:text-4xl mb-8 font-bold text-gray-900 uppercase">
       What clients say about
     </p>
     <UCarousel
-      class="px-10 bg-white"
+      class="md:px-10 bg-white"
       v-slot="{ item }"
       loop
       dots

@@ -1,11 +1,10 @@
 <template>
   <NuxtLayout name="default">
-    <HomeHeroSection />
+    <HomeHeroSection /> 
     <HomeServicesSection />
     <HomeTestimonialsSection />
     <TechStack />
     <HomeIndustries />
-    <!-- <HomeOutcomes /> -->
     <HomeTrustedSection />
     <Contact />
     <HomeProcess />

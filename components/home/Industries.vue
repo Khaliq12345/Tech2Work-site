@@ -1,10 +1,10 @@
 <template>
-  <section id="industries" class="py-20 px-10 md:px-15 bg-gray-200 text-center">
+  <section id="industries" class="py-20 px-6 md:px-15 bg-gray-200 text-center">
     <div class="text-left flex flex-wrap lg:flex-nowrap gap-y-4 mb-10">
-      <h3 class="lg:flex-1/2 text-4xl font-bold mb-2 uppercase">
+      <h3 class="lg:flex-1/2 text-xl md:text-3xl lg:text-4xl font-bold mb-2 uppercase">
         We Provide IT Services to Various Industries
       </h3>
-      <p class="text-xl font-semibold lg:flex-1/2">
+      <p class="text-sm md:text-md lg:text-xl font-semibold lg:flex-1/2">
         We create solutions to meet the demands of modern industries, where
         reliability, integration, and performance are non-negotiable. Our track
         record spans sectors like healthcare, logistics, finance, and
@@ -22,7 +22,7 @@
           :icon="service.icon"
           :label="service.name"
           variant="outline"
-          class="justify-start text-xl font-semibold rounded-xl px-6 py-4"
+          class="justify-start text-md md:text-xl font-semibold rounded-xl px-6 py-4"
           :class="{
             'bg-primary text-white border-primary':
               selected.name === service.name,
@@ -36,15 +36,15 @@
       <UCard
         class="w-full lg:w-2/3 lg:mt-0 mt-4 bg-gradient-to-bl from-black to-gray-400 text-white rounded-xl"
       >
-        <h2 class="text-2xl font-bold underline underline-offset-4">
+        <h2 class="text-xl md:text-2xl font-bold underline underline-offset-4">
           {{ selected.name }}
         </h2>
-        <USeparator class="p-8 border-white" color="neutral" />
+        <USeparator class="p-4 md:p-8 border-white" color="neutral" />
         <div
           class="grid grid-cols-1 gap-6"
           :class="{ 'md:grid-cols-2': selected.links.length != 0 }"
         >
-          <p class="text-md leading-relaxed">
+          <p class="text-sm md:text-md leading-relaxed">
             {{ selected.description }}
           </p>
           <div v-if="selected.links" class="flex flex-col gap-3">
@@ -52,7 +52,7 @@
               v-for="(link, index) in selected.links"
               :key="index"
               :to="link.url"
-              class="underline font-medium text-white hover:text-gray-200"
+              class="underline text-sm md:text-md font-medium text-white hover:text-gray-200"
             >
               {{ link.text }}
             </ULink>
