@@ -27,5 +27,5 @@
 </template>
 
 <script lang="ts" setup>
-defineProps<{ bgimg: string; title: string; desc: string; features: any[] }>();
+defineProps<{ bgimg: string; title: string; desc: string; }>();
 </script>

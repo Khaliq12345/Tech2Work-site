@@ -42,20 +42,18 @@
         <USeparator class="p-4 md:p-8 border-white" color="neutral" />
         <div
           class="grid grid-cols-1 gap-6"
-          :class="{ 'md:grid-cols-2': selected.links.length != 0 }"
+          :class="{ 'md:grid-cols-2': selected.samples.length != 0 }"
         >
           <p class="text-sm md:text-md leading-relaxed">
             {{ selected.description }}
           </p>
-          <div v-if="selected.links" class="flex flex-col gap-3">
-            <ULink
-              v-for="(link, index) in selected.links"
-              :key="index"
-              :to="link.url"
-              class="underline text-sm md:text-md font-medium text-white hover:text-gray-200"
+          <div v-if="selected.samples" class="flex flex-col gap-3">
+            <span
+              v-for="link in selected.samples"
+              class="text-sm md:text-md font-medium text-white hover:text-gray-200"
             >
-              {{ link.text }}
-            </ULink>
+              {{ link }}
+            </span>
           </div>
         </div>
       </UCard>
@@ -72,24 +70,24 @@ const services: Service[] = [
     icon: "i-lucide-code-xml",
     description:
       "We offer custom software development tailored to your needs, from web platforms and mobile apps to backend systems — scalable, secure, and optimized for performance.",
-    links: [],
+    samples: [],
   },
   {
     name: "Data Analysis",
     icon: "i-lucide-database-zap",
     description:
       "Transform raw data into actionable insights using advanced analytics, dashboards, and reporting tools. Make smarter decisions powered by your own data.",
-    links: [],
+    samples: [],
   },
   {
     name: "AI Automation",
     icon: "i-lucide-bot",
     description:
       "Boost efficiency with AI-powered automation: chatbots, intelligent workflows, predictive systems, and learning platforms using NLP and machine learning.",
-    links: [
-      { text: "E-learning Software Development", url: "#" },
-      { text: "LMS Development", url: "#" },
-      { text: "School Management Software Development", url: "#" },
+    samples: [
+      "E-learning Software Development",
+      "LMS Development",
+      "School Management Software Development",
     ],
   },
   {
@@ -97,7 +95,7 @@ const services: Service[] = [
     icon: "i-lucide-sun",
     description:
       "Improve system performance, reduce costs, and enhance user experience with our optimization services — from infrastructure tuning to UX improvements.",
-    links: [],
+    samples: [],
   },
 ];
 const selected = ref<Service>(services[0]); // Default to "Education"

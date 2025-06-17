@@ -114,20 +114,7 @@ const form = ref({
   message: "",
 });
 
-const people = [
-  {
-    name: "Oleksii Kamynin",
-    role: "Full-Stack Dev",
-    image: "https://randomuser.me/api/portraits/men/32.jpg",
-    linkedin: "https://linkedin.com/in/oleksii",
-  },
-  {
-    name: "Natalia Zamai",
-    role: "Data Engineer",
-    image: "https://randomuser.me/api/portraits/women/44.jpg",
-    linkedin: "https://linkedin.com/in/natalia",
-  },
-];
+const { people } = useContactPeople();
 
 function sendEmail() {
   const subject = encodeURIComponent(`Contact from ${form.value.name}`);

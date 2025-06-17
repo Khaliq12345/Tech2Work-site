@@ -2,7 +2,6 @@ from sqlmodel import Session
 from contextlib import contextmanager
 from src.core.config import ENGINE
 
-
 @contextmanager
 def get_session():
     session = Session(ENGINE)

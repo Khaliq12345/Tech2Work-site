@@ -8,7 +8,7 @@
     <HomeTrustedSection />
     <Contact />
     <HomeProcess />
-  </NuxtLayout>
+  </NuxtLayout> 
 </template>
 
 <script lang="ts" setup></script>

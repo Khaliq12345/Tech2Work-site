@@ -16,7 +16,7 @@
         :quote="item.quote"
         :name="item.name"
         :role="item.role"
-        :avatar="item.img"
+        :avatar="item.avatar"
         class="flex-2/5 mx-3 mb-20"
       />
     </UCarousel>

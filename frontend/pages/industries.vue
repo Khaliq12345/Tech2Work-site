@@ -4,12 +4,6 @@
       bgimg="'/imgs/industries/bg1.jpg'"
       title="Product Development Industry"
       desc="Have a product idea but no technical team? We help you define the need, shape the vision, and deliver a complete software solution."
-      :features="[
-        { name: 'experts', value: '170+' },
-        { name: 'experts', value: '170+' },
-        { name: 'experts', value: '170+' },
-        { name: 'experts', value: '170+' },
-      ]"
     />
     <IndustriesTestimonialsSection
       :items="[
@@ -18,28 +12,28 @@
           role: 'Lead Software Developer',
           quote:
             'They were able to handle everything we threw at them fairly easily',
-          img: 'https://randomuser.me/api/portraits/men/32.jpg',
+          avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
         },
         {
           name: 'Guy Jackson',
           role: 'Lead Software Developer',
           quote:
             'They were able to handle everything we threw at them fairly easily',
-          img: 'https://randomuser.me/api/portraits/men/32.jpg',
+          avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
         },
         {
           name: 'Guy Jackson',
           role: 'Lead Software Developer',
           quote:
             'They were able to handle everything we threw at them fairly easily',
-          img: 'https://randomuser.me/api/portraits/men/32.jpg',
+          avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
         },
         {
           name: 'Guy Jackson',
           role: 'Lead Software Developer',
           quote:
             'They were able to handle everything we threw at them fairly easily',
-          img: 'https://randomuser.me/api/portraits/men/32.jpg',
+          avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
         },
       ]"
     />
