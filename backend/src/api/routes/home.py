@@ -8,24 +8,13 @@ from src.models.home_models import (
     HomeIndustry,
     HomeProcess,
 )
-from src.models.home_models import (
-    create_table,
-    HomeService,
-    HomeTestimonial,
-    HomeIndustry,
-    HomeProcess,
-)
 from src.utils import get_session
 
 route = APIRouter(prefix="/home")
 route.add_event_handler("startup", create_table)
 
 
-
 @route.post("/add-home-service")
-def add_home_service(
-    classname: str, title: str, description: str, icon: str, features: list[str]
-):
 def add_home_service(
     classname: str, title: str, description: str, icon: str, features: list[str]
 ):
@@ -36,12 +25,10 @@ def add_home_service(
             description=description,
             icon=icon,
             features=features,
-            features=features,
         )
         session.add(item)
         session.commit()
     return {"details": "Successfully Saved"}
-
 
 
 @route.get("/get-home-services", response_model=List[HomeService])
@@ -52,12 +39,7 @@ def get_home_services():
         return results
 
 
-
-
 @route.get("/add-home-testimonial")
-def add_home_testimonial(
-    classname: str, quote: str, name: str, role: str, avatar: str
-):
 def add_home_testimonial(
     classname: str, quote: str, name: str, role: str, avatar: str
 ):
@@ -68,11 +50,11 @@ def add_home_testimonial(
             name=name,
             role=role,
             avatar=avatar,
-            avatar=avatar,
         )
         session.add(item)
         session.commit()
     return {"details": "Successfully Saved"}
+
 
 @route.get("/get-home-testimonials", response_model=List[HomeTestimonial])
 def get_home_testimonials():
@@ -82,22 +64,17 @@ def get_home_testimonials():
         return results
 
 
-
-
 @route.post("/add-home-industry")
 def add_home_industry(
     name: str, description: str, icon: str, samples: list[str]
-): 
+):
     with get_session() as session:
         item = HomeIndustry(
-            name=name, description=description, icon=icon, samples=samples
             name=name, description=description, icon=icon, samples=samples
         )
         session.add(item)
         session.commit()
     return {"details": "Successfully Saved"}
-
-
 
 
 @route.get("/get-home-industries", response_model=List[HomeIndustry])
@@ -108,18 +85,13 @@ def get_home_industries():
         return results
 
 
-
-
 @route.get("/add-home-process")
 def add_home_process(title: str, content: str):
     with get_session() as session:
         item = HomeProcess(title=title, content=content)
-        item = HomeProcess(title=title, content=content)
         session.add(item)
         session.commit()
     return {"details": "Successfully Saved"}
-
-
 
 
 @route.get("/get-home-process", response_model=List[HomeProcess])
@@ -128,6 +100,4 @@ def get_home_process():
         stmt = select(HomeProcess)
         results = session.exec(stmt).fetchall()
         return results
-
-
 

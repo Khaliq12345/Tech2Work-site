@@ -29,7 +29,7 @@
           <!--  -->
           <HomeServiceCard
             v-for="item in servicesItems.slice(0, 1)"
-            :class="item.classname"
+            :class="item.class"
             :title="item.title"
             :desc="item.desc"
             :icon="item.icon"
@@ -40,7 +40,7 @@
         <div class="mt-8 flex flex-wrap lg:flex-nowrap gap-5 justify-center">
           <HomeServiceCard
             v-for="item in servicesItems.slice(1)"
-            :class="item.classname"
+            :class="item.class"
             :title="item.title"
             :desc="item.desc"
             :icon="item.icon"
@@ -65,7 +65,7 @@
           <!--  -->
           <HomeServiceCard
             v-for="item in techItems.slice(0, 2)"
-            :class="item.classname"
+            :class="item.class"
             :title="item.title"
             :desc="item.desc"
             :icon="item.icon"
@@ -76,7 +76,7 @@
         <div class="mt-8 flex flex-wrap lg:flex-nowrap gap-5 justify-center">
           <HomeServiceCard
             v-for="item in techItems.slice(2)"
-            :class="item.classname"
+            :class="item.class"
             :title="item.title"
             :desc="item.desc"
             :icon="item.icon"
@@ -90,6 +90,7 @@
 
 <script setup lang="ts">
 import type { TabsItem } from "@nuxt/ui";
+
 const items = [
   {
     label: "Services",
@@ -100,9 +101,63 @@ const items = [
     slot: "tech-stack" as const,
   },
 ] satisfies TabsItem[];
-const servicesItems = ref([]);
-const techItems = ref([]);
-const { data } = await useFetch("/api/global/get-service-tech-stack");
-servicesItems.value = data.value.filter(it => it.type === 'service');
-techItems.value = data.value.filter(it => it.type === 'techstack');
+
+const servicesItems = [
+  {
+    class: "text-white bg-gradient-to-br from-black to-gray-400",
+    title: "Product Development",
+    desc: "Have a product idea but no technical team? We help you define the need, shape the vision, and deliver a complete software solution.",
+    icon: "i-lucide-mail",
+  },
+  {
+    class: "flex-2/4 text-white bg-gradient-to-br from-black to-gray-400",
+    title: "Product Development",
+    desc: "Have a product idea but no technical team? We help you define the need, shape the vision, and deliver a complete software solution.",
+    icon: "i-lucide-mail",
+  },
+  {
+    class: "flex-1/4 text-white bg-gradient-to-br from-black to-gray-400",
+    title: "Product Development",
+    desc: "Have a product idea but no technical team? We help you define the need, shape the vision, and deliver a complete software solution.",
+    icon: "i-lucide-mail",
+  },
+  {
+    class: "flex-1/4 text-white bg-gradient-to-br from-black to-gray-400",
+    title: "Product Development",
+    desc: "Have a product idea but no technical team? We help you define the need, shape the vision, and deliver a complete software solution.",
+    icon: "i-lucide-mail",
+  },
+];
+const techItems = [
+  {
+    class: "flex-1/4 text-white bg-gradient-to-br from-black to-gray-400",
+    title: "Product Development",
+    desc: "Have a product idea but no technical team? We help you define the need, shape the vision, and deliver a complete software solution.",
+    icon: "i-lucide-mail",
+  },
+  {
+    class: "flex-1/4 text-white bg-gradient-to-br from-black to-gray-400",
+    title: "Product Development",
+    desc: "Have a product idea but no technical team? We help you define the need, shape the vision, and deliver a complete software solution.",
+    icon: "i-lucide-mail",
+  },
+  {
+    class: "flex-1/4 text-white bg-gradient-to-br from-black to-gray-400",
+    title: "Product Development",
+    desc: "Have a product idea but no technical team? We help you define the need, shape the vision, and deliver a complete software solution.",
+    icon: "i-lucide-mail",
+  },
+  {
+    class: "flex-1/4 text-white bg-gradient-to-br from-black to-gray-400",
+    title: "Product Development",
+    desc: "Have a product idea but no technical team? We help you define the need, shape the vision, and deliver a complete software solution.",
+    icon: "i-lucide-mail",
+  },
+  {
+    class: "flex-2/4 text-white bg-gradient-to-br from-black to-gray-400",
+    title: "Product Development",
+    desc: "Have a product idea but no technical team? We help you define the need, shape the vision, and deliver a complete software solution.",
+    icon: "i-lucide-mail",
+  },
+];
 </script>

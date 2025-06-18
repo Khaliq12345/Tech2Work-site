@@ -10,7 +10,7 @@
         v-for="item in items"
         variant="soft"
         class="text-white bg-gradient-to-br from-black to-gray-300 text-left shadow-2xl"
-        :class="item.classname"
+        :class="item.class"
       >
         <UIcon :name="item.icon" size="50" class="py-2" />
         <div class="flex items-center justify-start">
@@ -24,13 +24,5 @@
 </template>
 
 <script lang="ts" setup>
-const props = defineProps<{industry:string}>();
-const items: Ref<any> = ref([]);
-const { data } = await useFetch("/api/industries/get-industry-features", {
-  method: 'GET',
-      params: {
-        'industry': props.industry
-      }
-});
-items.value = data.value
+defineProps<{ items: any[] }>();
 </script>
