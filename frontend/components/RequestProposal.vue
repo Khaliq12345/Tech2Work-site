@@ -42,19 +42,6 @@
                 class="w-full border-b border-gray-300 focus:outline-none focus:border-blue-600 pb-2 resize-none"
               ></textarea>
             </div>
-            <!-- FILE UPLOAD -->
-            <!-- <div>
-              <label class="block text-md mb-1">
-                <UIcon name="i-lucide-paperclip" size="15" class="py-2" />
-                Attach File (pdf, txt or docx)</label
-              >
-              <input
-                type="file"
-                class="block w-full border rounded px-4 py-2"
-                accept=".pdf, .doc, .docx, .txt"
-                @change="handleFileChange"
-              />
-            </div> -->
             <!-- Submit Button -->
             <div class="flex gap-5 items-center justify-between pt-2">
               <UButton

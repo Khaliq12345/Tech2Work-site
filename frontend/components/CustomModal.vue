@@ -3,9 +3,10 @@
   <span @click="openModal" class="inline-block">
     <slot name="trigger" />
   </span>
+
   <!-- BACKDROP (Teleport to body) -->
   <teleport to="body">
-    <Transition name="fade">
+    <Transition name="fade" mode="out-in">
       <div
         v-if="showModal"
         id="modal-backdrop"
@@ -13,7 +14,10 @@
         @click="backdropClick"
       >
         <!-- MODAL CONTENT -->
-        <div class="relative z-50 scale-95 animate-modal" @click.stop>
+        <div
+          class="relative z-50 scale-95 animate-modal"
+          @click.stop
+        >
           <slot name="content" />
         </div>
       </div>
@@ -42,10 +46,12 @@ function backdropClick(event: MouseEvent) {
 
 <style scoped>
 /* FADE BACKDROP ANIMATION */
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active,
+.fade-leave-active {
   transition: opacity 0.3s ease;
 }
-.fade-enter-from, .fade-leave-to {
+.fade-enter-from,
+.fade-leave-to {
   opacity: 0;
 }
 @keyframes modalFadeIn {

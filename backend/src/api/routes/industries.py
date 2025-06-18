@@ -1,11 +1,10 @@
-# from typing import List
 from unittest import result
 from fastapi import APIRouter
 from sqlmodel import select
-from utils import (
-    get_session,
-) 
 from src.models.industry_models import IndustryDetails, IndustryFeature, IndustryProcess, IndustryReason, IndustryService, IndustrySolution, IndustryTestimonial, create_table
+from src.utils import (
+    get_session,
+)
 
 route = APIRouter(prefix="/industries")
 route.add_event_handler("startup", create_table)

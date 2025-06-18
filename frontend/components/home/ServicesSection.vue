@@ -23,6 +23,5 @@
 <script lang="ts" setup>
 const items: Ref<any> = ref([]);
 const { data } = await useFetch("/api/home/get-home-services");
-console.log(data);
 items.value = data.value;
 </script>

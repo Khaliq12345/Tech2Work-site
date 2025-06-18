@@ -55,7 +55,6 @@ def add_home_testimonial(
         session.commit()
     return {"details": "Successfully Saved"}
 
-
 @route.get("/get-home-testimonials", response_model=List[HomeTestimonial])
 def get_home_testimonials():
     with get_session() as session:
@@ -67,7 +66,7 @@ def get_home_testimonials():
 @route.post("/add-home-industry")
 def add_home_industry(
     name: str, description: str, icon: str, samples: list[str]
-):
+): 
     with get_session() as session:
         item = HomeIndustry(
             name=name, description=description, icon=icon, samples=samples

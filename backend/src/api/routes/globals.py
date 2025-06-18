@@ -4,7 +4,7 @@ from sqlmodel import select
 from src.models.global_models import create_table, ServiceTechStack, FAQ
 from src.utils import get_session
 
-route = APIRouter(prefix="")
+route = APIRouter(prefix="/global")
 route.add_event_handler("startup", create_table)
 
 
