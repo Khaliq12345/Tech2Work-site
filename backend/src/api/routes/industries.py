@@ -1,5 +1,17 @@
+# from typing import List
 from unittest import result
 from fastapi import APIRouter
+from sqlmodel import select
+
+# from sqlmodel import select
+from src.models.home_models import (
+    HomeService,
+    create_table,
+)
+from utils import (
+    get_session,
+)  # , HomeService, HomeTestimonial, ServiceTechStack, HomeIndustry, HomeProcess, FAQ
+# from src.utils import get_session
 from sqlmodel import select
 from src.models.industry_models import IndustryDetails, IndustryFeature, IndustryProcess, IndustryReason, IndustryService, IndustrySolution, IndustryTestimonial, create_table
 from src.utils import (
@@ -8,6 +20,13 @@ from src.utils import (
 
 route = APIRouter(prefix="/industries")
 route.add_event_handler("startup", create_table)
+
+
+@route.get("/get-industry-services")
+def get_industry_service(industry: str):
+    with get_session() as session:
+        stmt = select(HomeService).where(HomeService.description == industry)
+        session.exec(stmt)
 
 @route.get("/add-industry-detail")
 def add_industry_detail(
