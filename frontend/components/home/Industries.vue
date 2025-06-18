@@ -64,41 +64,10 @@
 <script setup lang="ts">
 import type { Service } from "~/interface/service";
 
-const services: Service[] = [
-  {
-    name: "Development",
-    icon: "i-lucide-code-xml",
-    description:
-      "We offer custom software development tailored to your needs, from web platforms and mobile apps to backend systems — scalable, secure, and optimized for performance.",
-    samples: [],
-  },
-  {
-    name: "Data Analysis",
-    icon: "i-lucide-database-zap",
-    description:
-      "Transform raw data into actionable insights using advanced analytics, dashboards, and reporting tools. Make smarter decisions powered by your own data.",
-    samples: [],
-  },
-  {
-    name: "AI Automation",
-    icon: "i-lucide-bot",
-    description:
-      "Boost efficiency with AI-powered automation: chatbots, intelligent workflows, predictive systems, and learning platforms using NLP and machine learning.",
-    samples: [
-      "E-learning Software Development",
-      "LMS Development",
-      "School Management Software Development",
-    ],
-  },
-  {
-    name: "Optimisation",
-    icon: "i-lucide-sun",
-    description:
-      "Improve system performance, reduce costs, and enhance user experience with our optimization services — from infrastructure tuning to UX improvements.",
-    samples: [],
-  },
-];
-const selected = ref<Service>(services[0]); // Default to "Education"
+const services: Ref<Service[]> = ref([]);
+const { data } = await useFetch("/api/home/get-home-industries");
+services.value = data.value;
+const selected = ref<Service>(services.value[0]);
 function selectService(service: Service) {
   selected.value = service;
 }

@@ -47,10 +47,16 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{ processes: any[] }>();
-
-const selected = ref(props.processes[0]);
-
+const props = defineProps<{industry:string}>();
+const processes: Ref<any> = ref([]);
+const { data } = await useFetch("/api/industries/get-industry-process", {
+  method: 'GET',
+      params: {
+        'industry': props.industry
+      }
+});
+processes.value = data.value
+const selected = ref(processes.value[0]);
 function selectService(service: any) {
   selected.value = service;
 }

@@ -8,7 +8,7 @@
     >
       <HomeServiceCard
         v-for="item in items"
-        :class="item.class"
+        :class="item.classname"
         :title="item.title"
         :desc="item.desc"
         icon=""
@@ -19,5 +19,13 @@
 </template>
 
 <script lang="ts" setup>
-defineProps<{ items: any[] }>();
+const props = defineProps<{industry:string}>();
+const items: Ref<any> = ref([]);
+const { data } = await useFetch("/api/industries/get-industry-solutions", {
+  method: 'GET',
+      params: {
+        'industry': props.industry
+      }
+});
+items.value = data.value
 </script>

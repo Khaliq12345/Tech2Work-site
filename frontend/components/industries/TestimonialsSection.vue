@@ -24,5 +24,13 @@
 </template>
 
 <script lang="ts" setup>
-defineProps<{ items: any[] }>();
+const props = defineProps<{industry:string}>();
+const items: Ref<any> = ref([]);
+const { data } = await useFetch("/api/industries/get-industry-testimonials", {
+  method: 'GET',
+      params: {
+        'industry': props.industry
+      }
+});
+items.value = data.value
 </script>

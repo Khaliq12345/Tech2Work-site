@@ -13,6 +13,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(home.route, tags=["GLOBAL"])
-app.include_router(globals.route, tags=["HOME"])
-app.include_router(industries.route, tags=["INDUSTRIES"])
+app.include_router(prefix="/api", router=home.route, tags=["HOME"])
+app.include_router(prefix="/api", router=globals.route, tags=["GLOBAL"])
+app.include_router(prefix="/api", router=industries.route, tags=["INDUSTRIES"])
