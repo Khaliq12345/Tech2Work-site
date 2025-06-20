@@ -40,7 +40,11 @@ const { data } = await useFetch("/api/industries/get-industry-details", {
     industry: props.industry,
   },
 });
-bgimg.value = data.value[0].bgimg;
-title.value = data.value[0].title;
-desc.value = data.value[0].desc;
+let val = data.value as any
+if (val.length == 0) {
+  throw showError({ statusCode: 404, statusMessage: 'This Industry is Not Registered' })
+}
+bgimg.value = val[0].bgimg;
+title.value = val[0].title;
+desc.value = val[0].desc;
 </script>

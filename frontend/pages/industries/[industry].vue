@@ -23,6 +23,5 @@
 
 <script lang="ts" setup>
 const route = useRoute();
-
-const industry = route.params.industry as string;
+const industry = computed(() => route.params.industry as string);
 </script>

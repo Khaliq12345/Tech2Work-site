@@ -54,7 +54,7 @@ def get_industry_testimonial(industry: str):
         results = session.exec(stmt).fetchall()
         return results
  
-@route.post("/add-industry-service")
+@route.get("/add-industry-service")
 def add_industry_service(
     classname: str, title: str, desc: str, icon: str, industry: str
 ):

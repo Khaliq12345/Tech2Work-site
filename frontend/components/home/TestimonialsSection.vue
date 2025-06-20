@@ -7,7 +7,7 @@
       Our clients and what they say
     </p>
     <div class=" mx-auto flex px-3 flex-wrap justify-center gap-5">
-      <HomeTestimonialCard
+      <TestimonialCard
         v-for="item in items"
         :quote="item.quote"
         :name="item.name"
@@ -20,9 +20,8 @@
 </template>
 
 <script lang="ts" setup>
-import type { TestimonialType } from "~/interface/testimonialType";
 
-const items: Ref<TestimonialType[]> = ref([]);
+const items: Ref<any[]> = ref([]);
 const { data } = await useFetch("/api/home/get-home-testimonials");
-items.value = data.value;
+items.value = data.value as any;
 </script>

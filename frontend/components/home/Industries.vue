@@ -66,7 +66,7 @@ import type { Service } from "~/interface/service";
 
 const services: Ref<Service[]> = ref([]);
 const { data } = await useFetch("/api/home/get-home-industries");
-services.value = data.value;
+services.value = data.value as any;
 const selected = ref<Service>(services.value[0]);
 function selectService(service: Service) {
   selected.value = service;

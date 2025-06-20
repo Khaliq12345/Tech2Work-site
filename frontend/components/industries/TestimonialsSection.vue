@@ -12,7 +12,7 @@
       :items="items"
       :ui="{ item: 'lg:basis-1/2' }"
     >
-      <HomeTestimonialCard
+      <TestimonialCard
         :quote="item.quote"
         :name="item.name"
         :role="item.role"
@@ -25,12 +25,12 @@
 
 <script lang="ts" setup>
 const props = defineProps<{industry:string}>();
-const items: Ref<any> = ref([]);
+const items: Ref<any[]> = ref([]);
 const { data } = await useFetch("/api/industries/get-industry-testimonials", {
   method: 'GET',
       params: {
         'industry': props.industry
       }
 });
-items.value = data.value
+items.value = data.value as any
 </script>

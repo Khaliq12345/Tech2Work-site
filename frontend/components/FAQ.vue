@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-const items = ref([]);
+const items: Ref<any[]> = ref([]);
 const { data } = await useFetch("/api/global/get-faq");
-items.value = data.value;
+items.value = data.value as any;
 </script>
