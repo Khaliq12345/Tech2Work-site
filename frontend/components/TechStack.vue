@@ -100,9 +100,10 @@ const items = [
     slot: "tech-stack" as const,
   },
 ] satisfies TabsItem[];
-const servicesItems = ref([]);
-const techItems = ref([]);
+const servicesItems: Ref<any[]> = ref([]);
+const techItems: Ref<any[]> = ref([]);
 const { data } = await useFetch("/api/global/get-service-tech-stack");
-servicesItems.value = data.value.filter(it => it.type === 'service');
-techItems.value = data.value.filter(it => it.type === 'techstack');
+const tmp = data.value as any
+servicesItems.value = tmp.filter((it : any) => it.type === 'service');
+techItems.value = tmp.filter((it : any) => it.type === 'techstack');
 </script>
