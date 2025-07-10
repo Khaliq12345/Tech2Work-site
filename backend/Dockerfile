@@ -18,4 +18,6 @@ ADD . /app
 
 RUN uv sync --locked
 
+EXPOSE 8000
+
 CMD [ "uv", "run", "main.py" ]
