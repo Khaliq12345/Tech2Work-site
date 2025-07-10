@@ -6,7 +6,7 @@
     >
       <div>
         <div class="flex gap-3 flex-wrap xl:flex-nowrap">
-          <img src="~/assets/imgs/logo.jpg" class="rounded-full h-30" alt="" />
+          <img src="~/assets/imgs/logo2.png" class="rounded-full h-30" alt="" />
           <div class="">
             <h3 class="text-2xl font-bold text-black mb-3">Tech2Work Agency</h3>
             <p>
@@ -67,9 +67,7 @@
       <!-- Legal Links -->
       <div class="flex flex-wrap justify-center gap-6">
         <NuxtLink to="" class="hover:underline">TERMS OF USE</NuxtLink>
-        <NuxtLink to="" class="hover:underline"
-          >PRIVACY POLICY</NuxtLink
-        >
+        <NuxtLink to="" class="hover:underline">PRIVACY POLICY</NuxtLink>
         <NuxtLink to="" class="hover:underline">SITEMAP</NuxtLink>
       </div>
 
