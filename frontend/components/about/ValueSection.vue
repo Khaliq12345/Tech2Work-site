@@ -5,7 +5,23 @@
     >
       OUR VALUES
     </p>
-    <div class="mt-8 flex flex-wrap gap-5 justify-center place-items-center">
+    <UCollapsible v-for="item in items" class="md:hidden my-4">
+      <UButton
+          
+          :icon="item.icon"
+          :label="item.title"
+          variant="outline"
+          class="justify-start w-full text-md md:text-xl font-semibold rounded-xl px-6 py-4 text-gray-800 border-gray-300 hover:bg-gray-100"
+        />
+      <template #content>
+        <div
+        >
+         <p class="font-semibold my-2">{{ item.desc }}</p>
+        </div>
+      </template>
+    </UCollapsible>
+
+    <div class="mt-8 hidden md:flex md:flex-wrap gap-5 justify-center place-items-center">
       <AboutServiceCard
         v-for="item in items"
         class=""

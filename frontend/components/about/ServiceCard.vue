@@ -25,7 +25,6 @@
       >
         <div class="flex items-center justify-start">
           <div class="text-left">
-            <p class="text-md md:text-xl font-semibold ">{{ title }}</p>
             <p class="font-semibold mb-2">{{ desc }}</p>
           </div>
         </div>
