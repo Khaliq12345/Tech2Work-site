@@ -6,16 +6,23 @@
     <p class="text-2xl md:text-3xl lg:text-4xl mb-20 font-bold text-gray-900 uppercase">
       Our clients and what they say
     </p>
-    <div class=" mx-auto flex px-3 flex-wrap justify-center gap-5">
+    <UCarousel
+      class="md:px-10"
+      v-slot="{ item }"
+      loop
+      dots
+      :autoplay="{ delay: 2000 }"
+      :items="items"
+      :ui="{ item: 'lg:basis-1/2' }"
+    >
       <TestimonialCard
-        v-for="item in items"
         :quote="item.quote"
         :name="item.name"
         :role="item.role"
         :avatar="item.avatar"
-        :class="item.classname"
+        class="mx-3"
       />
-    </div>
+    </UCarousel>
   </section>
 </template>
 

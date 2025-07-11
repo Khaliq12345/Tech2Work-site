@@ -6,7 +6,7 @@
     >
       <div>
         <div class="flex gap-3 flex-wrap xl:flex-nowrap">
-          <img src="~/assets/imgs/logo2.png" class="rounded-full h-30" alt="" />
+          <img src="~/assets/imgs/logo2.png" class="rounded-full h-50" alt="" />
           <div class="">
             <h3 class="text-2xl font-bold text-black mb-3">Tech2Work Agency</h3>
             <p>
@@ -23,17 +23,18 @@
         <UNavigationMenu
           orientation="vertical"
           :items="items"
-          class="w-full justify-center"
-        >
-          <template #contact-label>
-            <CustomModal>
+          class="w-full justify-center ">
+          <template #contact>
+            <ClientOnly >
+              <CustomModal>
               <template #trigger>
-                <UButton class="" variant="ghost">Contact Us</UButton>
+                <UButton icon="i-lucide-phone-call m-0" variant="ghost">Contact Us</UButton>
               </template>
               <template #content>
                 <RequestProposal />
               </template>
             </CustomModal>
+            </ClientOnly>
           </template>
         </UNavigationMenu>
       </div>
@@ -80,6 +81,8 @@
         <NuxtLink to="" class="hover:underline">TERMS OF USE</NuxtLink>
         <NuxtLink to="" class="hover:underline">PRIVACY POLICY</NuxtLink>
         <NuxtLink to="" class="hover:underline">SITEMAP</NuxtLink>
+        <ColorModeButton />
+
       </div>
 
       <div class="text-center text-xs text-white/80">
@@ -105,6 +108,7 @@
 
 <script setup lang="ts">
 const { items } = useMenuItems();
+ const route = useRoute()
 const socialIcons = [
   {
     name: "i-lucide-facebook",

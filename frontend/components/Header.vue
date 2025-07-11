@@ -43,7 +43,8 @@
       >
         <UNavigationMenu :items="items" class="w-full justify-center">
           <template #contact-label>
-            <CustomModal>
+            <ClientOnly >
+              <CustomModal>
               <template #trigger>
                 <UButton class="" variant="ghost">Contact Us</UButton>
               </template>
@@ -51,6 +52,9 @@
                 <RequestProposal />
               </template>
             </CustomModal>
+              
+            </ClientOnly>
+            
           </template>
         </UNavigationMenu>
       </ul>

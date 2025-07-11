@@ -1,6 +1,8 @@
 import type { NavigationMenuItem } from "@nuxt/ui";
 
 export function useMenuItems() {
+     const route = useRoute()
+    //  route.name?.toString().includes
     const items = ref<NavigationMenuItem[]>([
         {
             label: "Home",
@@ -13,12 +15,7 @@ export function useMenuItems() {
             description: "In our company, we're not just IT professionals.",
             to: "/about",
         },
-        {
-            label: "Contacts",
-            icon: "i-lucide-phone-call",
-            description: "Reach us today.",
-            slot: "contact"
-        },
+        
         // {
         //   label: "Company",
         //   icon: "i-lucide-building-2",
@@ -102,6 +99,15 @@ export function useMenuItems() {
             label: "Portfolio",
             icon: "i-lucide-shield-plus",
             to: "/portfolio",
+            // class: 'text-white bg-black',
+            activeClass: 'text-red-300 bg-black',
+            inactiveClass: 'text-black bg-white',
+        },
+        {
+            label: "Contacts",
+            icon: "i-lucide-phone-call",
+            description: "Reach us today.",
+            slot: "contact"
         },
     ]);
     return {

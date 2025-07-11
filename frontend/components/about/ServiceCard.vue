@@ -1,5 +1,5 @@
 <template>
-  <div class="w-70 h-50 bg-white">
+  <div class="w-50 h-35 md:w-70 md:h-50 bg-white overflow-hidden">
     <div
       class="relative w-full rounded-xl h-full transition-transform duration-700 transform-style-preserve-3d"
       :class="{ 'rotate-y-180': isFlipped }"
