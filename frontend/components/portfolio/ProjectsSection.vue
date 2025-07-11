@@ -1,6 +1,5 @@
 <template>
   <section id="services" class="py-20 bg-white text-center">
-     <!-- Listing -->
     <div
       class="container mx-auto grid grid-cols-1 gap-8 px-3 "
     >

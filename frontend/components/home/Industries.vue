@@ -1,7 +1,7 @@
 <template>
   <section id="industries" class="py-20 px-6 md:px-15 bg-gray-200 text-center">
     <div class="text-left flex flex-wrap lg:flex-nowrap gap-y-4 mb-10">
-      <h3 class="lg:flex-1/2 text-xl md:text-3xl lg:text-4xl font-bold mb-2 uppercase">
+      <h3 class="lg:flex-1/2 text-xl md:text-2xl lg:text-3xl font-bold mb-2 uppercase">
         We Provide IT Services to Various Industries
       </h3>
       <p class="text-sm md:text-md lg:text-xl font-semibold lg:flex-1/2">

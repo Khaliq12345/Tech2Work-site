@@ -1,7 +1,7 @@
 <template>
   <section id="industries" class="py-20 px-5 md:px-10 lg:px-15 bg-gray-200 text-center">
     <div class="text-left flex flex-wrap lg:flex-nowrap gap-y-5 mb-10">
-      <h3 class="lg:flex-1/4 text-xl md:text-3xl lg:text-4xl font-bold mb-5 uppercase">
+      <h3 class="lg:flex-1/4 text-xl md:text-2xl lg:text-2xl font-bold mb-5 uppercase">
         Frequently Asked Questions
       </h3>
       <div class="w-full lg:flex-1/2 justify-center place-items-center">

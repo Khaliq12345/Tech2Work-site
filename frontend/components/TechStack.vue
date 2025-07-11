@@ -14,7 +14,7 @@
       <template #services="{ item }">
         <div class="mt-8 flex flex-wrap xl:flex-nowrap gap-5 justify-center">
           <div class="text-left flex-1/2">
-            <h3 class="text-2xl lg:text-3xl font-bold mb-2">
+            <h3 class="text-xl lg:text-3xl font-bold mb-2">
               WE STILL BUILD CUSTOM SOFTWARE. JUST 2.5х FASTER NOW
             </h3>
             <p class="text-sm md:text-md lg:text-lg font-semibold">
@@ -51,7 +51,7 @@
       <template #tech-stack="{ item }">
         <div class="mt-8 flex flex-wrap xl:flex-nowrap gap-5 justify-center">
           <div class="text-left flex-4/4">
-            <h3 class="text-2xl lg:text-3xl font-bold mb-2">
+            <h3 class="text-xl lg:text-3xl font-bold mb-2">
               The Technology Platforms We Use
             </h3>
             <p class="text-sm md:text-md lg:text-lg font-semibold">

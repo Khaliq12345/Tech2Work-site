@@ -4,8 +4,8 @@
   <section id="industries" class="py-20 px-10 md:px-15 bg-gray-200 text-center">
     <div class="flex flex-wrap md:flex-nowrap justify-center items-center">
       <div class="text-left mb-10 md:flex-1/2">
-        <h3 class="text-xl md:text-3xl lg:text-4xl font-bold md:mb-2 uppercase">Trusted by Startups.</h3>
-        <h3 class="text-xl md:text-3xl lg:text-4xl font-bold mb-5 uppercase">Rated by Experts.</h3>
+        <h3 class="text-xl md:text-2xl lg:text-3xl font-bold md:mb-2 uppercase">Trusted by Startups.</h3>
+        <h3 class="text-xl md:text-2xl lg:text-3xl font-bold mb-5 uppercase">Rated by Experts.</h3>
         <p class="text-md md:text-xl font-semibold">
           Industry platforms like Clutch consistently rate us as a top-tier
           software development partner. That’s because our clients trust us to

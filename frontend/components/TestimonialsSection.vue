@@ -3,7 +3,7 @@
     id="services"
     class="py-20 bg-gradient-to-br from-gray-300 to-gray-50 text-center"
   >
-    <p class="text-2xl md:text-3xl lg:text-4xl mb-20 font-bold text-gray-900 uppercase">
+    <p class="text-xl md:text-2xl px-4 lg:text-3xl mb-20 font-bold text-gray-900 uppercase">
       Our clients and what they say
     </p>
     <UCarousel

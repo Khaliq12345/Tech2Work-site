@@ -4,8 +4,8 @@
   <section id="industries" class="py-20 px-10 md:px-15 bg-gray-200 text-center">
     <div class="flex flex-wrap md:flex-nowrap justify-center items-center">
       <div class="text-left mb-10 md:flex-1/2">
-        <h3 class="text-xl md:text-3xl lg:text-4xl font-bold md:mb-2 uppercase">Custom development company..</h3>
-        <h3 class="text-xl md:text-3xl lg:text-4xl font-bold mb-5 uppercase">Certified.</h3>
+        <h3 class="text-xl md:text-2xl lg:text-3xl font-bold md:mb-2 uppercase">Custom development company..</h3>
+        <h3 class="text-xl md:text-2xl lg:text-3xl font-bold mb-5 uppercase">Certified.</h3>
         <p class="text-md md:text-xl font-semibold">
           We don’t just develop digital solutions—we address business challenges. With over a decade of experience, 200+ accomplished projects, and a team of 230+ specialists, we know what it takes to turn your ideas into tangible results.
         </p>

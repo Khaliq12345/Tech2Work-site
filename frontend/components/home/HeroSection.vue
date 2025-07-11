@@ -2,7 +2,7 @@
   <div class="flex justify-center items-center bg-gray-100 px-5 md:px-15">
     <section class="text-left">
       <p
-        class="hidden lg:block pt-3 text-2xl md:text-4xl lg:text-6xl mb-3 font-bold text-gray-900"
+        class="hidden lg:block pt-3 text-2xl md:text-4xl lg:text-5xl mb-3 font-bold text-gray-900"
       >
         Tech2Work Agency
       </p>

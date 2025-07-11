@@ -2,7 +2,7 @@
   <UCard variant="soft" class="p-y text-center shadow-2xl">
     <div class="flex items-center justify-start">
       <div class="text-left">
-        <h3 class="text-2xl md:text-3xl font-bold mb-2">{{ title }}</h3>
+        <h3 class="text-xl md:text-2xl font-bold mb-2">{{ title }}</h3>
         <p class="font-semibold">{{ desc }}</p>
       </div>
     </div>

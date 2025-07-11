@@ -6,7 +6,7 @@
     >
       <div class="flex flex-wrap lg:flex-nowrap justify-center gap-5">
         <div class="space-y-6 lg:flex-1/2 text-center lg:text-left">
-          <h2 class="text-xl md:text-3xl font-bold text-gray-900 dark:text-white">
+          <h2 class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">
             Let’s Build Together
           </h2>
           <p class="text-gray-600 dark:text-gray-300 text-base">
@@ -46,7 +46,7 @@
           class="bg-white shadow-md rounded-xl p-8 w-full space-y-6 lg:flex-1/2"
         >
           <h2
-            class="text-xl md:text-3xl font-bold text-gray-900 leading-tight"
+            class="text-xl md:text-2xl font-bold text-gray-900 leading-tight"
           >
             START BUILDING YOUR <br />
             SOFTWARE. CONTACT US NOW

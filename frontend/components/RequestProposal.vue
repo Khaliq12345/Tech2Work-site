@@ -8,7 +8,7 @@
         <div
           class="bg-white text-black shadow-md rounded-xl p-8 w-full space-y-6 lg:flex-1/2"
         >
-          <h2 class="text-2xl md:text-3xl font-bold uppercase leading-tight">
+          <h2 class="text-xl md:text-2xl font-bold uppercase leading-tight">
             Request for proposal
           </h2>
           <p class=" ">Let’s discuss how we can help with your project.</p>

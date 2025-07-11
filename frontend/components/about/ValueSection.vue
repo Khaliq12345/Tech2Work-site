@@ -1,7 +1,7 @@
 <template>
   <div id="services" class="py-20 px-5 md:px-10 lg:px-20 text-center">
     <p
-      class="text-xl md:text-3xl lg:text-4xl mb-15 font-bold text-gray-900 uppercase"
+      class="text-xl md:text-2xl lg:text-3xl mb-15 font-bold text-gray-900 uppercase"
     >
       OUR VALUES
     </p>

@@ -2,7 +2,7 @@
   <UCard variant="soft" class="p-y text-center shadow-2xl">
     <div class="flex flex-wrap lg:flex-nowrap items-center gap-x-5">
       <div class="lg:flex-1/2 text-left">
-        <h3 class="text-2xl md:text-3xl font-bold text-black mb-4">
+        <h3 class="text-xl md:text-2xl font-bold text-black mb-4">
           {{ item.title }}
         </h3>
         <p class="text-base text-gray-700 mb-4">
