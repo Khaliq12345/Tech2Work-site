@@ -64,10 +64,13 @@
         <template #body>
           <USeparator class="py-3 mb-3" />
           <UNavigationMenu
-            orientation="vertical"
-            :items="items"
-            class="w-full justify-center"
-          />
+          :items="items"
+          orientation="vertical"
+          class="w-full justify-center"
+          variant="link"
+          color="error"
+        >
+        </UNavigationMenu>
         </template>
       </UDrawer>
     </nav>
