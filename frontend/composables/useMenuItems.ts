@@ -1,117 +1,27 @@
 import type { NavigationMenuItem } from "@nuxt/ui";
 
 export function useMenuItems() {
-     const route = useRoute()
-    //  route.name?.toString().includes
-    const items = ref<NavigationMenuItem[]>([
-        {
-            label: "Home",
-            icon: "i-lucide-home",
-            to: "/",
-        },
-        {
-            label: "About Us",
-            icon: "i-lucide-info",
-            description: "In our company, we're not just IT professionals.",
-            to: "/about",
-        },
-        
-        // {
-        //   label: "Company",
-        //   icon: "i-lucide-building-2",
-        //   slot: "company",
-        //   children: [
-        //     {
-        //     label: "About Us",
-        //     icon: "i-lucide-info",
-        //     description: "In our company, we're not just IT professionals.",
-        //     to: "/about",
-        // },
-        // {
-        //     label: "Contacts",
-        //     icon: "i-lucide-phone-call",
-        //     description: "Reach us today.",
-        //     slot: "contact"
-        // },
-
-        //   ],
-        // },
-        // {
-        //   label: "Services",
-        //   icon: "i-lucide-briefcase-business",
-        //   to: "",
-        //   children: [
-        //     {
-        //       label: "Web Development",
-        //       icon: "i-lucide-file-text",
-        //       description: "Define shortcuts for your application.",
-        //       to: "",
-        //     },
-        //     {
-        //       label: "MVP development",
-        //       icon: "i-lucide-file-text",
-        //       description: "Display a modal/slideover within your application.",
-        //       to: "",
-        //     },
-        //     {
-        //       label: "UI UX Design",
-        //       icon: "i-lucide-file-text",
-        //       description: "Display a toast within your application.",
-        //       to: "",
-        //     },
-        //     {
-        //       label: "AI & ML Based WebApps",
-        //       icon: "i-lucide-file-text",
-        //       description: "Display a toast within your application.",
-        //       to: "",
-        //     },
-        //   ],
-        // },
-        // {
-        //   label: "Industries",
-        //   icon: "i-lucide-box",
-        //   to: "",
-        //   active: false,
-        //   children: [
-        //     {
-        //       label: "Development",
-        //       to: "",
-        //       icon: "i-lucide-code-xml",
-        //     },
-        //     {
-        //       label: "Data Analysis",
-        //       to: "",
-        //       icon: "i-lucide-database-zap",
-        //     },
-        //     {
-        //       label: "AI Automation",
-        //       to: "",
-        //       icon: "i-lucide-bot",
-        //     },
-        //     {
-        //       label: "Optimisation",
-        //       to: "",
-        //       icon: "i-lucide-sun",
-        //     },
-        //   ],
-        // },
-        {
-            label: "Portfolio",
-            icon: "i-lucide-shield-plus",
-            to: "/portfolio",
-            // class: 'text-white bg-black',
-            activeClass: 'text-red-300 bg-black',
-            inactiveClass: 'text-black bg-white',
-        },
-        {
-            label: "Contacts",
-            icon: "i-lucide-phone-call",
-            description: "Reach us today.",
-            slot: "contact"
-        },
-    ]);
-    return {
-        items,
-    };
+  const route = useRoute();
+  //  route.name?.toString().includes
+  const items = ref<NavigationMenuItem[]>([
+    {
+      label: "Home",
+      icon: "i-lucide-home",
+      to: "/",
+    },
+    {
+      label: "About Us",
+      icon: "i-lucide-info",
+      description: "In our company, we're not just IT professionals.",
+      to: "/about",
+    },
+    {
+      label: "Portfolio",
+      icon: "i-lucide-shield-plus",
+      to: "/portfolio",
+    },
+  ]);
+  return {
+    items,
+  };
 }
-

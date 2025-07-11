@@ -23,19 +23,10 @@
         <UNavigationMenu
           orientation="vertical"
           :items="items"
-          class="w-full justify-center ">
-          <template #contact>
-            <ClientOnly >
-              <CustomModal>
-              <template #trigger>
-                <UButton icon="i-lucide-phone-call m-0" variant="ghost">Contact Us</UButton>
-              </template>
-              <template #content>
-                <RequestProposal />
-              </template>
-            </CustomModal>
-            </ClientOnly>
-          </template>
+          class="w-full justify-center"
+          variant="link"
+          color="error"
+        >
         </UNavigationMenu>
       </div>
       <div>
@@ -81,8 +72,6 @@
         <NuxtLink to="" class="hover:underline">TERMS OF USE</NuxtLink>
         <NuxtLink to="" class="hover:underline">PRIVACY POLICY</NuxtLink>
         <NuxtLink to="" class="hover:underline">SITEMAP</NuxtLink>
-        <ColorModeButton />
-
       </div>
 
       <div class="text-center text-xs text-white/80">
@@ -108,7 +97,7 @@
 
 <script setup lang="ts">
 const { items } = useMenuItems();
- const route = useRoute()
+const route = useRoute();
 const socialIcons = [
   {
     name: "i-lucide-facebook",

@@ -1,7 +1,7 @@
 <template>
   <NuxtLayout name="default">
-    <PortfolioHeroSection /> 
-    <PortfolioProjectsSection /> 
+    <PortfolioHeroSection />
+    <PortfolioProjectsSection />
     <Contact />
   </NuxtLayout>
 </template>

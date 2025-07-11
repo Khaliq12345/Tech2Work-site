@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-wrap gap-8 container mx-auto ">
+  <div class="flex flex-wrap gap-8 container mx-auto">
     <UCard
       class="col-span-1 lg:col-span-2 shadow-xl p-0 md:p-3 lg:p-4 flex flex-col justify-center w-full bg-gradient-to-br from-black to-gray-400"
     >
@@ -11,9 +11,7 @@
           <h2 class="text-2xl md:text-3xl font-bold uppercase leading-tight">
             Request for proposal
           </h2>
-          <p class=" ">
-            Let’s discuss how we can help with your project.
-          </p>
+          <p class=" ">Let’s discuss how we can help with your project.</p>
           <form @submit.prevent="sendEmail" class="space-y-5">
             <div>
               <input
@@ -59,7 +57,7 @@
               </div>
             </div>
           </form>
-          <p class="mt-2 text-md ">
+          <p class="mt-2 text-md">
             By clicking «Send» you confirm, that you understand and agree to the
             Privacy Policy
           </p>
@@ -73,7 +71,11 @@
             Reach out to our sales managers for tailored software development
             solutions and professional guidance.
           </p>
-          <div v-for="f in features" :key="f" class="flex text-left items-center my-4">
+          <div
+            v-for="f in features"
+            :key="f"
+            class="flex text-left items-center my-4"
+          >
             <UIcon name="i-lucide-circle-check-big" size="20" class="mr-5" />
             {{ f }}
           </div>
