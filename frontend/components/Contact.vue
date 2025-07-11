@@ -13,14 +13,21 @@
             Reach out to our sales managers for tailored software development
             solutions and professional guidance.
           </p>
-          <UButton
+          <CustomModal>
+          <template #trigger>
+           <UButton
             icon="i-heroicons-phone"
             color="primary"
             class="text-white text-md md:text-xl rounded-3xl py-3 px-6 mt-3"
             variant="solid"
             label="Contact Us"
-            to="#"
           />
+          </template>
+          <template #content>
+            <RequestProposal />
+          </template>
+        </CustomModal>
+          
           <!-- Team Members -->
           <div class="flex flex-wrap text-white gap-8 mt-5 justify-center">
             <div

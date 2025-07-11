@@ -24,7 +24,18 @@
           orientation="vertical"
           :items="items"
           class="w-full justify-center"
-        />
+        >
+          <template #contact-label>
+            <CustomModal>
+              <template #trigger>
+                <UButton class="" variant="ghost">Contact Us</UButton>
+              </template>
+              <template #content>
+                <RequestProposal />
+              </template>
+            </CustomModal>
+          </template>
+        </UNavigationMenu>
       </div>
       <div>
         <h4 class="text-black text-lg font-semibold mb-2">Contact</h4>
@@ -95,11 +106,17 @@
 <script setup lang="ts">
 const { items } = useMenuItems();
 const socialIcons = [
-  { name: "i-lucide-facebook", url: "https://facebook.com" },
-  { name: "i-lucide-twitter", url: "https://twitter.com" },
-  { name: "i-lucide-youtube", url: "https://youtube.com" },
-  { name: "i-lucide-instagram", url: "https://instagram.com" },
-  { name: "i-lucide-linkedin", url: "https://linkedin.com" },
-  { name: "i-lucide-github", url: "https://github.com" },
+  {
+    name: "i-lucide-facebook",
+    url: "https://www.facebook.com/profile.php?id=61577734741087",
+  },
+  { name: "i-lucide-twitter", url: "https://x.com/TechtwoW61533" },
+  // { name: "i-lucide-youtube", url: "https://youtube.com" },
+  // { name: "i-lucide-instagram", url: "https://instagram.com" },
+  {
+    name: "i-lucide-linkedin",
+    url: "https://www.linkedin.com/in/techtwo-work-70b021372/",
+  },
+  // { name: "i-lucide-github", url: "https://github.com" },
 ];
 </script>

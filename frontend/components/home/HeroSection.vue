@@ -10,10 +10,17 @@
         We build forward-thinking digital products that enable startups and
         growing businesses to achieve their goals.
       </p>
-      <UButton
+      <CustomModal>
+          <template #trigger>
+           <UButton
         class="font-bold rounded-full text-white py-3 px-8 my-5 text-md lg:text-2xl"
-        >BOOK A CALL !</UButton
-      >
+        >BOOK A CALL !</UButton>
+          </template>
+          <template #content>
+            <RequestProposal />
+          </template>
+        </CustomModal>
+      
     </section>
     <div class="hidden lg:flex h-160 w-300">
       <img src="~/assets/imgs/logo4.png" alt="" />

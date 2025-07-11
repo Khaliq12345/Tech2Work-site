@@ -41,7 +41,18 @@
       <ul
         class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-700"
       >
-        <UNavigationMenu :items="items" class="w-full justify-center" />
+        <UNavigationMenu :items="items" class="w-full justify-center">
+          <template #contact-label>
+            <CustomModal>
+              <template #trigger>
+                <UButton class="" variant="ghost">Contact Us</UButton>
+              </template>
+              <template #content>
+                <RequestProposal />
+              </template>
+            </CustomModal>
+          </template>
+        </UNavigationMenu>
       </ul>
       <!-- Mobile Drawer -->
       <UDrawer

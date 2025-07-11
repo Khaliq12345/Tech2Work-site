@@ -12,15 +12,22 @@
           deliver meaningful, business-ready solutions on time and build to
           last.
         </p>
-        <UButton
+        <CustomModal>
+          <template #trigger>
+           <UButton
           icon="i-heroicons-arrow-right"
           trailing
           color="primary"
           class="text-white text-md md:text-xl rounded-3xl py-3 px-6 mt-10"
           variant="solid"
           label="GET A QUOTE"
-          to="#"
         />
+          </template>
+          <template #content>
+            <RequestProposal />
+          </template>
+        </CustomModal>
+        
       </div>
       <!--  -->
       <div class="md:flex-1/2 place-items-center">
