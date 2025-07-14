@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 load_dotenv(".env")
 
 ENGINE = create_engine("sqlite:///database.db")
-APP_MAIL_ADRESS = os.getenv('APP_MAIL_ADRESS') or ''
-APP_MAIL_PASSWORD = os.getenv('APP_MAIL_PASSWORD') or ''
-TO_MAIL_ADRESS = os.getenv('TO_MAIL_ADRESS') or ''
+SMTP_USERNAME = os.getenv('SMTP_USERNAME') or ''
+SMTP_PASSWORD = os.getenv('SMTP_PASSWORD') or ''
+SMTP_SERVER = os.getenv('SMTP_SERVER') or ''
+SMTP_PORT = os.getenv('SMTP_PORT') or ''
