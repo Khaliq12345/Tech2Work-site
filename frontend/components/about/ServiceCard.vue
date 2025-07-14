@@ -9,7 +9,7 @@
       <!-- Front -->
       <UCard
         variant="soft"
-        class="absolute w-full h-full bg-white border backface-hidden text-left shadow-2xl"
+        class="absolute w-full h-full bg-white border-2 backface-hidden text-left shadow-2xl"
       >
         <UIcon :name="icon" size="50" class="py-2" />
         <div class="flex items-center justify-start">
@@ -21,7 +21,7 @@
       <!-- Back -->
       <UCard
         variant="soft"
-        class="absolute w-full h-full backface-hidden rotate-y-180 text-white bg-gradient-to-br from-black to-gray-100 text-center shadow-2xl"
+        class="absolute w-full h-full border-2 backface-hidden rotate-y-180 text-white bg-gradient-to-br from-black to-gray-100 text-center shadow-2xl"
       >
         <div class="flex items-center justify-start">
           <div class="text-left">

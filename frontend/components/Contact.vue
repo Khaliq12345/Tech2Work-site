@@ -83,12 +83,13 @@
             <div
               class="flex text-sm md:text-md items-center flex-wrap justify-center md:justify-between pt-2 gap-5"
             >
-              <button
+              <UButton
+              :loading="sending"
                 type="submit"
-                class="bg-white border border-gray-800 text-gray-800 px-6 py-2 rounded-full font-semibold hover:bg-gray-100 transition"
+                class=" border text-white px-6 py-2 rounded-full font-semibold transition"
               >
                 SEND A MESSAGE
-              </button>
+              </UButton>
               <div
                 class="text-gray-500 flex items-center gap-1 text-sm hover:text-gary-800"
               >
@@ -103,6 +104,8 @@
 </template>
 
 <script setup lang="ts">
+const {showToast} = useNotifications()
+const sending = ref(false)
 const form = ref({
   name: "",
   email: "",
@@ -111,12 +114,29 @@ const form = ref({
 
 const { people } = useContactPeople();
 
-function sendEmail() {
-  const subject = encodeURIComponent(`Contact from ${form.value.name}`);
-  const body = encodeURIComponent(
-    `Name: ${form.value.name}\nEmail: ${form.value.email}\n\nMessage:\n${form.value.message}`,
-  );
-  const mailto = `mailto:tech2work@gmail.com?subject=${subject}&body=${body}`;
-  window.location.href = mailto;
+async function sendEmail() {
+  sending.value = true
+  const subject = `Contact from ${form.value.name}`;
+  const body = `Name: ${form.value.name}\nEmail: ${form.value.email}\n\nMessage:\n${form.value.message}`;
+  const data = await $fetch("/api/global/send-email-message", {
+    method: "POST",
+    query: {
+      subject: subject,
+      content: body,
+      mail_from: form.value.email,
+    },
+  });
+  sending.value = false
+  const response = data as any
+  if (response.status == 'success') {
+    showToast('Success !', 'Mail Successfully Delivred', 'i-lucide-check', 'success')
+  } else {
+    showToast('Error !', 'Mail Not Delivred', 'i-heroicons-x-mark', 'error')
+  }
+  form.value = {
+    name: "",
+    email: "",
+    message: "",
+  };
 }
 </script>

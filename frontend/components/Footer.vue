@@ -69,9 +69,8 @@
     >
       <!-- Legal Links -->
       <div class="flex flex-wrap justify-center gap-6">
-        <NuxtLink to="" class="hover:underline">TERMS OF USE</NuxtLink>
-        <NuxtLink to="" class="hover:underline">PRIVACY POLICY</NuxtLink>
-        <NuxtLink to="" class="hover:underline">SITEMAP</NuxtLink>
+        <NuxtLink to="/termsOfUse" class="hover:underline">TERMS OF USE</NuxtLink>
+        <NuxtLink to="/privacyPolicy" class="hover:underline">PRIVACY POLICY</NuxtLink>
       </div>
 
       <div class="text-center text-xs text-white/80">

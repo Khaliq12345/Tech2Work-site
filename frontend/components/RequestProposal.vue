@@ -46,6 +46,7 @@
                 type="submit"
                 icon="i-lucide-arrow-up-from-dot"
                 color="primary"
+                :loading="sending"
                 class="text-white text-xl rounded-3xl py-3 px-10 mt-3"
                 variant="solid"
                 >Send</UButton
@@ -96,23 +97,35 @@ const features = [
 const form = ref({
   name: "",
   email: "",
-  message: "",
-  files: [] as File[],
+  message: ""
 });
 
-function sendEmail() {
-  const subject = encodeURIComponent(`Contact from ${form.value.name}`);
-  const body = encodeURIComponent(
-    `Name: ${form.value.name}\nEmail: ${form.value.email}\n\nMessage:\n${form.value.message}`,
-  );
-  const mailto = `mailto:tech2work@gmail.com?subject=${subject}&body=${body}`;
-  window.location.href = mailto;
-}
+const {showToast} = useNotifications()
+const sending = ref(false)
 
-function handleFileChange(event: Event) {
-  const target = event.target as HTMLInputElement;
-  if (target.files) {
-    form.value.files = Array.from(target.files);
+async function sendEmail() {
+  sending.value = true
+  const subject = `Proposal Request from ${form.value.name}`;
+  const body = `Name: ${form.value.name}\nEmail: ${form.value.email}\n\nMessage:\n${form.value.message}`;
+  const data = await $fetch("/api/global/send-email-message", {
+    method: "POST",
+    query: {
+      subject: subject,
+      content: body,
+      mail_from: form.value.email,
+    },
+  });
+  sending.value = false
+  const response = data as any
+  if (response.status == 'success') {
+    showToast('Success !', 'Mail Successfully Delivred', 'i-lucide-check', 'success')
+  } else {
+    showToast('Error !', 'Mail Not Delivred', 'i-heroicons-x-mark', 'error')
   }
+  form.value = {
+    name: "",
+    email: "",
+    message: "",
+  };
 }
 </script>
