@@ -2,7 +2,7 @@
   <NuxtLayout name="default">
     <HomeHeroSection /> 
     <HomeServicesSection />
-    <HomeTestimonialsSection />
+    <TestimonialsSection />
     <TechStack />
     <HomeIndustries />
     <HomeTrustedSection />

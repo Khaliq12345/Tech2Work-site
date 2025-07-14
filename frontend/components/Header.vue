@@ -8,16 +8,16 @@
 
       <div class="flex flex-wrap justify-center pt-2 md:pt-0">
         <a
-          href="mailto:tech2work@gmail.com"
+          href="mailto:contact@tech2work.tech"
           class="flex items-center gap-2 pl-10 transition-colors"
         >
-          <UIcon name="i-lucide-mail" class="size-4" /> tech2work@gmail.com
+          <UIcon name="i-lucide-mail" class="size-4" /> contact@tech2work.tech
         </a>
         <a
-          href="tel:+2290198988765"
+          href="tel:+2290162369889"
           class="flex items-center gap-2 px-5 transition-colors"
         >
-          <UIcon name="i-lucide-phone" class="size-4" /> +229 0198988765
+          <UIcon name="i-lucide-phone" class="size-4" /> +229 0162369889
         </a>
       </div>
     </div>
@@ -41,7 +41,13 @@
       <ul
         class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-700"
       >
-        <UNavigationMenu :items="items" class="w-full justify-center" />
+        <UNavigationMenu
+          :items="items"
+          class="w-full justify-center"
+          variant="link"
+          color="error"
+        >
+        </UNavigationMenu>
       </ul>
       <!-- Mobile Drawer -->
       <UDrawer
@@ -58,10 +64,13 @@
         <template #body>
           <USeparator class="py-3 mb-3" />
           <UNavigationMenu
-            orientation="vertical"
             :items="items"
+            orientation="vertical"
             class="w-full justify-center"
-          />
+            variant="link"
+            color="error"
+          >
+          </UNavigationMenu>
         </template>
       </UDrawer>
     </nav>

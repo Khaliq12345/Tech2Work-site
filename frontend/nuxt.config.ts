@@ -7,5 +7,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     API_URL: process.env.API_URL,
   },
+  devServer: {
+    host: "0.0.0.0",
+    port: 3000,
+  },
 });
-

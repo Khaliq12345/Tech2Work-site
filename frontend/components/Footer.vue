@@ -6,14 +6,14 @@
     >
       <div>
         <div class="flex gap-3 flex-wrap xl:flex-nowrap">
-          <img src="~/assets/imgs/logo.jpg" class="rounded-full h-30" alt="" />
+          <img src="~/assets/imgs/logo2.png" class="rounded-full h-50" alt="" />
           <div class="">
             <h3 class="text-2xl font-bold text-black mb-3">Tech2Work Agency</h3>
             <p>
-              We are an award-winning software development company with a proven
-              track record of 200+ projects. We create cutting-edge digital
-              solutions that empower startups and small to medium-sized
-              companies to achieve their business goals.
+              We are a software development company with a proven track record
+              of 200+ projects. We create cutting-edge digital solutions that
+              empower startups and small to medium-sized companies to achieve
+              their business goals.
             </p>
           </div>
         </div>
@@ -24,30 +24,33 @@
           orientation="vertical"
           :items="items"
           class="w-full justify-center"
-        />
+          variant="link"
+          color="error"
+        >
+        </UNavigationMenu>
       </div>
       <div>
         <h4 class="text-black text-lg font-semibold mb-2">Contact</h4>
         <ul class="space-y-1 text-md">
           <li>
             <a
-              href="mailto:tech2work@gmail.com"
+              href="mailto:contact@tech2work.tech"
               class="flex items-center gap-2 transition-colors"
             >
               <UIcon name="i-lucide-mail" class="size-4" /><span
                 class="font-semibold"
                 >Email</span
               >
-              : tech2work@gmail.com
+              : contact@tech2work.tech
             </a>
           </li>
           <li>
             <a
-              href="tel:+2290198988765"
+              href="tel:+2290162369889"
               class="flex items-center gap-2 transition-colors"
             >
               <UIcon name="i-lucide-phone" class="size-4" />
-              <span class="font-semibold">Phone</span> : +229 0198988765
+              <span class="font-semibold">Phone</span> : +229 0162369889
             </a>
           </li>
           <li class="flex font-semibold items-center gap-2 transition-colors">
@@ -66,11 +69,8 @@
     >
       <!-- Legal Links -->
       <div class="flex flex-wrap justify-center gap-6">
-        <NuxtLink to="" class="hover:underline">TERMS OF USE</NuxtLink>
-        <NuxtLink to="" class="hover:underline"
-          >PRIVACY POLICY</NuxtLink
-        >
-        <NuxtLink to="" class="hover:underline">SITEMAP</NuxtLink>
+        <NuxtLink to="/termsOfUse" class="hover:underline">TERMS OF USE</NuxtLink>
+        <NuxtLink to="/privacyPolicy" class="hover:underline">PRIVACY POLICY</NuxtLink>
       </div>
 
       <div class="text-center text-xs text-white/80">
@@ -96,12 +96,19 @@
 
 <script setup lang="ts">
 const { items } = useMenuItems();
+const route = useRoute();
 const socialIcons = [
-  { name: "i-lucide-facebook", url: "https://facebook.com" },
-  { name: "i-lucide-twitter", url: "https://twitter.com" },
-  { name: "i-lucide-youtube", url: "https://youtube.com" },
-  { name: "i-lucide-instagram", url: "https://instagram.com" },
-  { name: "i-lucide-linkedin", url: "https://linkedin.com" },
-  { name: "i-lucide-github", url: "https://github.com" },
+  {
+    name: "i-lucide-facebook",
+    url: "https://www.facebook.com/profile.php?id=61577734741087",
+  },
+  { name: "i-lucide-twitter", url: "https://x.com/TechtwoW61533" },
+  // { name: "i-lucide-youtube", url: "https://youtube.com" },
+  // { name: "i-lucide-instagram", url: "https://instagram.com" },
+  {
+    name: "i-lucide-linkedin",
+    url: "https://www.linkedin.com/in/techtwo-work-70b021372/",
+  },
+  // { name: "i-lucide-github", url: "https://github.com" },
 ];
 </script>

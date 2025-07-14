@@ -1,7 +1,7 @@
 <template>
   <section id="industries" class="py-20 px-6 md:px-15 bg-gray-200 text-center">
     <div class="text-left flex flex-wrap lg:flex-nowrap gap-y-4 mb-10">
-      <h3 class="lg:flex-1/2 text-xl md:text-3xl lg:text-4xl font-bold mb-2 uppercase">
+      <h3 class="lg:flex-1/2 text-xl md:text-2xl lg:text-3xl font-bold mb-2 uppercase">
         We Provide IT Services to Various Industries
       </h3>
       <p class="text-sm md:text-md lg:text-xl font-semibold lg:flex-1/2">
@@ -13,9 +13,46 @@
       </p>
     </div>
     <!--  -->
-    <div class="flex flex-col lg:flex-row gap-4">
+
+    <UCollapsible v-for="service in services"
+          :key="service.name" class="lg:hidden my-4">
+      <UButton
+          
+          :icon="service.icon"
+          :label="service.name"
+          variant="outline"
+          class="justify-start w-full text-md md:text-xl font-semibold rounded-xl px-6 py-4"
+          :class="{
+            'bg-primary text-white border-primary':
+              selected.name === service.name,
+            'text-gray-800 border-gray-300 hover:bg-gray-100':
+              selected.name !== service.name,
+          }"
+          @click="selectService(service)"
+        />
+      <template #content>
+        <div
+          class="grid grid-cols-1 gap-6 mt-3"
+          :class="{ 'md:grid-cols-2': selected.samples.length != 0 }"
+        >
+          <p class="text-sm md:text-md leading-relaxed">
+            {{ selected.description }}
+          </p>
+          <div v-if="selected.samples" class="flex flex-col gap-3">
+            <span
+              v-for="link in selected.samples"
+              class="text-sm md:text-md font-medium text-white hover:text-gray-200"
+            >
+              {{ link }}
+            </span>
+          </div>
+        </div>
+      </template>
+    </UCollapsible>
+
+    <div class="lg:flex flex-col lg:flex-row gap-4 hidden">
       <!-- Sidebar -->
-      <div class="flex flex-col gap-4 w-full lg:w-1/3">
+      <div class=" flex flex-col gap-4 w-full lg:w-1/3">
         <UButton
           v-for="service in services"
           :key="service.name"
@@ -66,7 +103,7 @@ import type { Service } from "~/interface/service";
 
 const services: Ref<Service[]> = ref([]);
 const { data } = await useFetch("/api/home/get-home-industries");
-services.value = data.value;
+services.value = data.value as any;
 const selected = ref<Service>(services.value[0]);
 function selectService(service: Service) {
   selected.value = service;

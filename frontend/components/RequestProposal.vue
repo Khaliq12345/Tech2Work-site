@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-wrap gap-8 container mx-auto ">
+  <div class="flex flex-wrap gap-8 container mx-auto">
     <UCard
       class="col-span-1 lg:col-span-2 shadow-xl p-0 md:p-3 lg:p-4 flex flex-col justify-center w-full bg-gradient-to-br from-black to-gray-400"
     >
@@ -8,12 +8,10 @@
         <div
           class="bg-white text-black shadow-md rounded-xl p-8 w-full space-y-6 lg:flex-1/2"
         >
-          <h2 class="text-2xl md:text-3xl font-bold uppercase leading-tight">
+          <h2 class="text-xl md:text-2xl font-bold uppercase leading-tight">
             Request for proposal
           </h2>
-          <p class=" ">
-            Let’s discuss how we can help with your project.
-          </p>
+          <p class=" ">Let’s discuss how we can help with your project.</p>
           <form @submit.prevent="sendEmail" class="space-y-5">
             <div>
               <input
@@ -48,6 +46,7 @@
                 type="submit"
                 icon="i-lucide-arrow-up-from-dot"
                 color="primary"
+                :loading="sending"
                 class="text-white text-xl rounded-3xl py-3 px-10 mt-3"
                 variant="solid"
                 >Send</UButton
@@ -59,7 +58,7 @@
               </div>
             </div>
           </form>
-          <p class="mt-2 text-md ">
+          <p class="mt-2 text-md">
             By clicking «Send» you confirm, that you understand and agree to the
             Privacy Policy
           </p>
@@ -70,10 +69,14 @@
             Let’s Build Together
           </h2>
           <p class="text-gray-600 dark:text-gray-300 text-base mb-15">
-            Reach out to our sales managers for tailored software development
-            solutions and professional guidance.
+            Reach out to our team for tailored software development solutions
+            and professional guidance.
           </p>
-          <div v-for="f in features" :key="f" class="flex text-left items-center my-4">
+          <div
+            v-for="f in features"
+            :key="f"
+            class="flex text-left items-center my-4"
+          >
             <UIcon name="i-lucide-circle-check-big" size="20" class="mr-5" />
             {{ f }}
           </div>
@@ -85,8 +88,8 @@
 
 <script setup lang="ts">
 const features = [
-  "10+ years in software development",
-  "230+ successfully delivered projects",
+  "5+ years in software development",
+  "200+ successfully delivered projects",
   "We focus on your needs, not generic solutions",
   "Transparent planning and execution from day one",
   "End-to-end product development",
@@ -94,23 +97,35 @@ const features = [
 const form = ref({
   name: "",
   email: "",
-  message: "",
-  files: [] as File[],
+  message: ""
 });
 
-function sendEmail() {
-  const subject = encodeURIComponent(`Contact from ${form.value.name}`);
-  const body = encodeURIComponent(
-    `Name: ${form.value.name}\nEmail: ${form.value.email}\n\nMessage:\n${form.value.message}`,
-  );
-  const mailto = `mailto:tech2work@gmail.com?subject=${subject}&body=${body}`;
-  window.location.href = mailto;
-}
+const {showToast} = useNotifications()
+const sending = ref(false)
 
-function handleFileChange(event: Event) {
-  const target = event.target as HTMLInputElement;
-  if (target.files) {
-    form.value.files = Array.from(target.files);
+async function sendEmail() {
+  sending.value = true
+  const subject = `Proposal Request from ${form.value.name}`;
+  const body = `Name: ${form.value.name}\nEmail: ${form.value.email}\n\nMessage:\n${form.value.message}`;
+  const data = await $fetch("/api/global/send-email-message", {
+    method: "POST",
+    query: {
+      subject: subject,
+      content: body,
+      mail_from: form.value.email,
+    },
+  });
+  sending.value = false
+  const response = data as any
+  if (response.status == 'success') {
+    showToast('Success !', 'Mail Successfully Delivred', 'i-lucide-check', 'success')
+  } else {
+    showToast('Error !', 'Mail Not Delivred', 'i-heroicons-x-mark', 'error')
   }
+  form.value = {
+    name: "",
+    email: "",
+    message: "",
+  };
 }
 </script>

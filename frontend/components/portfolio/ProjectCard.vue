@@ -2,7 +2,7 @@
   <UCard variant="soft" class="p-y text-center shadow-2xl">
     <div class="flex flex-wrap lg:flex-nowrap items-center gap-x-5">
       <div class="lg:flex-1/2 text-left">
-        <h3 class="text-2xl md:text-3xl font-bold text-black mb-4">
+        <h3 class="text-xl md:text-2xl font-bold text-black mb-4">
           {{ item.title }}
         </h3>
         <p class="text-base text-gray-700 mb-4">
@@ -22,22 +22,6 @@
             <div class="flex flex-wrap gap-2">
               <UBadge
                 v-for="tech in item.industries"
-                :key="tech"
-                :label="tech"
-                variant="outline"
-                size="sm"
-              />
-            </div>
-          </div>
-        </div>
-        <!-- Services -->
-        <div class="mb-3">
-          <div class="flex flex-wrap gap-y-2 items-center text-sm mb-2">
-            <UIcon name="i-lucide-briefcase-business" />
-            <span class="font-semibold px-2">Services : </span>
-            <div class="flex flex-wrap gap-2">
-              <UBadge
-                v-for="tech in item.services"
                 :key="tech"
                 :label="tech"
                 variant="outline"

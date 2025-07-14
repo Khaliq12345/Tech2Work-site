@@ -3,6 +3,10 @@ from fastapi import APIRouter
 from sqlmodel import select
 from src.models.global_models import create_table, ServiceTechStack, FAQ
 from src.utils import get_session
+from src.core.config import APP_MAIL_ADRESS, APP_MAIL_PASSWORD, TO_MAIL_ADRESS
+import smtplib
+import ssl
+from email.message import EmailMessage
 
 route = APIRouter(prefix="/global")
 route.add_event_handler("startup", create_table)
@@ -45,3 +49,20 @@ def get_faq():
         results = session.exec(stmt).fetchall()
         return results
 
+@route.post("/send-email-message")
+async def send_email_message(subject: str, content: str, mail_from: str) -> dict:
+    #
+    message = EmailMessage()
+    message["From"] = mail_from
+    message["To"] = TO_MAIL_ADRESS
+    message["Subject"] = subject
+    message.set_content(content)
+    # 
+    try:
+        context = ssl.create_default_context()
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
+            server.login(APP_MAIL_ADRESS, APP_MAIL_PASSWORD)
+            server.send_message(message)
+        return {"status": "success", "message": "Email envoyé"}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}

@@ -6,21 +6,16 @@
     >
       <div class="flex flex-wrap lg:flex-nowrap justify-center gap-5">
         <div class="space-y-6 lg:flex-1/2 text-center lg:text-left">
-          <h2 class="text-xl md:text-3xl font-bold text-gray-900 dark:text-white">
+          <h2
+            class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white"
+          >
             Let’s Build Together
           </h2>
           <p class="text-gray-600 dark:text-gray-300 text-base">
-            Reach out to our sales managers for tailored software development
-            solutions and professional guidance.
+            Reach out to our team for tailored software development solutions
+            and professional guidance.
           </p>
-          <UButton
-            icon="i-heroicons-phone"
-            color="primary"
-            class="text-white text-md md:text-xl rounded-3xl py-3 px-6 mt-3"
-            variant="solid"
-            label="Contact Us"
-            to="#"
-          />
+
           <!-- Team Members -->
           <div class="flex flex-wrap text-white gap-8 mt-5 justify-center">
             <div
@@ -52,9 +47,7 @@
         <div
           class="bg-white shadow-md rounded-xl p-8 w-full space-y-6 lg:flex-1/2"
         >
-          <h2
-            class="text-xl md:text-3xl font-bold text-gray-900 leading-tight"
-          >
+          <h2 class="text-xl md:text-2xl font-bold text-gray-900 leading-tight">
             START BUILDING YOUR <br />
             SOFTWARE. CONTACT US NOW
           </h2>
@@ -87,13 +80,16 @@
               ></textarea>
             </div>
             <!-- Submit Button -->
-            <div class="flex text-sm md:text-md items-center flex-wrap justify-center md:justify-between pt-2 gap-5">
-              <button
+            <div
+              class="flex text-sm md:text-md items-center flex-wrap justify-center md:justify-between pt-2 gap-5"
+            >
+              <UButton
+              :loading="sending"
                 type="submit"
-                class="bg-white border border-gray-800 text-gray-800 px-6 py-2 rounded-full font-semibold hover:bg-gray-100 transition"
+                class=" border text-white px-6 py-2 rounded-full font-semibold transition"
               >
                 SEND A MESSAGE
-              </button>
+              </UButton>
               <div
                 class="text-gray-500 flex items-center gap-1 text-sm hover:text-gary-800"
               >
@@ -108,6 +104,8 @@
 </template>
 
 <script setup lang="ts">
+const {showToast} = useNotifications()
+const sending = ref(false)
 const form = ref({
   name: "",
   email: "",
@@ -116,12 +114,29 @@ const form = ref({
 
 const { people } = useContactPeople();
 
-function sendEmail() {
-  const subject = encodeURIComponent(`Contact from ${form.value.name}`);
-  const body = encodeURIComponent(
-    `Name: ${form.value.name}\nEmail: ${form.value.email}\n\nMessage:\n${form.value.message}`,
-  );
-  const mailto = `mailto:tech2work@gmail.com?subject=${subject}&body=${body}`;
-  window.location.href = mailto;
+async function sendEmail() {
+  sending.value = true
+  const subject = `Contact from ${form.value.name}`;
+  const body = `Name: ${form.value.name}\nEmail: ${form.value.email}\n\nMessage:\n${form.value.message}`;
+  const data = await $fetch("/api/global/send-email-message", {
+    method: "POST",
+    query: {
+      subject: subject,
+      content: body,
+      mail_from: form.value.email,
+    },
+  });
+  sending.value = false
+  const response = data as any
+  if (response.status == 'success') {
+    showToast('Success !', 'Mail Successfully Delivred', 'i-lucide-check', 'success')
+  } else {
+    showToast('Error !', 'Mail Not Delivred', 'i-heroicons-x-mark', 'error')
+  }
+  form.value = {
+    name: "",
+    email: "",
+    message: "",
+  };
 }
 </script>
