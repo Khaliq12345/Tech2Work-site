@@ -6,14 +6,16 @@
     >
       <div class="flex flex-wrap lg:flex-nowrap justify-center gap-5">
         <div class="space-y-6 lg:flex-1/2 text-center lg:text-left">
-          <h2 class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">
+          <h2
+            class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white"
+          >
             Let’s Build Together
           </h2>
           <p class="text-gray-600 dark:text-gray-300 text-base">
-            Reach out to our sales managers for tailored software development
-            solutions and professional guidance.
+            Reach out to our team for tailored software development solutions
+            and professional guidance.
           </p>
-          
+
           <!-- Team Members -->
           <div class="flex flex-wrap text-white gap-8 mt-5 justify-center">
             <div
@@ -45,9 +47,7 @@
         <div
           class="bg-white shadow-md rounded-xl p-8 w-full space-y-6 lg:flex-1/2"
         >
-          <h2
-            class="text-xl md:text-2xl font-bold text-gray-900 leading-tight"
-          >
+          <h2 class="text-xl md:text-2xl font-bold text-gray-900 leading-tight">
             START BUILDING YOUR <br />
             SOFTWARE. CONTACT US NOW
           </h2>
@@ -80,7 +80,9 @@
               ></textarea>
             </div>
             <!-- Submit Button -->
-            <div class="flex text-sm md:text-md items-center flex-wrap justify-center md:justify-between pt-2 gap-5">
+            <div
+              class="flex text-sm md:text-md items-center flex-wrap justify-center md:justify-between pt-2 gap-5"
+            >
               <button
                 type="submit"
                 class="bg-white border border-gray-800 text-gray-800 px-6 py-2 rounded-full font-semibold hover:bg-gray-100 transition"

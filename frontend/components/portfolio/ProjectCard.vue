@@ -30,22 +30,6 @@
             </div>
           </div>
         </div>
-        <!-- Services -->
-        <div class="mb-3">
-          <div class="flex flex-wrap gap-y-2 items-center text-sm mb-2">
-            <UIcon name="i-lucide-briefcase-business" />
-            <span class="font-semibold px-2">Services : </span>
-            <div class="flex flex-wrap gap-2">
-              <UBadge
-                v-for="tech in item.services"
-                :key="tech"
-                :label="tech"
-                variant="outline"
-                size="sm"
-              />
-            </div>
-          </div>
-        </div>
         <!-- Technologies -->
         <div class="mb-3">
           <div class="flex flex-wrap gap-y-2 items-center text-sm mb-2">

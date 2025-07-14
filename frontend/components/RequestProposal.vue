@@ -68,8 +68,8 @@
             Let’s Build Together
           </h2>
           <p class="text-gray-600 dark:text-gray-300 text-base mb-15">
-            Reach out to our sales managers for tailored software development
-            solutions and professional guidance.
+            Reach out to our team for tailored software development solutions
+            and professional guidance.
           </p>
           <div
             v-for="f in features"
@@ -87,8 +87,8 @@
 
 <script setup lang="ts">
 const features = [
-  "10+ years in software development",
-  "230+ successfully delivered projects",
+  "5+ years in software development",
+  "200+ successfully delivered projects",
   "We focus on your needs, not generic solutions",
   "Transparent planning and execution from day one",
   "End-to-end product development",
