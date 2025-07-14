@@ -10,10 +10,10 @@
           <div class="">
             <h3 class="text-2xl font-bold text-black mb-3">Tech2Work Agency</h3>
             <p>
-              We are an award-winning software development company with a proven
-              track record of 200+ projects. We create cutting-edge digital
-              solutions that empower startups and small to medium-sized
-              companies to achieve their business goals.
+              We are a software development company with a proven track record
+              of 200+ projects. We create cutting-edge digital solutions that
+              empower startups and small to medium-sized companies to achieve
+              their business goals.
             </p>
           </div>
         </div>
@@ -34,23 +34,23 @@
         <ul class="space-y-1 text-md">
           <li>
             <a
-              href="mailto:tech2work@gmail.com"
+              href="mailto:contact@tech2work.tech"
               class="flex items-center gap-2 transition-colors"
             >
               <UIcon name="i-lucide-mail" class="size-4" /><span
                 class="font-semibold"
                 >Email</span
               >
-              : tech2work@gmail.com
+              : contact@tech2work.tech
             </a>
           </li>
           <li>
             <a
-              href="tel:+2290198988765"
+              href="tel:+2290162369889"
               class="flex items-center gap-2 transition-colors"
             >
               <UIcon name="i-lucide-phone" class="size-4" />
-              <span class="font-semibold">Phone</span> : +229 0198988765
+              <span class="font-semibold">Phone</span> : +229 0162369889
             </a>
           </li>
           <li class="flex font-semibold items-center gap-2 transition-colors">
