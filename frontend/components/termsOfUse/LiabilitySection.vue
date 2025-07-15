@@ -11,7 +11,7 @@
       </p>
       <div v-for="f in liabLst" class="flex items-center my-4">
         <UIcon name="i-lucide-circle-check-big" size="20" class="mr-5" />
-        {{ f }}
+        {{ f.value }}
       </div>
       <p class="font-bold my-10">
         Tech2Work Agency saves the right to introduce this Copyright Statement
@@ -22,8 +22,7 @@
 </template>
 
 <script setup lang="ts">
-const liabLst = [
-  "Direct or indirect, intended or unintended damages caused by the reliance on this website",
-  "Loss of business opportunity, loss of programs, in case of negligence or tort",
-];
+const liabLst: Ref<any> = ref([]);
+const { data } = await useFetch("/api/global/get-terms-of-use-liability");
+liabLst.value = data.value
 </script>

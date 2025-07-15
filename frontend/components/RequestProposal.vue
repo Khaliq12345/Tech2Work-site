@@ -12,52 +12,7 @@
             Request for proposal
           </h2>
           <p class=" ">Let’s discuss how we can help with your project.</p>
-          <form @submit.prevent="sendEmail" class="space-y-5">
-            <div>
-              <input
-                v-model="form.name"
-                required
-                type="text"
-                placeholder="Name *"
-                class="w-full border-b border-gray-300 focus:outline-none focus:border-blue-600 pb-2"
-              />
-            </div>
-            <div>
-              <input
-                v-model="form.email"
-                required
-                type="email"
-                placeholder="E-mail *"
-                class="w-full border-b border-gray-300 focus:outline-none focus:border-blue-600 pb-2"
-              />
-            </div>
-            <div>
-              <textarea
-                v-model="form.message"
-                required
-                placeholder="Project description *"
-                rows="2"
-                class="w-full border-b border-gray-300 focus:outline-none focus:border-blue-600 pb-2 resize-none"
-              ></textarea>
-            </div>
-            <!-- Submit Button -->
-            <div class="flex gap-5 items-center justify-between pt-2">
-              <UButton
-                type="submit"
-                icon="i-lucide-arrow-up-from-dot"
-                color="primary"
-                :loading="sending"
-                class="text-white text-xl rounded-3xl py-3 px-10 mt-3"
-                variant="solid"
-                >Send</UButton
-              >
-              <div
-                class="text-gray-500 flex items-center gap-1 text-sm hover:text-gary-800"
-              >
-                <span>@Tech2Work</span>
-              </div>
-            </div>
-          </form>
+          <ContactForm />
           <p class="mt-2 text-md">
             By clicking «Send» you confirm, that you understand and agree to the
             Privacy Policy
@@ -94,43 +49,4 @@ const features = [
   "Transparent planning and execution from day one",
   "End-to-end product development",
 ];
-const form = ref({
-  name: "",
-  email: "",
-  message: "",
-});
-
-const { showToast } = useNotifications();
-const sending = ref(false);
-
-async function sendEmail() {
-  sending.value = true;
-  const subject = `Proposal Request from ${form.value.name}`;
-  const body = `Name: ${form.value.name}\nEmail: ${form.value.email}\n\nMessage:\n${form.value.message}`;
-  const data = await $fetch("/api/global/send-email-message", {
-    method: "POST",
-    query: {
-      subject: subject,
-      content: body,
-      mail_from: form.value.email,
-    },
-  });
-  sending.value = false;
-  const response = data as any;
-  if (response.status == "success") {
-    showToast(
-      "Success !",
-      "Mail Successfully Delivred",
-      "i-lucide-check",
-      "success",
-    );
-  } else {
-    showToast("Error !", "Mail Not Delivred", "i-heroicons-x-mark", "error");
-  }
-  form.value = {
-    name: "",
-    email: "",
-    message: "",
-  };
-}
 </script>

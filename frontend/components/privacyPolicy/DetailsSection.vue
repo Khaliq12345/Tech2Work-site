@@ -35,7 +35,12 @@
 </template>
 
 <script setup lang="ts">
-const sections: Array<any> = [
+
+const sections: Ref<any> = ref([]);
+const { data } = await useFetch("/api/global/get-privacy-detail");
+sections.value = data.value
+
+/* const sections: Array<any> = [
   {
     title: "1. What information do we collect?",
     id: "title-1",
@@ -219,7 +224,7 @@ const sections: Array<any> = [
     ],
   },
   {
-    title: "11. Controls for Do-Not-Track features",
+    title: "11. Controls for Do-Not-Track features", 
     id: "title-11",
     parts: [
       {
@@ -274,5 +279,6 @@ const sections: Array<any> = [
       },
     ],
   },
-];
+]; 
+*/
 </script>
