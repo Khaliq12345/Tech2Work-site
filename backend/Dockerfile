@@ -15,6 +15,7 @@ ENV PATH="/root/.local/bin/:$PATH"
 WORKDIR /app
 
 ADD . /app
+COPY .env /app/.env
 
 RUN uv sync --locked
 
