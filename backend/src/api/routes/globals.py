@@ -1,12 +1,9 @@
 from typing import List
-from fastapi import APIRouter
+from fastapi import APIRouter, BackgroundTasks
 from sqlmodel import select
 from src.models.global_models import create_table, ServiceTechStack, FAQ, TermsOfUseLiability, PrivacyDetailPart, PrivacyDetailItem
-from src.utils import get_session
-from src.core.config import SMTP_USERNAME, SMTP_PASSWORD, SMTP_SERVER, SMTP_PORT
-import smtplib
-import ssl
-from email.message import EmailMessage
+from src.utils import get_session, send_email_message
+
 
 route = APIRouter(prefix="/global")
 route.add_event_handler("startup", create_table)
@@ -51,27 +48,11 @@ def get_faq():
 
 
 @route.post("/send-email-message")
-async def send_email_message(
-    subject: str, content: str
-) -> dict:
-    #
-    message = EmailMessage()
-    message["From"] = SMTP_USERNAME
-    message["To"] = SMTP_USERNAME
-    message["Subject"] = subject
-    message.set_content(content)
-    message.add_alternative(content, subtype='html')
-    #
-    try:
-        context = ssl.create_default_context()
-        with smtplib.SMTP_SSL(
-            SMTP_SERVER, int(SMTP_PORT), context=context
-        ) as server:
-            server.login(SMTP_USERNAME, SMTP_PASSWORD)
-            server.send_message(message)
-        return {"status": "success", "message": "Email envoyé"}
-    except Exception as e:
-        return {"status": "error", "message": str(e)}
+def send_email(background_tasks: BackgroundTasks, subject: str, content: str):
+    background_tasks.add_task(send_email_message, subject, content)
+    return {"status": "success", "message": "Envoi en cours…"}
+
+
 
 
 @route.get("/add-terms-of-use-liability")
