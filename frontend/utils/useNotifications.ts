@@ -11,7 +11,8 @@ export function useNotifications() {
         color: colorV,
         variant: 'outline',
         class: 'rounded-full'
-      }
+      },
+      class: 'text-black'
     })
   }
   return {

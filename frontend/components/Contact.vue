@@ -38,52 +38,7 @@
             START BUILDING YOUR <br />
             SOFTWARE. CONTACT US NOW
           </h2>
-          <form @submit.prevent="sendEmail" class="space-y-5">
-            <div>
-              <input
-                v-model="form.name"
-                required
-                type="text"
-                placeholder="Name *"
-                class="w-full border-b border-gray-300 focus:outline-none focus:border-blue-600 pb-2"
-              />
-            </div>
-            <div>
-              <input
-                v-model="form.email"
-                required
-                type="email"
-                placeholder="E-mail *"
-                class="w-full border-b border-gray-300 focus:outline-none focus:border-blue-600 pb-2"
-              />
-            </div>
-            <div>
-              <textarea
-                v-model="form.message"
-                required
-                placeholder="What we can do for you? *"
-                rows="2"
-                class="w-full border-b border-gray-300 focus:outline-none focus:border-blue-600 pb-2 resize-none"
-              ></textarea>
-            </div>
-            <!-- Submit Button -->
-            <div
-              class="flex text-sm md:text-md items-center flex-wrap justify-center md:justify-between pt-2 gap-5"
-            >
-              <UButton
-                :loading="sending"
-                type="submit"
-                class="border text-white px-6 py-2 rounded-full font-semibold transition"
-              >
-                SEND A MESSAGE
-              </UButton>
-              <div
-                class="text-gray-500 flex items-center gap-1 text-sm hover:text-gary-800"
-              >
-                <span>@Tech2Work</span>
-              </div>
-            </div>
-          </form>
+          <ContactForm />
         </div>
       </div>
     </UCard>
@@ -91,44 +46,5 @@
 </template>
 
 <script setup lang="ts">
-const { showToast } = useNotifications();
-const sending = ref(false);
-const form = ref({
-  name: "",
-  email: "",
-  message: "",
-});
-
 const { people } = useContactPeople();
-
-async function sendEmail() {
-  sending.value = true;
-  const subject = `Contact from ${form.value.name}`;
-  const body = `Name: ${form.value.name}\nEmail: ${form.value.email}\n\nMessage:\n${form.value.message}`;
-  const data = await $fetch("/api/global/send-email-message", {
-    method: "POST",
-    query: {
-      subject: subject,
-      content: body,
-      mail_from: form.value.email,
-    },
-  });
-  sending.value = false;
-  const response = data as any;
-  if (response.status == "success") {
-    showToast(
-      "Success !",
-      "Mail Successfully Delivred",
-      "i-lucide-check",
-      "success",
-    );
-  } else {
-    showToast("Error !", "Mail Not Delivred", "i-heroicons-x-mark", "error");
-  }
-  form.value = {
-    name: "",
-    email: "",
-    message: "",
-  };
-}
 </script>
