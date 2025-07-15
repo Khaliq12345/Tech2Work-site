@@ -49,18 +49,23 @@ def get_faq():
         results = session.exec(stmt).fetchall()
         return results
 
+
 @route.post("/send-email-message")
-async def send_email_message(subject: str, content: str, mail_from: str) -> dict:
+async def send_email_message(
+    subject: str, content: str, mail_from: str
+) -> dict:
     #
     message = EmailMessage()
-    message["From"] = mail_from
+    message["From"] = SMTP_USERNAME
     message["To"] = SMTP_USERNAME
     message["Subject"] = subject
     message.set_content(content)
-    # 
+    #
     try:
         context = ssl.create_default_context()
-        with smtplib.SMTP_SSL(SMTP_SERVER, int(SMTP_PORT), context=context) as server:
+        with smtplib.SMTP_SSL(
+            SMTP_SERVER, int(SMTP_PORT), context=context
+        ) as server:
             server.login(SMTP_USERNAME, SMTP_PASSWORD)
             server.send_message(message)
         return {"status": "success", "message": "Email envoyé"}

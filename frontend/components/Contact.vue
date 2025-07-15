@@ -23,22 +23,9 @@
               :key="person.name"
               class="flex items-center gap-4"
             >
-              <img
-                :src="person.image"
-                alt="Photo"
-                class="w-16 h-16 rounded-full object-cover shadow"
-              />
               <div>
                 <div class="font-semibold">{{ person.name }}</div>
                 <div class="text-sm">{{ person.role }}</div>
-                <a
-                  :href="person.linkedin"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-block mt-1 text-white hover:underline"
-                >
-                  <Icon name="mdi:linkedin" class="w-5 h-5" />
-                </a>
               </div>
             </div>
           </div>
@@ -84,9 +71,9 @@
               class="flex text-sm md:text-md items-center flex-wrap justify-center md:justify-between pt-2 gap-5"
             >
               <UButton
-              :loading="sending"
+                :loading="sending"
                 type="submit"
-                class=" border text-white px-6 py-2 rounded-full font-semibold transition"
+                class="border text-white px-6 py-2 rounded-full font-semibold transition"
               >
                 SEND A MESSAGE
               </UButton>
@@ -104,8 +91,8 @@
 </template>
 
 <script setup lang="ts">
-const {showToast} = useNotifications()
-const sending = ref(false)
+const { showToast } = useNotifications();
+const sending = ref(false);
 const form = ref({
   name: "",
   email: "",
@@ -115,7 +102,7 @@ const form = ref({
 const { people } = useContactPeople();
 
 async function sendEmail() {
-  sending.value = true
+  sending.value = true;
   const subject = `Contact from ${form.value.name}`;
   const body = `Name: ${form.value.name}\nEmail: ${form.value.email}\n\nMessage:\n${form.value.message}`;
   const data = await $fetch("/api/global/send-email-message", {
@@ -126,12 +113,17 @@ async function sendEmail() {
       mail_from: form.value.email,
     },
   });
-  sending.value = false
-  const response = data as any
-  if (response.status == 'success') {
-    showToast('Success !', 'Mail Successfully Delivred', 'i-lucide-check', 'success')
+  sending.value = false;
+  const response = data as any;
+  if (response.status == "success") {
+    showToast(
+      "Success !",
+      "Mail Successfully Delivred",
+      "i-lucide-check",
+      "success",
+    );
   } else {
-    showToast('Error !', 'Mail Not Delivred', 'i-heroicons-x-mark', 'error')
+    showToast("Error !", "Mail Not Delivred", "i-heroicons-x-mark", "error");
   }
   form.value = {
     name: "",

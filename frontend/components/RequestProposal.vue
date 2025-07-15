@@ -97,14 +97,14 @@ const features = [
 const form = ref({
   name: "",
   email: "",
-  message: ""
+  message: "",
 });
 
-const {showToast} = useNotifications()
-const sending = ref(false)
+const { showToast } = useNotifications();
+const sending = ref(false);
 
 async function sendEmail() {
-  sending.value = true
+  sending.value = true;
   const subject = `Proposal Request from ${form.value.name}`;
   const body = `Name: ${form.value.name}\nEmail: ${form.value.email}\n\nMessage:\n${form.value.message}`;
   const data = await $fetch("/api/global/send-email-message", {
@@ -115,12 +115,17 @@ async function sendEmail() {
       mail_from: form.value.email,
     },
   });
-  sending.value = false
-  const response = data as any
-  if (response.status == 'success') {
-    showToast('Success !', 'Mail Successfully Delivred', 'i-lucide-check', 'success')
+  sending.value = false;
+  const response = data as any;
+  if (response.status == "success") {
+    showToast(
+      "Success !",
+      "Mail Successfully Delivred",
+      "i-lucide-check",
+      "success",
+    );
   } else {
-    showToast('Error !', 'Mail Not Delivred', 'i-heroicons-x-mark', 'error')
+    showToast("Error !", "Mail Not Delivred", "i-heroicons-x-mark", "error");
   }
   form.value = {
     name: "",
