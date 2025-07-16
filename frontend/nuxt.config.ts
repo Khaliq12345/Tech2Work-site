@@ -11,4 +11,15 @@ export default defineNuxtConfig({
     host: "0.0.0.0",
     port: 3000,
   },
+  app: {
+    head: {
+      link: [
+        {
+          rel: "icon",
+          type: "image/webp",
+          href: "logo4.webp",
+        },
+      ],
+    },
+  },
 });
