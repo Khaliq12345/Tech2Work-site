@@ -6,6 +6,7 @@ import smtplib
 import ssl
 from email.message import EmailMessage
 
+
 @contextmanager
 def get_session():
     session = Session(ENGINE)
@@ -17,22 +18,19 @@ def get_session():
         session.close()
 
 
-def send_email_message(
-    subject: str, content: str
-) -> dict:
+def send_email_message(subject: str, content: str) -> dict:
     #
     message = EmailMessage()
     message["From"] = SMTP_USERNAME
     message["To"] = SMTP_USERNAME
     message["Subject"] = subject
     message.set_content(content)
-    message.add_alternative(content, subtype='html')
+    message.add_alternative(content, subtype="html")
     #
     try:
         context = ssl.create_default_context()
-        with smtplib.SMTP_SSL(
-            SMTP_SERVER, int(SMTP_PORT), context=context
-        ) as server:
+        with smtplib.SMTP(SMTP_SERVER, int(SMTP_PORT)) as server:
+            server.starttls(context=context)
             server.login(SMTP_USERNAME, SMTP_PASSWORD)
             server.send_message(message)
         return {"status": "success", "message": "Email envoyé"}
