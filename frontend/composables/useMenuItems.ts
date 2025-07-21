@@ -20,6 +20,11 @@ export function useMenuItems() {
       icon: "i-lucide-shield-plus",
       to: "/portfolio",
     },
+    {
+      label: "Location",
+      icon: "i-lucide-locate-fixed",
+      to: "/location",
+    },
   ]);
   return {
     items,

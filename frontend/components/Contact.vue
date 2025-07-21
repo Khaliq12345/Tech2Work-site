@@ -7,17 +7,17 @@
       <div class="flex flex-wrap lg:flex-nowrap justify-center gap-5">
         <div class="space-y-6 lg:flex-1/2 text-center lg:text-left">
           <h2
-            class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white"
+            class="text-xl md:text-2xl font-bold text-white"
           >
             Let’s Build Together
           </h2>
-          <p class="text-gray-600 dark:text-gray-300 text-base">
+          <p class="text-white text-base">
             Reach out to our team for tailored software development solutions
             and professional guidance.
           </p>
 
           <!-- Team Members -->
-          <div class="flex flex-wrap text-white gap-8 mt-5 justify-center">
+          <div class="flex flex-wrap text-white gap-8 my-10 md:mt-15 justify-center">
             <div
               v-for="person in people"
               :key="person.name"
