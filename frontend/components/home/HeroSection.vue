@@ -7,8 +7,7 @@
         Tech2Work Agency
       </p>
       <p class="my-5 text-lg lg:text-3xl text-gray-700">
-        We build forward-thinking digital products that enable startups and
-        growing businesses to achieve their goals.
+        {{ $t('home_hero_text') }}
       </p>
       <CustomModal>
           <template #trigger>
