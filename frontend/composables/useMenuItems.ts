@@ -1,31 +1,34 @@
+import { ref } from 'vue';
 import type { NavigationMenuItem } from "@nuxt/ui";
+import { useI18n } from '#i18n';
 
 export function useMenuItems() {
-  const route = useRoute();
-  //  route.name?.toString().includes
+  const { t } = useI18n();
+
   const items = ref<NavigationMenuItem[]>([
     {
-      label: "Home",
+      label: t('nav_menu_home'),
       icon: "i-lucide-home",
-      to: "/",
+      to: getLocalizedPath("/"),
     },
     {
-      label: "About Us",
+      label: t('nav_menu_about'),
       icon: "i-lucide-info",
       description: "In our company, we're not just IT professionals.",
-      to: "/about",
+      to: getLocalizedPath("/about"),
     },
     {
-      label: "Portfolio",
+      label: t('nav_menu_portfolio'),
       icon: "i-lucide-shield-plus",
-      to: "/portfolio",
+      to: getLocalizedPath("/portfolio"),
     },
     {
-      label: "Location",
+      label: t('nav_menu_location'),
       icon: "i-lucide-locate-fixed",
-      to: "/location",
+      to: getLocalizedPath("/location"),
     },
   ]);
+
   return {
     items,
   };

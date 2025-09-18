@@ -10,10 +10,7 @@
           <div class="">
             <h3 class="text-2xl font-bold text-black mb-3">Tech2Work Agency</h3>
             <p>
-              We are a software development company with a proven track record
-              of 200+ projects. We create cutting-edge digital solutions that
-              empower startups and small to medium-sized companies to achieve
-              their business goals.
+              {{ $t("footer_desc1") }}
             </p>
           </div>
         </div>
@@ -30,7 +27,7 @@
         </UNavigationMenu>
       </div>
       <div>
-        <h4 class="text-black text-lg font-semibold mb-2">Contact</h4>
+        <h4 class="text-black text-lg font-semibold mb-2">Contacts</h4>
         <ul class="space-y-1 text-md">
           <li>
             <a
@@ -48,7 +45,8 @@
               class="flex items-center gap-2 transition-colors"
             >
               <UIcon name="i-lucide-phone" class="size-4" />
-              <span class="font-semibold">Phone</span> : +229 0162369889
+              <span class="font-semibold"> {{ $t("footer_phone") }} </span> :
+              +229 0162369889
             </a>
           </li>
           <li class="flex font-semibold items-center gap-2 transition-colors">
@@ -67,16 +65,18 @@
     >
       <!-- Legal Links -->
       <div class="flex flex-wrap justify-center gap-6">
-        <NuxtLink to="/termsOfUse" class="hover:underline"
-          >TERMS OF USE</NuxtLink
-        >
-        <NuxtLink to="/privacyPolicy" class="hover:underline"
-          >PRIVACY POLICY</NuxtLink
-        >
+        <NuxtLink :to="getLocalizedPath('/termsOfUse')" class="hover:underline"
+          >{{ $t("footer_terms") }}
+        </NuxtLink>
+        <NuxtLink
+          :to="getLocalizedPath('/privacyPolicy')"
+          class="hover:underline"
+          >{{ $t("footer_privacy") }}
+        </NuxtLink>
       </div>
 
       <div class="text-center text-xs text-white/80">
-        © 2025 Tech2Work Agency, ALL RIGHTS RESERVED
+        © 2025 Tech2Work Agency, {{ $t("footer_desc2") }}
       </div>
 
       <!-- Social Icons -->

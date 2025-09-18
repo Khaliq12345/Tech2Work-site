@@ -5,6 +5,6 @@ export interface CaseStudy {
     location: string;
     technologies: string[];
     services: string[];
-    industries: string[]; 
+    industries: string[];
     imgUrl: string,
 }

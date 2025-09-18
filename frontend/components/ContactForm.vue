@@ -5,7 +5,7 @@
         v-model="form.name"
         required
         type="text"
-        placeholder="Name *"
+        :placeholder="$t(`contactform_placehoder_name`)"
         class="w-full border-b border-gray-300 focus:outline-none focus:border-blue-600 pb-2"
       />
     </div>
@@ -14,7 +14,7 @@
         v-model="form.email"
         required
         type="email"
-        placeholder="E-mail *"
+        :placeholder="$t(`contactform_placehoder_email`)"
         class="w-full border-b border-gray-300 focus:outline-none focus:border-blue-600 pb-2"
       />
     </div>
@@ -22,7 +22,7 @@
       <textarea
         v-model="form.message"
         required
-        placeholder="Project description *"
+        :placeholder="$t(`contactform_placehoder_desc`)"
         rows="2"
         class="w-full border-b border-gray-300 focus:outline-none focus:border-blue-600 pb-2 resize-none"
       ></textarea>
@@ -36,8 +36,8 @@
         :loading="sending"
         class="text-white text-xl rounded-3xl py-3 px-10 mt-3"
         variant="solid"
-        >Send</UButton
-      >
+        >{{ $t("contactform_send_btn") }}
+      </UButton>
       <div
         class="text-gray-500 flex items-center gap-1 text-sm hover:text-gary-800"
       >

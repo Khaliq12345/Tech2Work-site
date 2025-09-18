@@ -7,19 +7,19 @@
         Tech2Work Agency
       </p>
       <p class="my-5 text-lg lg:text-3xl text-gray-700">
-        {{ $t('home_hero_text') }}
+        {{ $t("home_hero_text") }}
       </p>
       <CustomModal>
-          <template #trigger>
-           <UButton
-        class="font-bold rounded-full text-white py-3 px-8 my-5 text-md lg:text-2xl"
-        >BOOK A CALL !</UButton>
-          </template>
-          <template #content>
-            <RequestProposal />
-          </template>
-        </CustomModal>
-      
+        <template #trigger>
+          <UButton
+            class="font-bold rounded-full text-white py-3 px-8 my-5 text-md lg:text-2xl"
+            >{{ $t("cta_book_call") }}</UButton
+          >
+        </template>
+        <template #content>
+          <RequestProposal />
+        </template>
+      </CustomModal>
     </section>
     <div class="hidden lg:flex h-160 w-300">
       <img src="~/assets/imgs/logo4.png" alt="" />

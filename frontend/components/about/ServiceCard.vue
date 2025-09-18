@@ -14,7 +14,7 @@
         <UIcon :name="icon" size="50" class="py-2" />
         <div class="flex items-center justify-start">
           <div class="text-left">
-            <h3 class="text-xl md:text-2xl font-bold ">{{ title }}</h3>
+            <h3 class="text-xl md:text-2xl font-bold">{{ title }}</h3>
           </div>
         </div>
       </UCard>
@@ -48,12 +48,15 @@ const isFlipped = ref(false);
 .perspective {
   perspective: 1000px;
 }
+
 .transform-style-preserve-3d {
   transform-style: preserve-3d;
 }
+
 .backface-hidden {
   backface-visibility: hidden;
 }
+
 .rotate-y-180 {
   transform: rotateY(180deg);
 }

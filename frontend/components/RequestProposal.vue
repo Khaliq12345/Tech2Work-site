@@ -9,23 +9,21 @@
           class="bg-white text-black shadow-md rounded-xl p-8 w-full space-y-6 lg:flex-1/2"
         >
           <h2 class="text-xl md:text-2xl font-bold uppercase leading-tight">
-            Request for proposal
+            {{ $t("request_proposal_title1") }}
           </h2>
-          <p class=" ">Let’s discuss how we can help with your project.</p>
+          <p class=" ">{{ $t("request_proposal_title2") }}</p>
           <ContactForm />
           <p class="mt-2 text-md">
-            By clicking «Send» you confirm, that you understand and agree to the
-            Privacy Policy
+            {{ $t("request_proposal_title3") }}
           </p>
         </div>
         <!--  -->
         <div class="hidden lg:block space-y-6 lg:flex-1/2 text-center px-10">
           <h2 class="text-3xl font-bold text-gray-900 dark:text-white">
-            Let’s Build Together
+            {{ $t("request_proposal_title4") }}
           </h2>
           <p class="text-gray-600 dark:text-gray-300 text-base mb-15">
-            Reach out to our team for tailored software development solutions
-            and professional guidance.
+            {{ $t("request_proposal_title5") }}
           </p>
           <div
             v-for="f in features"
@@ -43,10 +41,10 @@
 
 <script setup lang="ts">
 const features = [
-  "5+ years in software development",
-  "200+ successfully delivered projects",
-  "We focus on your needs, not generic solutions",
-  "Transparent planning and execution from day one",
-  "End-to-end product development",
+  $t("request_proposal_feature1"),
+  $t("request_proposal_feature2"),
+  $t("request_proposal_feature3"),
+  $t("request_proposal_feature4"),
+  $t("request_proposal_feature5"),
 ];
 </script>

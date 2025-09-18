@@ -7,31 +7,35 @@
     <UTabs :items="items" variant="link" class="" size="md">
       <template #leading="{ item }"> </template>
       <template #default="{ item }">
-        <span class="text-xl md:text-3xl lg:text-4xl font-bold hover:text-gray-500">{{
-          item.label
-        }}</span>
+        <span
+          class="text-xl md:text-3xl lg:text-4xl font-bold hover:text-gray-500"
+          >{{ item.label }}</span
+        >
       </template>
       <template #services="{ item }">
         <div class="mt-8 flex flex-wrap xl:flex-nowrap gap-5 justify-center">
           <div class="text-left flex-1/2">
             <h3 class="text-xl lg:text-3xl font-bold mb-2">
-              WE STILL BUILD CUSTOM SOFTWARE. JUST 2.5х FASTER NOW
+              {{ $t("teckstack_services_title") }}
             </h3>
             <p class="text-sm md:text-md lg:text-lg font-semibold">
-              We asked what was slowing our teams down. The issue was in
-              friction: tool-switching, lost flow, and duplicated work. So, we
-              made Cursor AI part of our core engineering infrastructure. We
-              trained our developers to use it deeply. Fully embedded in our
-              process, Cursor lets us ship with fewer delays, less overhead, and
-              more confidence in every release.
+              {{ $t("teckstack_services_desc") }}
             </p>
           </div>
           <!--  -->
           <HomeServiceCard
             v-for="item in servicesItems.slice(0, 1)"
             :class="item.classname"
-            :title="item.title"
-            :desc="item.desc"
+            :title="
+              $t(
+                `teckstack_services_title_${item.title.replaceAll(' ', '_').toLowerCase()}`,
+              ) ?? item.title
+            "
+            :desc="
+              $t(
+                `teckstack_services_desc_${item.title.replaceAll(' ', '_').toLowerCase()}`,
+              ) ?? item.desc
+            "
             :icon="item.icon"
             :features="[]"
           />
@@ -41,8 +45,16 @@
           <HomeServiceCard
             v-for="item in servicesItems.slice(1)"
             :class="item.classname"
-            :title="item.title"
-            :desc="item.desc"
+            :title="
+              $t(
+                `teckstack_services_title_${item.title.replaceAll(' ', '_').toLowerCase()}`,
+              ) ?? item.title
+            "
+            :desc="
+              $t(
+                `teckstack_services_desc_${item.title.replaceAll(' ', '_').toLowerCase()}`,
+              ) ?? item.desc
+            "
             :icon="item.icon"
             :features="[]"
           />
@@ -52,22 +64,26 @@
         <div class="mt-8 flex flex-wrap xl:flex-nowrap gap-5 justify-center">
           <div class="text-left flex-4/4">
             <h3 class="text-xl lg:text-3xl font-bold mb-2">
-              The Technology Platforms We Use
+              {{ $t("teckstack_techs_title") }}
             </h3>
             <p class="text-sm md:text-md lg:text-lg font-semibold">
-              We build robust solutions aligned with your client's business
-              goals, using any tech stack you need. Our tech-agnostic experts
-              speak every language (Python, React, and more!) and embrace
-              cutting-edge tech to keep you ahead. From ideation to launch, we
-              handle it all, saving you time and hassle.
+              {{ $t("teckstack_techs_desc") }}
             </p>
           </div>
           <!--  -->
           <HomeServiceCard
             v-for="item in techItems.slice(0, 2)"
             :class="item.classname"
-            :title="item.title"
-            :desc="item.desc"
+            :title="
+              $t(
+                `teckstack_techs_title_${item.title.replaceAll(' ', '_').toLowerCase()}`,
+              ) ?? item.title
+            "
+            :desc="
+              $t(
+                `teckstack_techs_desc_${item.title.replaceAll(' ', '_').toLowerCase()}`,
+              ) ?? item.desc
+            "
             :icon="item.icon"
             :features="[]"
           />
@@ -77,8 +93,16 @@
           <HomeServiceCard
             v-for="item in techItems.slice(2)"
             :class="item.classname"
-            :title="item.title"
-            :desc="item.desc"
+            :title="
+              $t(
+                `teckstack_techs_title_${item.title.replaceAll(' ', '_').toLowerCase()}`,
+              ) ?? item.title
+            "
+            :desc="
+              $t(
+                `teckstack_techs_desc_${item.title.replaceAll(' ', '_').toLowerCase()}`,
+              ) ?? item.desc
+            "
             :icon="item.icon"
             :features="[]"
           />
@@ -103,7 +127,7 @@ const items = [
 const servicesItems: Ref<any[]> = ref([]);
 const techItems: Ref<any[]> = ref([]);
 const { data } = await useFetch("/api/global/get-service-tech-stack");
-const tmp = data.value as any
-servicesItems.value = tmp.filter((it : any) => it.type === 'service');
-techItems.value = tmp.filter((it : any) => it.type === 'techstack');
+const tmp = data.value as any;
+servicesItems.value = tmp.filter((it: any) => it.type === "service");
+techItems.value = tmp.filter((it: any) => it.type === "techstack");
 </script>

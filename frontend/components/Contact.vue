@@ -6,18 +6,17 @@
     >
       <div class="flex flex-wrap lg:flex-nowrap justify-center gap-5">
         <div class="space-y-6 lg:flex-1/2 text-center lg:text-left">
-          <h2
-            class="text-xl md:text-2xl font-bold text-white"
-          >
-            Let’s Build Together
+          <h2 class="text-xl md:text-2xl font-bold text-white">
+            {{ $t("contact_title_1") }}
           </h2>
           <p class="text-white text-base">
-            Reach out to our team for tailored software development solutions
-            and professional guidance.
+            {{ $t("contact_title_2") }}
           </p>
 
           <!-- Team Members -->
-          <div class="flex flex-wrap text-white gap-8 my-10 md:mt-15 justify-center">
+          <div
+            class="flex flex-wrap text-white gap-8 my-10 md:mt-15 justify-center"
+          >
             <div
               v-for="person in people"
               :key="person.name"
@@ -35,8 +34,9 @@
           class="bg-white shadow-md rounded-xl p-8 w-full space-y-6 lg:flex-1/2"
         >
           <h2 class="text-xl md:text-2xl font-bold text-gray-900 leading-tight">
-            START BUILDING YOUR <br />
-            SOFTWARE. CONTACT US NOW
+            {{ $t("contact_title_3") }}
+            <br />
+            {{ $t("contact_title_4") }}
           </h2>
           <ContactForm />
         </div>

@@ -1,18 +1,18 @@
 <template>
   <UContainer class="py-10 space-y-8">
-    <h2 class="text-2xl font-bold">TABLE OF CONTENT</h2>
+    <h2 class="text-2xl font-bold">{{ $t("privacy_policy_details_title") }}</h2>
 
     <ul>
       <li v-for="section in sections" class="my-2">
         <a :href="`#${section.id}`"
-          ><span class="font-semibold"
-            >{{section.title}}</span
-          ></a
+          ><span class="font-semibold">{{
+            $t(`privacy_policy_details_title_${section.id}`) ?? section.title
+          }}</span></a
         >
       </li>
     </ul>
 
-    <USeparator class="py-5"/>
+    <USeparator class="py-5" />
 
     <div
       v-for="section in sections"
@@ -20,14 +20,32 @@
       :id="section.id"
       class="space-y-4"
     >
-      <h2 class="text-2xl font-semibold text-primary">{{ section.title }}</h2>
+      <h2 class="text-2xl font-semibold text-primary">
+        {{ $t(`privacy_policy_details_title_${section.id}`) ?? section.title }}
+      </h2>
       <div v-for="part in section.parts" :key="part.subtitle" class="space-y-2">
         <h3 v-if="part.subtitle" class="text-xl font-medium text-gray-800">
-          {{ part.subtitle }}
+          {{
+            $t(
+              `privacy_policy_details_subtitle_${section.id}_${section.parts.indexOf(part)}`,
+            ) ?? part.subtitle
+          }}
         </h3>
-        <p class="text-base">{{ part.summary }}</p>
+        <p class="text-base">
+          {{
+            $t(
+              `privacy_policy_details_summary_${section.id}_${section.parts.indexOf(part)}`,
+            ) ?? part.summary
+          }}
+        </p>
         <ul v-if="part.details" class="list-disc pl-5 text-sm space-y-1">
-          <li v-for="item in part.details" :key="item">{{ item }}</li>
+          <li v-for="item in part.details" :key="item">
+            {{
+              $t(
+                `privacy_policy_details_details_${section.id}_${section.parts.indexOf(part)}_${part.details.indexOf(item)}`,
+              ) ?? item
+            }}
+          </li>
         </ul>
       </div>
     </div>
@@ -35,10 +53,9 @@
 </template>
 
 <script setup lang="ts">
-
 const sections: Ref<any> = ref([]);
 const { data } = await useFetch("/api/global/get-privacy-detail");
-sections.value = data.value
+sections.value = data.value;
 
 /* const sections: Array<any> = [
   {

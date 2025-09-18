@@ -5,24 +5,24 @@
     <div class="flex flex-wrap md:flex-nowrap justify-center items-center">
       <div class="text-left mb-10 md:flex-1/2">
         <h3 class="text-xl md:text-2xl lg:text-3xl font-bold md:mb-2 uppercase">
-          Custom development company..
+          {{ $t("about_trusted_section_title1") }}
         </h3>
         <h3 class="text-xl md:text-2xl lg:text-3xl font-bold mb-5 uppercase">
-          Certified.
+          {{ $t("about_trusted_section_title2") }}
         </h3>
         <p class="text-md md:text-xl font-semibold">
-          We don’t just develop digital solutions—we address business
-          challenges. With over 200+ accomplished projects we know what it takes
-          to turn your ideas into tangible results.
+          {{ $t("about_trusted_section_desc") }}
         </p>
         <div class="text-lg mt-5">
           <!-- Mission -->
           <div class="mb-3">
             <div class="flex flex-wrap gap-y-2 items-center mb-2">
               <UIcon name="i-lucide-briefcase-business" />
-              <span class="font-semibold px-2">Mission : </span>
+              <span class="font-semibold px-2"
+                >{{ $t("about_trusted_section_mission_title") }}
+              </span>
               <div class="flex flex-wrap gap-2">
-                Make an impact in a Team of intellectual people..
+                {{ $t("about_trusted_section_mission_desc") }}
               </div>
             </div>
           </div>
@@ -30,18 +30,18 @@
           <div class="mb-3">
             <div class="flex flex-wrap gap-y-2 items-center mb-2">
               <UIcon name="i-lucide-gpu" />
-              <span class="font-semibold px-2">Vision : </span>
+              <span class="font-semibold px-2"
+                >{{ $t("about_trusted_section_vision_title") }}
+              </span>
               <div class="w-full ml-5 text-left">
                 <ul style="list-style-type: square">
                   <li>
-                    Keep Ourselves in the list of top market players at solving
-                    global tech challenges.
+                    {{ $t("about_trusted_section_vision_desc1") }}
                   </li>
                   <li>
-                    Promote Ourselves by providing top-notch service, efficient
-                    delivery and expertise solutions.
+                    {{ $t("about_trusted_section_vision_desc2") }}
                   </li>
-                  <li>Create opportunities for intellectual people.</li>
+                  <li>{{ $t("about_trusted_section_vision_desc3") }}</li>
                 </ul>
               </div>
             </div>

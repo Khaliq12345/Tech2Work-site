@@ -9,18 +9,17 @@
     >
       <section class="text-left">
         <p class="text-xl md:text-3xl lg:text-5xl mb-8 font-bold text-white">
-          ABOUT US
+          {{ $t("about_hero_section_title1") }}
         </p>
         <p class="mb-15 text-xl md:text-2xl text-white">
-          A trusted technology partner, driven by innovation and a passion for
-          cutting-edge solutions.
+          {{ $t("about_hero_section_title2") }}
         </p>
         <CustomModal>
           <template #trigger>
             <UButton
               class="font-bold bg-white hover:bg-amber-50 rounded-full text-black py-5 px-10 text-md md:text-xl lg:text-2xl"
             >
-              Become Part or our team
+              {{ $t("cta_become_part") }}
             </UButton>
           </template>
           <template #content>

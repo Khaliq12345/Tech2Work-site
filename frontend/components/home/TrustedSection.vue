@@ -5,15 +5,13 @@
     <div class="flex flex-wrap md:flex-nowrap justify-center items-center">
       <div class="text-left mb-10 md:flex-1/2">
         <h3 class="text-xl md:text-2xl lg:text-3xl font-bold md:mb-2 uppercase">
-          Trusted by Startups.
+          {{ $t("home_trusted_title1") }}
         </h3>
         <h3 class="text-xl md:text-2xl lg:text-3xl font-bold mb-5 uppercase">
-          Rated by Experts.
+          {{ $t("home_trusted_title2") }}
         </h3>
         <p class="text-md md:text-xl font-semibold">
-          We've been constantly rated as a top-tier software development
-          partner. That’s because our clients trust us to deliver meaningful,
-          business-ready solutions on time and build to last.
+          {{ $t("home_trusted_desc") }}
         </p>
         <CustomModal>
           <template #trigger>
@@ -23,7 +21,7 @@
               color="primary"
               class="text-white text-md md:text-xl rounded-3xl py-3 px-6 mt-10"
               variant="solid"
-              label="GET A QUOTE"
+              :label="$t('cta_get_quote')"
             />
           </template>
           <template #content>

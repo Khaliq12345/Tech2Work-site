@@ -14,10 +14,7 @@
         @click="backdropClick"
       >
         <!-- MODAL CONTENT -->
-        <div
-          class="relative z-50 scale-95 animate-modal"
-          @click.stop
-        >
+        <div class="relative z-50 scale-95 animate-modal" @click.stop>
           <slot name="content" />
         </div>
       </div>
@@ -26,20 +23,20 @@
 </template>
 
 <script setup lang="ts">
-const showModal = ref(false)
+const showModal = ref(false);
 
 function openModal() {
-  showModal.value = true
+  showModal.value = true;
 }
 
 function closeModal() {
-  showModal.value = false
+  showModal.value = false;
 }
 
 function backdropClick(event: MouseEvent) {
-  const target = event.target as HTMLElement
-  if (target.id === 'modal-backdrop') {
-    closeModal()
+  const target = event.target as HTMLElement;
+  if (target.id === "modal-backdrop") {
+    closeModal();
   }
 }
 </script>
