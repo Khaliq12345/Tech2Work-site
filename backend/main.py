@@ -6,7 +6,7 @@ if __name__ == "__main__":
     uvicorn.run(
         "src.api.app:app",
         reload=ENV == "dev",
-        port=8001,
+        port=8000,
         host="localhost",
         workers=5,
     )
