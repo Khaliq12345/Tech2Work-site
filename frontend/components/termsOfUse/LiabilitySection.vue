@@ -4,18 +4,19 @@
       <p
         class="pt-3 text-xl md:text-2xl lg:text-3xl mb-3 font-bold text-gray-900"
       >
-        Liability limitations
+        {{ $t("term_of_use_liability_title") }}
       </p>
       <p class="my-5 text-sm lg:text-lg text-gray-700">
-        Tech2Work Agency is not liable for the following stances:
+        Tech2Work Agency {{ $t("term_of_use_liability_desc1") }} :
       </p>
       <div v-for="f in liabLst" class="flex items-center my-4">
         <UIcon name="i-lucide-circle-check-big" size="20" class="mr-5" />
-        {{ f.value }}
+        {{
+          $t(`term_of_use_liability_element_${liabLst.indexOf(f)}`) ?? f.value
+        }}
       </div>
       <p class="font-bold my-10">
-        Tech2Work Agency saves the right to introduce this Copyright Statement
-        with no prior notification.
+        {{ $t("term_of_use_liability_desc2") }}
       </p>
     </section>
   </div>
@@ -24,5 +25,5 @@
 <script setup lang="ts">
 const liabLst: Ref<any> = ref([]);
 const { data } = await useFetch("/api/global/get-terms-of-use-liability");
-liabLst.value = data.value
+liabLst.value = data.value;
 </script>

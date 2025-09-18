@@ -4,7 +4,7 @@
     <div
       class="px-5 py-3 text-sm md:text-md bg-black hidden md:flex flex-wrap justify-center text-center text-white"
     >
-      <div class="pl-3">Start building your software today. Book a call</div>
+      <div class="pl-3">{{ $t("header_title_1") }}</div>
 
       <div class="flex flex-wrap justify-center pt-2 md:pt-0">
         <a
@@ -61,7 +61,7 @@
             Tech2Work<span class="text-gray-600">Agency</span>
           </p>
         </template>
-        <template #description> Welcome Here</template>
+        <template #description> {{ $t("header_title_2") }} </template>
         <template #body>
           <USeparator class="py-3 mb-3" />
           <UNavigationMenu
@@ -70,9 +70,12 @@
             class="w-full justify-center"
             variant="link"
             color="error"
+            ,
           >
           </UNavigationMenu>
-          <LanguageSelector />
+          <!--  :ui="{link:'text-black hover:text-red-500',  linkLeadingIcon:'text-black hover:text-red-500' }"
+            -->
+          <LanguageSelector class="mt-4" />
         </template>
       </UDrawer>
     </nav>

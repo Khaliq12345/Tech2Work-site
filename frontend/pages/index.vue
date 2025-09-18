@@ -1,6 +1,6 @@
 <template>
   <NuxtLayout name="default">
-    <HomeHeroSection /> 
+    <HomeHeroSection />
     <HomeServicesSection />
     <TestimonialsSection />
     <TechStack />
@@ -8,7 +8,7 @@
     <HomeTrustedSection />
     <Contact />
     <HomeProcess />
-  </NuxtLayout> 
+  </NuxtLayout>
 </template>
 
 <script lang="ts" setup></script>

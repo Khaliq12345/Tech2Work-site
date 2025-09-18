@@ -7,10 +7,10 @@
         <p
           class="pt-3 text-xl md:text-3xl lg:text-5xl mb-3 font-bold text-gray-900"
         >
-          CASE STUDIES
+          {{ $t(`portfolio_title`) }}
         </p>
         <p class="my-5 text-lg lg:text-3xl text-gray-700">
-          Here are some examples of the diverse projects we’ve undertaken
+          {{ $t(`portfolio_desc`) }}
         </p>
       </div>
     </section>

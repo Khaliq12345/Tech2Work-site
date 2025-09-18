@@ -7,6 +7,6 @@ if __name__ == "__main__":
         "src.api.app:app",
         reload=ENV == "dev",
         port=8000,
-        host="0.0.0.0",
+        host="localhost",
         workers=5,
     )

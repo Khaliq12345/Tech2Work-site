@@ -1,9 +1,9 @@
 <template>
   <select id="language" :value="currentLocale" @change="onLocaleChange">
-      <option v-for="locale in locales" :key="locale.code" :value="locale.code">
-        {{ locale.name }}
-      </option>
-    </select>
+    <option v-for="locale in locales" :key="locale.code" :value="locale.code">
+      {{ locale.name }}
+    </option>
+  </select>
   <!-- <USelect v-model="locale" :items="options" class="max-w-40 h-10" placeholder="Locale" ></USelect>
   {{ locale }}
   <div>
@@ -28,10 +28,20 @@ const options = locales.value.map((loc: any) => ({
   value: loc.code,
 }));
 
-const currentLocale = locale
+const currentLocale = locale;
 
 function onLocaleChange(event: any) {
-  setLocale(event.target.value)
+  setLocale(event.target.value);
+}
+</script>
+
+<style>
+#language {
+  color: black;
 }
 
-</script>
+#language > option:hover {
+  background-color: white;
+  color: black;
+}
+</style>

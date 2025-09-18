@@ -5,16 +5,24 @@
         color="neutral"
         class="p-10 font-bold text-xl md:text-2xl uppercase w-full"
       >
-        Software Development Process
+        {{ $t("home_process_title") }}
       </UButton>
       <template #content>
         <div class="p-10 gap-5 flex flex-col">
           <div v-for="item in items">
             <h3 class="font-bold text-base md:text-xl mb-1">
-              {{ item.title }}
+              {{
+                $t(
+                  `home_process_title_${item.title.replaceAll(" ", "_").toLowerCase()}`,
+                ) ?? item.title
+              }}
             </h3>
             <p class="text-sm md:text-lg">
-              {{ item.content }}
+              {{
+                $t(
+                  `home_process_desc_${item.title.replaceAll(" ", "_").toLowerCase()}`,
+                ) ?? item.content
+              }}
             </p>
           </div>
         </div>
