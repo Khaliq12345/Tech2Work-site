@@ -48,6 +48,7 @@
           color="error"
         >
         </UNavigationMenu>
+        <LanguageSelector />
       </ul>
       <!-- Mobile Drawer -->
       <UDrawer
@@ -71,6 +72,7 @@
             color="error"
           >
           </UNavigationMenu>
+          <LanguageSelector />
         </template>
       </UDrawer>
     </nav>

@@ -1,12 +1,9 @@
 from typing import List
-from fastapi import APIRouter
+from fastapi import APIRouter, BackgroundTasks
 from sqlmodel import select
-from src.models.global_models import create_table, ServiceTechStack, FAQ
-from src.utils import get_session
-from src.core.config import APP_MAIL_ADRESS, APP_MAIL_PASSWORD, TO_MAIL_ADRESS
-import smtplib
-import ssl
-from email.message import EmailMessage
+from src.models.global_models import create_table, ServiceTechStack, FAQ, TermsOfUseLiability, PrivacyDetailPart, PrivacyDetailItem
+from src.utils import get_session, send_email_message
+
 
 route = APIRouter(prefix="/global")
 route.add_event_handler("startup", create_table)
@@ -49,20 +46,66 @@ def get_faq():
         results = session.exec(stmt).fetchall()
         return results
 
+
 @route.post("/send-email-message")
-async def send_email_message(subject: str, content: str, mail_from: str) -> dict:
-    #
-    message = EmailMessage()
-    message["From"] = mail_from
-    message["To"] = TO_MAIL_ADRESS
-    message["Subject"] = subject
-    message.set_content(content)
-    # 
-    try:
-        context = ssl.create_default_context()
-        with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
-            server.login(APP_MAIL_ADRESS, APP_MAIL_PASSWORD)
-            server.send_message(message)
-        return {"status": "success", "message": "Email envoyé"}
-    except Exception as e:
-        return {"status": "error", "message": str(e)}
+def send_email(background_tasks: BackgroundTasks, subject: str, content: str):
+    background_tasks.add_task(send_email_message, subject, content)
+    return {"status": "success", "message": "Envoi en cours…"}
+
+
+
+
+@route.get("/add-terms-of-use-liability")
+def add_terms_of_use_liability(
+    value: str
+):
+    with get_session() as session:
+        item = TermsOfUseLiability(
+            value=value
+        )
+        session.add(item)
+        session.commit()
+    return {"details": "Successfully Saved"}
+
+
+@route.get("/get-terms-of-use-liability", response_model=List[TermsOfUseLiability])
+def get_terms_of_use_liability():
+    with get_session() as session:
+        stmt = select(TermsOfUseLiability)
+        results = session.exec(stmt).fetchall()
+        return results
+    
+
+@route.post("/add-privacy-detail-item-test")
+def add_privacy_detail_item_test():
+    with get_session() as session:
+        part1 = PrivacyDetailPart(
+            subtitle="Personal information you disclose to us",
+            summary="We collect personal information that you provide to us.",
+            details=["Full name", "Phone number"]
+        )
+
+        part2 = PrivacyDetailPart(
+            subtitle="Sensitive Information",
+            summary="We do not intentionally collect or process sensitive personal data unless required by law.",
+            details=[]
+        )
+
+        item = PrivacyDetailItem(
+            title="1. What information do we collect?",
+            parts=[part1.model_dump(), part2.model_dump()] 
+        )
+        
+        print(item)
+
+        session.add(item)
+        session.commit()
+    return {"details": "Successfully Saved"}
+
+
+@route.get("/get-privacy-detail", response_model=List[PrivacyDetailItem])
+def get_privacy_detail():
+    with get_session() as session:
+        stmt = select(PrivacyDetailItem)
+        results = session.exec(stmt).fetchall()
+        return results

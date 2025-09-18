@@ -37,11 +37,9 @@
               href="mailto:contact@tech2work.tech"
               class="flex items-center gap-2 transition-colors"
             >
-              <UIcon name="i-lucide-mail" class="size-4" /><span
-                class="font-semibold"
-                >Email</span
+              <UIcon name="i-lucide-mail" class="size-4" /><span class="text-sm"
+                >Email: contact@tech2work.tech</span
               >
-              : contact@tech2work.tech
             </a>
           </li>
           <li>
@@ -69,8 +67,12 @@
     >
       <!-- Legal Links -->
       <div class="flex flex-wrap justify-center gap-6">
-        <NuxtLink to="/termsOfUse" class="hover:underline">TERMS OF USE</NuxtLink>
-        <NuxtLink to="/privacyPolicy" class="hover:underline">PRIVACY POLICY</NuxtLink>
+        <NuxtLink to="/termsOfUse" class="hover:underline"
+          >TERMS OF USE</NuxtLink
+        >
+        <NuxtLink to="/privacyPolicy" class="hover:underline"
+          >PRIVACY POLICY</NuxtLink
+        >
       </div>
 
       <div class="text-center text-xs text-white/80">
