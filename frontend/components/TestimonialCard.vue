@@ -13,11 +13,7 @@
         <div class="text-left">
           <span
             class="text-gray-700 text-lg md:text-xl lg:text-2xl font-semibold"
-            >“{{
-              $t(
-                `testimonials_card_${name.replaceAll(" ", "_").toLowerCase()}`,
-              ) ?? quote
-            }}”</span
+            >“{{ quote }}”</span
           >
           <!-- Auteur -->
           <div class="flex items-center gap-4 mt-5 md:mt-10">

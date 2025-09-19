@@ -27,6 +27,7 @@ def add_portfolio_project(
             services=services,
             industries=industries,
             imgUrl=imgUrl,
+            locale="en",
         )
         session.add(item)
         session.commit()
@@ -34,8 +35,8 @@ def add_portfolio_project(
 
 
 @route.get("/get-portfolio-projects", response_model=List[PortfolioProject])
-def get_portfolio_projects():
+def get_portfolio_projects(locale: str):
     with get_session() as session:
-        stmt = select(PortfolioProject)
+        stmt = select(PortfolioProject).where(PortfolioProject.locale == locale)
         results = session.exec(stmt).fetchall()
         return results

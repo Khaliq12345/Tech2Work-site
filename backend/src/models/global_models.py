@@ -10,17 +10,20 @@ class ServiceTechStack(SQLModel, table=True):
     desc: str
     icon: str
     type: str  # 'service' | 'techstack'
+    locale: str
 
 
 class FAQ(SQLModel, table=True):
     id: int | None = Field(default=None, primary_key=True)
     label: str
     content: str
+    locale: str
     
     
 class TermsOfUseLiability(SQLModel, table=True):
     id: int | None = Field(default=None, primary_key=True)
     value: str
+    locale: str
     
     
 class PrivacyDetailPart(SQLModel, table=True):
@@ -28,12 +31,14 @@ class PrivacyDetailPart(SQLModel, table=True):
     subtitle: str
     summary: str
     details: list[str] = Field(sa_type=JSON)
+    locale: str
 
 
 class PrivacyDetailItem(SQLModel, table=True):
     id: int | None = Field(default=None, primary_key=True)
     title: str
     parts: list[Dict[str, Any] ] = Field(sa_type=JSON)
+    locale: str
 
 def create_table():
     SQLModel.metadata.create_all(ENGINE)

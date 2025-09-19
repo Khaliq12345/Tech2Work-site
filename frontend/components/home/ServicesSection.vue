@@ -11,31 +11,20 @@
       <HomeServiceCard
         v-for="item in items"
         :class="item.classname"
-        :title="
-          $t(
-            `home_services_title_${item.title.replaceAll(' ', '_').toLowerCase()}`,
-          )
-        "
-        :desc="
-          $t(
-            `home_services_desc_${item.title.replaceAll(' ', '_').toLowerCase()}`,
-          )
-        "
+        :title="item.title"
+        :desc="item.description"
         :icon="item.icon"
-        :features="
-          item.features.map((f: any, i: any) =>
-            $t(
-              `home_services_feature_${item.title.replaceAll(' ', '_').toLowerCase()}_${i}`,
-            ),
-          )
-        "
+        :features="item.features"
       />
     </div>
   </section>
 </template>
 
 <script lang="ts" setup>
+const { locale } = useI18n();
 const items: Ref<any> = ref([]);
-const { data } = await useFetch("/api/home/get-home-services");
+const { data } = await useFetch("/api/home/get-home-services", {
+  params: { locale: locale.value },
+});
 items.value = data.value;
 </script>

@@ -8,22 +8,14 @@
     <UCollapsible v-for="item in items" class="md:hidden my-4">
       <UButton
         :icon="item.icon"
-        :label="
-          $t(
-            `about_values_title_${item.title.replaceAll(' ', '_').toLowerCase()}`,
-          ) ?? item.title
-        "
+        :label="item.title"
         variant="outline"
         class="justify-start w-full text-md md:text-xl font-semibold rounded-xl px-6 py-4 text-gray-800 border-gray-300 hover:bg-gray-100"
       />
       <template #content>
         <div>
           <p class="font-semibold my-2">
-            {{
-              $t(
-                `about_values_desc_${item.title.replaceAll(" ", "_").toLowerCase()}`,
-              ) ?? item.desc
-            }}
+            {{ item.desc }}
           </p>
         </div>
       </template>
@@ -35,16 +27,8 @@
       <AboutServiceCard
         v-for="item in items"
         class=""
-        :title="
-          $t(
-            `about_values_title_${item.title.replaceAll(' ', '_').toLowerCase()}`,
-          ) ?? item.title
-        "
-        :desc="
-          $t(
-            `about_values_desc_${item.title.replaceAll(' ', '_').toLowerCase()}`,
-          ) ?? item.desc
-        "
+        :title="item.title"
+        :desc="item.desc"
         :icon="item.icon"
         :features="[]"
       />
@@ -53,7 +37,10 @@
 </template>
 
 <script lang="ts" setup>
+const { locale } = useI18n();
 const items: Ref<any> = ref([]);
-const { data } = await useFetch("/api/about/get-about-value");
+const { data } = await useFetch("/api/about/get-about-value", {
+  params: { locale: locale.value },
+});
 items.value = data.value;
 </script>

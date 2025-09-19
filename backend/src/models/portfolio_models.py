@@ -10,6 +10,7 @@ class PortfolioProject(SQLModel, table=True):
     services: list[str] = Field(sa_type=JSON)
     industries: list[str] = Field(sa_type=JSON)
     imgUrl: str
+    locale: str
 
 def create_table():
     SQLModel.metadata.create_all(ENGINE)

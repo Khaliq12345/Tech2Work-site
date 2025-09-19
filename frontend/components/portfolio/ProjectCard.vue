@@ -3,18 +3,10 @@
     <div class="flex flex-wrap lg:flex-nowrap items-center gap-x-5">
       <div class="lg:flex-1/2 text-left">
         <h3 class="text-xl md:text-2xl font-bold text-black mb-4">
-          {{
-            $t(
-              `portfolio_project_card_title_${item.title.replaceAll(" ", "_").toLowerCase()}`,
-            ) ?? item.title
-          }}
+          {{ item.title }}
         </h3>
         <p class="text-base text-gray-700 mb-4">
-          {{
-            $t(
-              `portfolio_project_card_desc_${item.title.replaceAll(" ", "_").toLowerCase()}`,
-            ) ?? item.description
-          }}
+          {{ item.description }}
         </p>
         <!-- Location -->
         <div class="flex mt-4 items-center text-sm mb-3">

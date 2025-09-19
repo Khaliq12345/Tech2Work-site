@@ -5,9 +5,7 @@
     <ul>
       <li v-for="section in sections" class="my-2">
         <a :href="`#${section.id}`"
-          ><span class="font-semibold">{{
-            $t(`privacy_policy_details_title_${section.id}`) ?? section.title
-          }}</span></a
+          ><span class="font-semibold">{{ section.title }}</span></a
         >
       </li>
     </ul>
@@ -21,30 +19,18 @@
       class="space-y-4"
     >
       <h2 class="text-2xl font-semibold text-primary">
-        {{ $t(`privacy_policy_details_title_${section.id}`) ?? section.title }}
+        {{ section.title }}
       </h2>
       <div v-for="part in section.parts" :key="part.subtitle" class="space-y-2">
         <h3 v-if="part.subtitle" class="text-xl font-medium text-gray-800">
-          {{
-            $t(
-              `privacy_policy_details_subtitle_${section.id}_${section.parts.indexOf(part)}`,
-            ) ?? part.subtitle
-          }}
+          {{ part.subtitle }}
         </h3>
         <p class="text-base">
-          {{
-            $t(
-              `privacy_policy_details_summary_${section.id}_${section.parts.indexOf(part)}`,
-            ) ?? part.summary
-          }}
+          {{ part.summary }}
         </p>
         <ul v-if="part.details" class="list-disc pl-5 text-sm space-y-1">
           <li v-for="item in part.details" :key="item">
-            {{
-              $t(
-                `privacy_policy_details_details_${section.id}_${section.parts.indexOf(part)}_${part.details.indexOf(item)}`,
-              ) ?? item
-            }}
+            {{ item }}
           </li>
         </ul>
       </div>
@@ -53,8 +39,11 @@
 </template>
 
 <script setup lang="ts">
+const { locale } = useI18n();
 const sections: Ref<any> = ref([]);
-const { data } = await useFetch("/api/global/get-privacy-detail");
+const { data } = await useFetch("/api/global/get-privacy-detail", {
+  params: { locale: locale.value },
+});
 sections.value = data.value;
 
 /* const sections: Array<any> = [

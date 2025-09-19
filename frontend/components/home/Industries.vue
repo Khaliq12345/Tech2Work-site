@@ -19,11 +19,7 @@
     >
       <UButton
         :icon="service.icon"
-        :label="
-          $t(
-            `home_industry_${service.name.replaceAll(' ', '_').toLowerCase()}`,
-          ) ?? service.name
-        "
+        :label="service.name"
         variant="outline"
         class="justify-start w-full text-md md:text-xl font-semibold rounded-xl px-6 py-4"
         :class="{
@@ -40,11 +36,7 @@
           :class="{ 'md:grid-cols-2': selected.samples.length != 0 }"
         >
           <p class="text-sm md:text-md leading-relaxed">
-            {{
-              $t(
-                `home_industry_desc_${selected.name.replaceAll(" ", "_").toLowerCase()}`,
-              ) ?? selected.description
-            }}
+            {{ selected.description }}
           </p>
           <div v-if="selected.samples" class="flex flex-col gap-3">
             <span
@@ -65,11 +57,7 @@
           v-for="service in services"
           :key="service.name"
           :icon="service.icon"
-          :label="
-            $t(
-              `home_industry_${service.name.replaceAll(' ', '_').toLowerCase()}`,
-            ) ?? service.name
-          "
+          :label="service.name"
           variant="outline"
           class="justify-start text-md md:text-xl font-semibold rounded-xl px-6 py-4"
           :class="{
@@ -86,11 +74,7 @@
         class="w-full lg:w-2/3 lg:mt-0 mt-4 bg-gradient-to-bl from-black to-gray-400 text-white rounded-xl"
       >
         <h2 class="text-xl md:text-2xl font-bold underline underline-offset-4">
-          {{
-            $t(
-              `home_industry_${selected.name.replaceAll(" ", "_").toLowerCase()}`,
-            ) ?? selected.name
-          }}
+          {{ selected.name }}
         </h2>
         <USeparator class="p-4 md:p-8 border-white" color="neutral" />
         <div
@@ -98,11 +82,7 @@
           :class="{ 'md:grid-cols-2': selected.samples.length != 0 }"
         >
           <p class="text-sm md:text-md leading-relaxed">
-            {{
-              $t(
-                `home_industry_desc_${selected.name.replaceAll(" ", "_").toLowerCase()}`,
-              ) ?? selected.description
-            }}
+            {{ selected.description }}
           </p>
           <div v-if="selected.samples" class="flex flex-col gap-3">
             <span
@@ -120,9 +100,11 @@
 
 <script setup lang="ts">
 import type { Service } from "~/interface/service";
-
+const { locale } = useI18n();
 const services: Ref<Service[]> = ref([]);
-const { data } = await useFetch("/api/home/get-home-industries");
+const { data } = await useFetch("/api/home/get-home-industries", {
+  params: { locale: locale.value },
+});
 services.value = data.value as any;
 const selected = ref<Service>(services.value[0]);
 function selectService(service: Service) {

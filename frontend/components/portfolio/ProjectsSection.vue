@@ -11,7 +11,10 @@
 </template>
 
 <script lang="ts" setup>
+const { locale } = useI18n();
 const items: Ref<any> = ref([]);
-const { data } = await useFetch("/api/portfolio/get-portfolio-projects");
+const { data } = await useFetch("/api/portfolio/get-portfolio-projects", {
+  params: { locale: locale.value },
+});
 items.value = data.value;
 </script>

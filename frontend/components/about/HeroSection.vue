@@ -1,7 +1,7 @@
 <template>
   <div
     class="opacity-85"
-    :style="`background-image: url('bg2.jpg'); `"
+    :style="`background-image: url('/bg2.jpg'); `"
     style="background-repeat: no-repeat; background-size: cover"
   >
     <div
