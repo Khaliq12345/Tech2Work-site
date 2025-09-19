@@ -30,7 +30,7 @@
         </CustomModal>
       </div>
       <!--  -->
-      <div class="md:flex-1/2 place-items-center">
+      <div class="md:flex-1/2 md:flex md:justify-center">
         <img
           src="https://static.vecteezy.com/system/resources/previews/010/385/335/non_2x/technology-partners-icon-illustration-vector.jpg"
           class="rounded-full h-50 md:h-80"
