@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  frontend:
+    build:
+      context: .       
+      dockerfile: Dockerfile
+    container_name: frontend-tech2work
+    ports:
+      - "3000:3000"    # map host:container ports (change if needed)
+    restart: unless-stopped
