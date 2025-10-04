@@ -26,16 +26,8 @@
           <HomeServiceCard
             v-for="item in servicesItems.slice(0, 1)"
             :class="item.classname"
-            :title="
-              $t(
-                `teckstack_services_title_${item.title.replaceAll(' ', '_').toLowerCase()}`,
-              ) ?? item.title
-            "
-            :desc="
-              $t(
-                `teckstack_services_desc_${item.title.replaceAll(' ', '_').toLowerCase()}`,
-              ) ?? item.desc
-            "
+            :title="item.title"
+            :desc="item.desc"
             :icon="item.icon"
             :features="[]"
           />
@@ -45,16 +37,8 @@
           <HomeServiceCard
             v-for="item in servicesItems.slice(1)"
             :class="item.classname"
-            :title="
-              $t(
-                `teckstack_services_title_${item.title.replaceAll(' ', '_').toLowerCase()}`,
-              ) ?? item.title
-            "
-            :desc="
-              $t(
-                `teckstack_services_desc_${item.title.replaceAll(' ', '_').toLowerCase()}`,
-              ) ?? item.desc
-            "
+            :title="item.title"
+            :desc="item.desc"
             :icon="item.icon"
             :features="[]"
           />
@@ -79,11 +63,7 @@
                 `teckstack_techs_title_${item.title.replaceAll(' ', '_').toLowerCase()}`,
               ) ?? item.title
             "
-            :desc="
-              $t(
-                `teckstack_techs_desc_${item.title.replaceAll(' ', '_').toLowerCase()}`,
-              ) ?? item.desc
-            "
+            :desc="item.desc"
             :icon="item.icon"
             :features="[]"
           />
@@ -93,16 +73,8 @@
           <HomeServiceCard
             v-for="item in techItems.slice(2)"
             :class="item.classname"
-            :title="
-              $t(
-                `teckstack_techs_title_${item.title.replaceAll(' ', '_').toLowerCase()}`,
-              ) ?? item.title
-            "
-            :desc="
-              $t(
-                `teckstack_techs_desc_${item.title.replaceAll(' ', '_').toLowerCase()}`,
-              ) ?? item.desc
-            "
+            :title="item.title"
+            :desc="item.desc"
             :icon="item.icon"
             :features="[]"
           />
@@ -126,7 +98,10 @@ const items = [
 ] satisfies TabsItem[];
 const servicesItems: Ref<any[]> = ref([]);
 const techItems: Ref<any[]> = ref([]);
-const { data } = await useFetch("/api/global/get-service-tech-stack");
+const { locale } = useI18n();
+const { data } = await useFetch("/api/global/get-service-tech-stack", {
+  params: { locale: locale.value },
+});
 const tmp = data.value as any;
 servicesItems.value = tmp.filter((it: any) => it.type === "service");
 techItems.value = tmp.filter((it: any) => it.type === "techstack");

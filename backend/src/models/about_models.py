@@ -6,6 +6,7 @@ class AboutValue(SQLModel, table=True):
     title: str
     icon: str
     desc: str
+    locale: str
 
 def create_table():
     SQLModel.metadata.create_all(ENGINE)

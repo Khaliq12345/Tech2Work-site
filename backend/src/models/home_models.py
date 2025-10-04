@@ -9,6 +9,7 @@ class HomeService(SQLModel, table=True):
     description: str
     icon: str
     features: list[str] = Field(sa_type=JSON)
+    locale: str
 
 
 class HomeTestimonial(SQLModel, table=True):
@@ -18,6 +19,7 @@ class HomeTestimonial(SQLModel, table=True):
     name: str
     role: str
     avatar: str
+    locale: str
 
 
 class HomeIndustry(SQLModel, table=True):
@@ -26,12 +28,14 @@ class HomeIndustry(SQLModel, table=True):
     icon: str
     description: str
     samples: list[str] = Field(sa_type=JSON)
+    locale: str
 
 
 class HomeProcess(SQLModel, table=True):
     id: int | None = Field(default=None, primary_key=True)
     title: str
     content: str
+    locale: str
 
 
 def create_table():

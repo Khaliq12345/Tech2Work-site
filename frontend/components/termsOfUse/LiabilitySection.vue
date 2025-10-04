@@ -11,9 +11,7 @@
       </p>
       <div v-for="f in liabLst" class="flex items-center my-4">
         <UIcon name="i-lucide-circle-check-big" size="20" class="mr-5" />
-        {{
-          $t(`term_of_use_liability_element_${liabLst.indexOf(f)}`) ?? f.value
-        }}
+        {{ f.value }}
       </div>
       <p class="font-bold my-10">
         {{ $t("term_of_use_liability_desc2") }}
@@ -23,7 +21,10 @@
 </template>
 
 <script setup lang="ts">
+const { locale } = useI18n();
 const liabLst: Ref<any> = ref([]);
-const { data } = await useFetch("/api/global/get-terms-of-use-liability");
+const { data } = await useFetch("/api/global/get-terms-of-use-liability", {
+  params: { locale: locale.value },
+});
 liabLst.value = data.value;
 </script>

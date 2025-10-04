@@ -29,7 +29,10 @@
 </template>
 
 <script lang="ts" setup>
+const { locale } = useI18n();
 const items: Ref<any[]> = ref([]);
-const { data } = await useFetch("/api/home/get-home-testimonials");
+const { data } = await useFetch("/api/home/get-home-testimonials", {
+  params: { locale: locale.value },
+});
 items.value = data.value as any;
 </script>
